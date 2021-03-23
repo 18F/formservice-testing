@@ -11,4 +11,6 @@ Testing script repository for formservice
    
 * GIT Fork - https://learning.postman.com/docs/collaborating-in-postman/version-control-for-collections/
 
-*
+* Geb reference - https://gebish.org/manual/current/#code-select-code
+
+* Spock framework - https://spockframework.org/spock/docs/1.3/all_in_one.html
