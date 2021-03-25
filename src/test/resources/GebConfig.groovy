@@ -65,5 +65,9 @@ environments {
 
 }
 
+waiting {
+    timeout = 10
+    retryInterval = 0.5
+}
 
 baseUrl = "https://fheo.app.cloud.gov/"

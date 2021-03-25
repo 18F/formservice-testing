@@ -33,8 +33,9 @@ class FHEOFormSubmissionSpec extends BaseSpec {
         continueBtn.click()
 
 
+
         then: "land on dicrimination reason page"
-       at FHEODiscriminationReasonPage
+        at FHEODiscriminationReasonPage
 
         when: "I enter the data for who discriminated against you"
         enterrespondentFirstName(data[8])
@@ -61,10 +62,10 @@ class FHEOFormSubmissionSpec extends BaseSpec {
          then: "Click on continue"
          at FHEODiscriminationDatePage
 
-       when: "I enter when the discrimination happened"
-       discriminationDate.click()
-       discriminationDate(data[19])
-       continueBtn.click()
+         when: "I enter when the discrimination happened"
+         discriminationDate.click()
+         discriminationDate(data[19])
+         continueBtn.click()
 
 
         then: "Click on continue"
@@ -103,7 +104,7 @@ class FHEOFormSubmissionSpec extends BaseSpec {
 
         when: "I click on the submit button"
         submitBtn.click()
-        sleep(10000)
+
 
         then: " I am at the conformation page"
         at FHEODiscriminationConfirmationPage

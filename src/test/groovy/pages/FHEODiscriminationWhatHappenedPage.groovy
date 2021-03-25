@@ -11,8 +11,8 @@ class FHEODiscriminationWhatHappenedPage extends Page {
 
      static content = {
 
-         discriminationDesHeader(wait:true) {$("#ebcksgl")}
-         discriminationDescription(wait:true) {$("#e38trs-discriminationDescription")}
+         discriminationDesHeader(wait:true) {$("div > h2")}
+         discriminationDescription(wait:true) {$("textarea[id\$=discriminationDescription]")}
          continueBtn(wait: true) { $("button[aria-label=\"CONTINUE button. Click to go to the next tab\"]") }
 
     }

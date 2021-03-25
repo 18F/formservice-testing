@@ -10,14 +10,14 @@ class FHEOComplaintHomePage extends Page {
 
     static content = {
 
-        raceDiscrimination(wait: true) { $("#ey0hnwq > div.usa-checkbox > label") }
-        religionDiscrimination(wait: true) { $("#eljfpt > div.usa-checkbox > label") }
-        nationalOrigin(wait: true) { $("#e4mhob > div.usa-checkbox > label") }
-        gender(wait: true) { $("#ez21ek > div.usa-checkbox > label") }
-        disability(wait: true) { $("#e24ywvln > div.usa-checkbox > label") }
-        family(wait: true) { $("#exfk9c > div.usa-checkbox > label") }
-        otherReason(wait: true) { $("#e34dvr > div.usa-checkbox > label") }
-        otherDescription(wait: true) { $("#eea6pj8-otherReasonDescription") }
+        raceDiscrimination(wait: true) { $("div.usa-checkbox > label", text:contains("race or skin color")) }
+        nationalOrigin(wait: true) { $("div.usa-checkbox > label", text:contains("national origin (ancestry or ethnicity")) }
+        religionDiscrimination(wait: true) { $("div.usa-checkbox > label", text:contains("religion")) }
+        gender(wait: true) { $("div.usa-checkbox > label", text:contains("sex, gender identity, or sexual orientation or because I was sexually harassed")) }
+        disability(wait: true) { $("div.usa-checkbox > label", text:contains("disability")) }
+        family(wait: true) { $("b > label[for\$='reason.familialstatus']") }
+        otherReason(wait: true) { $("div.usa-checkbox > label", text:contains("Other reason")) }
+        otherDescription(wait: true) { $("input[id\$=otherReasonDescription]") }
         continueBtn(wait: true) { $("button[aria-label=\"CONTINUE button. Click to go to the next tab\"]") }
 
     }

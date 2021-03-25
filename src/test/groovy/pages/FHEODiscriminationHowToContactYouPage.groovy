@@ -14,29 +14,29 @@ class FHEODiscriminationHowToContactYouPage extends Page {
 
     static content = {
 
-        discriminationContactHeader(wait: true) { $("#emc6nt") }
-        discriminationcomplainantFirstName(wait: true) { $("#ee63a-complainantFirstName") }
-        discriminationcomplainantLastName(wait: true) { $("#ea4o768-complainantLastName") }
-        discriminationcomplainantPhoneNumber(wait: true) { $("#egrm3y-complainantPhoneNumber") }
-        discriminationcomplainantEmail(wait: true) { $("#e2ajsmd-complainantEmail") }
-        discriminationcomplainantBestTimeToContactYouMorning(wait: true) { $("label[for='en3y2ms-morning']") }
-        discriminationcomplainantBestTimeToContactYouAfternoon(wait: true) { $("label[for='en3y2ms-afternoon']") }
-        discriminationcomplainantAddress(wait: true) { $("#e1hemzp-complainantAddress") }
-        discriminationcomplainantAptSuiteUnit(wait: true) { $("#e01boom-complainantAptSuiteUnit") }
-        discriminationcomplainantCity(wait: true) { $("#eotsvee-complainantCity") }
+        discriminationContactHeader(wait: true) { $("div > h2") }
+        discriminationcomplainantFirstName(wait: true) { $("input[id\$=complainantFirstName]") }
+        discriminationcomplainantLastName(wait: true) { $("input[id\$=complainantLastName]") }
+        discriminationcomplainantPhoneNumber(wait: true) { $("input[id\$=complainantPhoneNumber]") }
+        discriminationcomplainantEmail(wait: true) { $("input[id\$=complainantEmail]") }
+        discriminationcomplainantBestTimeToContactYouMorning(wait: true) { $("label[for\$=morning]") }
+        discriminationcomplainantBestTimeToContactYouAfternoon(wait: true) { $("label[for\$=afternoon]") }
+        discriminationcomplainantAddress(wait: true) { $("input[id\$=complainantAddress]") }
+        discriminationcomplainantAptSuiteUnit(wait: true) { $("input[id\$=complainantAptSuiteUnit]") }
+        discriminationcomplainantCity(wait: true) { $("input[id\$=complainantCity]") }
 
-        discriminationcomplainantState(wait: true) { $("#eowqkq-complainantState") }
+        discriminationcomplainantState(wait: true) { $("select[id\$=complainantState]") }
 
-        discriminationcomplainantZip(wait: true) { $("#etdg5mc-complainantZip") }
-        discriminationaltContactFirstName(wait: true) { $("#e2jmq0j-alternateContactFirstName") }
-        discriminationaltContactLastName(wait: true) { $("#eyi5zfj-alternateContactLastName") }
-        discriminationaltContactRelationshipFamilyOrFriend(wait: true) { $("label[for='eu5ksha-familyMemberOrFriend']") }
-        discriminationaltContactRelationshipAttorneyOrLawyer(wait: true) { $("label[for='eu5ksha-attorneyOrLawyer']") }
-        discriminationaltContactRelationshipFairHousingOrganization(wait: true) { $("label[for='eu5ksha-fairHousingOrganization']") }
-        discriminationaltContactRelationshipOther(wait: true) { $("label[for='eu5ksha-other']") }
-        discriminationaltOtherRelationshipDescription(wait: true) { $("#edb0ak7-alternativeContactOtherRelationshipDescription") }
-        discriminationaltContactPhoneNumber(wait: true) { $("#euahelq-alternateContactPhoneNumber") }
-        discriminationaltContactEmail(wait: true) { $("#elzn7bx-alternateContactEmail") }
+        discriminationcomplainantZip(wait: true) { $("input[id\$=complainantZip]") }
+        discriminationaltContactFirstName(wait: true) { $("input[id\$=alternateContactFirstName]") }
+        discriminationaltContactLastName(wait: true) { $("input[id\$=alternateContactLastName]") }
+        discriminationaltContactRelationshipFamilyOrFriend(wait: true) { $("label[for\$=familyMemberOrFriend]") }
+        discriminationaltContactRelationshipAttorneyOrLawyer(wait: true) { $("label[for\$=attorneyOrLawyer]") }
+        discriminationaltContactRelationshipFairHousingOrganization(wait: true) { $("label[for\$=fairHousingOrganization]") }
+        discriminationaltContactRelationshipOther(wait: true) { $("label[for\$=other]") }
+        discriminationaltOtherRelationshipDescription(wait: true) { $("input[id\$=alternativeContactOtherRelationshipDescription]") }
+        discriminationaltContactPhoneNumber(wait: true) { $("input[id\$=alternateContactPhoneNumber]") }
+        discriminationaltContactEmail(wait: true) { $("input[id\$=alternateContactEmail]") }
         continueBtn(wait: true) { $("button[aria-label=\"CONTINUE button. Click to go to the next tab\"]") }
 
     }

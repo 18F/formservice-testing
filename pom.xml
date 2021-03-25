@@ -24,6 +24,11 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-spock</artifactId>
+            <version>2.13.8</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
             <version>4.0.1</version>
@@ -106,6 +111,11 @@
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
+                <configuration>
+                    <reportVersion>2.7.0</reportVersion>
+                    <resultsDirectory>${project.basedir}/target/allure-results/</resultsDirectory>
+                    <reportDirectory>${project.basedir}/target/allure-reports/</reportDirectory>
+                </configuration>
                 <version>2.10.0</version>
             </plugin>
             <plugin>
@@ -113,12 +123,14 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.19</version>
                 <configuration>
+                    <testFailureIgnore>true</testFailureIgnore>
                     <includes>
                         <include>*Spec.*</include>
                     </includes>
                     <systemPropertyVariables>
                         <geb.build.reportsDir>target/test-reports/geb</geb.build.reportsDir>
                         <geb.env>chrome</geb.env>
+                        <allure.results.directory>target/allure-results</allure.results.directory>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
