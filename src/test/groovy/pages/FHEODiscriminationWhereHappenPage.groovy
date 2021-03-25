@@ -12,13 +12,13 @@ class FHEODiscriminationWhereHappenPage extends Page {
 
      static content = {
 
-         discriminationHeader(wait:true) {$("#ef1j1qf")}
-         discriminationLocation(wait:true) {$("#ezhms7-discriminationLocationName")}
-         discriminationStreetAddress(wait: true) { $("#eylbg9-discriminationAddress") }
-         discriminationApt(wait: true) { $("#enshj3-discriminationAptSuiteUnit") }
-         discriminationCity(wait: true) { $("#ex0zbih-discriminationCity") }
-         discriminationState(wait: true) { $("#e7a3hwp-discriminationState") }
-         discriminationZip(wait: true) { $("#e1acaq-discriminationZip") }
+         discriminationHeader(wait:true) {$("div > h2")}
+         discriminationLocation(wait:true) {$("input[id\$=discriminationLocationName]")}
+         discriminationStreetAddress(wait: true) { $("input[id\$=discriminationAddress]") }
+         discriminationApt(wait: true) { $("input[id\$=discriminationAptSuiteUnit]") }
+         discriminationCity(wait: true) { $("input[id\$=discriminationCity]") }
+         discriminationState(wait: true) { $("select[id\$=discriminationState]") }
+         discriminationZip(wait: true) { $("input[id\$=discriminationZip]") }
          continueBtn(wait: true) { $("button[aria-label=\"CONTINUE button. Click to go to the next tab\"]") }
 
     }

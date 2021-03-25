@@ -11,12 +11,12 @@ class FHEODiscriminationReasonPage extends Page {
 
      static content = {
 
-         respondentheader(wait:true) {$("#eyc9oyh")}
-         respondentFirstName(wait: true) { $("#ex7gihm-respondentFirstName") }
-         respondentLastName(wait: true) { $("#e4rfx1k-respondentLastName") }
-         respondentOrganization(wait: true) { $("#e53igtlh-respondentOrganization") }
-         respondentPhoneNumber(wait: true) { $("#egc481-respondentPhoneNumber") }
-         respondentEmail(wait: true) { $("#eugbek-respondentEmail") }
+         respondentheader(wait:true) {$("div > h2")}
+         respondentFirstName(wait: true) { $("input[id\$=respondentFirstName]") }
+         respondentLastName(wait: true) { $("input[id\$=respondentLastName") }
+         respondentOrganization(wait: true) { $("input[id\$=respondentOrganization") }
+         respondentPhoneNumber(wait: true) { $("input[id\$=respondentPhoneNumber") }
+         respondentEmail(wait: true) { $("input[id\$=respondentEmail") }
          continueBtn(wait: true) { $("button[aria-label=\"CONTINUE button. Click to go to the next tab\"]") }
 
     }

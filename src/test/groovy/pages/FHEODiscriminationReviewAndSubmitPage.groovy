@@ -12,7 +12,7 @@ class FHEODiscriminationReviewAndSubmitPage extends Page {
 
     static content = {
 
-        discriminationReviewandSubmitHeader(wait: true) { $("#epr4v7") }
+        discriminationReviewandSubmitHeader(wait: true) { $("div > h2") }
         submitBtn(wait: true) { $("button[aria-label=\"SUBMIT MY COMPLAINT button. Click to submit the form\"]") }
 
     }

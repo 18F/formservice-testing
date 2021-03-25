@@ -13,7 +13,7 @@ class FHEODiscriminationDatePage extends Page {
 
     static content = {
 
-        discriminationdateHeader(wait: true) { $("#epjt9eh") }
+        discriminationdateHeader(wait: true) { $("div > h2") }
         discriminationDate(wait: true) { $("[placeholder='MM-dd-yyyy'][tabIndex='0']") }
         monthDropdown(wait: true) { $(".flatpickr-monthDropdown-months") }
         continueBtn(wait: true) { $("button[aria-label=\"CONTINUE button. Click to go to the next tab\"]") }
