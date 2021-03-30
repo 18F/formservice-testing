@@ -10,8 +10,12 @@ import pages.FHEODiscriminationWhatHappenedPage
 import pages.FHEODiscriminationHowToContactYouPage
 import pages.FHEODiscriminationReviewAndSubmitPage
 import pages.FHEODiscriminationConfirmationPage
+import spock.lang.Requires
+import tag.Regression
+import tag.ShakeOut
 import utils.ExcelUtil
 
+@Requires(Regression)
 class FHEOFormSubmissionSpec extends BaseSpec {
 
     def "FHEO form submission why discrimination occurred"() {
