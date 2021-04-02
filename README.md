@@ -1,5 +1,5 @@
 # API Testing referrence docs
-Testing script repository for formservice
+* Testing script repository for formservice
 
 * API
 * Postman reference location - https://learning.postman.com/docs/getting-started/introduction/
@@ -21,3 +21,7 @@ Testing script repository for formservice
 * Performance testing 
 * Run test -> jmeter -n -t FHEOSubmission.jmx -l testresults.jtl
 * Generation of report -> jmeter -g testresults.jtl -o Reporttest
+* Jmeter download -> https://www.apache.org/dist/jmeter/binaries/apache-jmeter-5.4.1.zip.sha512
+* Advanced Thread Groups -> https://jmeter-plugins.org/?search=jpgc-casutg (jmeter-plugins-casutg-2.9.jar, jmeter-plugins-manager-1.3.jar, jmeter-plugins-cmn-jmeter-0.6.jar)
+* Place the files in Jmeter\apache-jmeter-5.4.1\lib\ext
+* Perfmon -> https://www.blazemeter.com/blog/how-monitor-your-server-health-performance-during-jmeter-load-test
