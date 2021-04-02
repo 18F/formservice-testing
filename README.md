@@ -1,5 +1,4 @@
-# API Testing referrence docs
-* Testing script repository for formservice
+# Testing repo reference formservice
 
 * API
 * Postman reference location - https://learning.postman.com/docs/getting-started/introduction/
