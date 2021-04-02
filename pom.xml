@@ -63,18 +63,6 @@
             <artifactId>browserstack-local-java</artifactId>
             <version>1.0.6</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.athaydes</groupId>-->
-<!--            <artifactId>spock-reports</artifactId>-->
-<!--            <version>1.8.0</version>-->
-<!--            <scope>test</scope>-->
-<!--            <exclusions>-->
-<!--                <exclusion>-->
-<!--                    <groupId>*</groupId>-->
-<!--                    <artifactId>*</artifactId>-->
-<!--                </exclusion>-->
-<!--            </exclusions>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -169,16 +157,6 @@
                 <configuration>
                     <keepDownloadedWebdrivers>true</keepDownloadedWebdrivers>
                     <drivers>
-<!--                        <driver>-->
-<!--                            <name>chromedriver</name>-->
-<!--                            <version>2.45.0</version>-->
-<!--                            <platform>mac</platform>-->
-<!--                        </driver>-->
-<!--                        <driver>-->
-<!--                            <name>chromedriver</name>-->
-<!--                            <version>2.45.0</version>-->
-<!--                            <platform>linux</platform>-->
-<!--                        </driver>-->
                         <driver>
                             <name>chromedriver</name>
                             <version>89.0.4389.23</version>
