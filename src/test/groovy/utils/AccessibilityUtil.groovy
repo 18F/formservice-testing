@@ -10,7 +10,7 @@ class AccessibilityUtil {
     private static final URL scriptUrl = AccessibilityUtil.class.getResource("/axe.min.js");
 
 
-    static void checkAccessibility(WebDriver driver) {
+    static void checkAccessibility(WebDriver driver, String url) {
         if ("true".equalsIgnoreCase(System.getProperty("checkAccessibility"))) {
             JSONObject responseJSON = new AXE.Builder(driver, scriptUrl).analyze();
 
@@ -19,6 +19,7 @@ class AccessibilityUtil {
             if (violations.length() == 0) {
                 println("No violations found")
             } else {
+                println("Accessibility Violations found in " + url)
                 AXE.writeResults(this.getClass().toString(), responseJSON);
                 println(AXE.report(violations))
             }

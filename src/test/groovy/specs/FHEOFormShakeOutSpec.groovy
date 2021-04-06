@@ -14,13 +14,13 @@ class FHEOFormShakeOutSpec extends BaseSpec {
         when: "I navigate to FHEO home page"
         to FHEOLandingPage
 
-        AccessibilityUtil.checkAccessibility(driver)
+        AccessibilityUtil.checkAccessibility(driver, baseUrl)
         submitmyComplaintBtn.click()
 
 
 
         then:
         at FHEOComplaintHomePage
-        AccessibilityUtil.checkAccessibility(driver)
+        AccessibilityUtil.checkAccessibility(driver, FHEOComplaintHomePage.url.toString())
     }
 }

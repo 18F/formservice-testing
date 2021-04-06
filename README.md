@@ -12,9 +12,9 @@
 * Spock framework - https://spockframework.org/spock/docs/1.3/all_in_one.html
 
 * Maveen Run config 
-* VM OPtions please have this 
-* Shakeout   -DargLine="-Dlocal=true -Dbrowser=chrome -Dbrowser_version=89.0 -Dos=windows -Dos_version=10 -Dstage=shakeout"
-* Regression - -DargLine="-Dlocal=true -Dbrowser=chrome -Dbrowser_version=89.0 -Dos=windows -Dos_version=10 -Dstage=regression"
+* VM OPtions please have this (Provide the browser, OS versions, local or remote)
+* Shakeout   -DargLine="-Dlocal=false -Dbrowser=Safari -Dbrowser_version='14.0' -Dos='OS X' -Dos_version='Big Sur' -Dstage=shakeout -DcheckAccessibility=true"
+* Regression  -DargLine="-Dlocal=false -Dbrowser=Safari -Dbrowser_version='14.0' -Dos='OS X' -Dos_version='Big Sur' -Dstage=regression -DcheckAccessibility=true"
 * For Browserstack have local as false
 
 * Performance testing 
