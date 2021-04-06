@@ -62,7 +62,6 @@
             <version>${gebVersion}</version>
             <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.browserstack/browserstack-local-java -->
         <dependency>
             <groupId>com.browserstack</groupId>
             <artifactId>browserstack-local-java</artifactId>
