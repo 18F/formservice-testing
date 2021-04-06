@@ -43,17 +43,4 @@ class ExcelUtil {
         return dataTable;
     }
 
-
-    class Data {
-        String race
-        String religion
-        String origin
-        String sex
-        String disability
-        String pregnant
-        String other
-        String description
-
-
-    }
 }
