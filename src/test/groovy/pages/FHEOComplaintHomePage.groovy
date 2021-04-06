@@ -4,6 +4,7 @@ import geb.Page
 
 class FHEOComplaintHomePage extends Page {
 
+
     static url = "/fheo"
 
     static at = { title == "HUD Housing Discrimination Complaint" }

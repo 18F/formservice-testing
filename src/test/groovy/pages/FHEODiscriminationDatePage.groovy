@@ -5,6 +5,7 @@ import geb.module.Select
 
 class FHEODiscriminationDatePage extends Page {
 
+
     static at = {
         title == "HUD Housing Discrimination Complaint"
         discriminationdateHeader.text() == "When did the discrimination happen?"

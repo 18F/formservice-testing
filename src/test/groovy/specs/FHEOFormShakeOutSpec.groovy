@@ -10,6 +10,7 @@ import utils.AccessibilityUtil
 @Requires(ShakeOut)
 class FHEOFormShakeOutSpec extends BaseSpec {
 
+
     def "FHEO form submission why discrimination occurred"() {
         when: "I navigate to FHEO home page"
         to FHEOLandingPage

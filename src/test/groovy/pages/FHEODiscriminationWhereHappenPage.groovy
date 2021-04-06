@@ -5,6 +5,7 @@ import geb.module.Select
 
 class FHEODiscriminationWhereHappenPage extends Page {
 
+
     static at = { title == "HUD Housing Discrimination Complaint"
         discriminationHeader.text() == "Where did the discrimination happen?"
 

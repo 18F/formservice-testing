@@ -5,7 +5,7 @@
 * Newman for local installation  - https://www.npmjs.com/package/newman
 * Newman execution local - https://www.npmjs.com/package/newman#using-newman-cli
 * Newman CircleCI integration - https://circleci.com/blog/building-postman-test-reports/
-   
+
 # UI Tests
 * GIT Fork - https://learning.postman.com/docs/collaborating-in-postman/version-control-for-collections/
 * Geb reference - https://gebish.org/manual/current/#code-select-code
@@ -13,10 +13,11 @@
 
 # Maveen Run config
 * VM OPtions please have this
-* Shakeout   -DargLine="-Dlocal=true -Dbrowser=chrome -Dbrowser_version=89.0 -Dos=windows -Dos_version=10 -Dstage=shakeout"
-* Regression - -DargLine="-Dlocal=true -Dbrowser=chrome -Dbrowser_version=89.0 -Dos=windows -Dos_version=10 -Dstage=regression"
+* Shakeout   -DargLine="-Dlocal=true -Dbrowser=Chrome -Dbrowser_version='89.0' -Dos='Windows' -Dos_version='10' -Dstage=shakeout -DcheckAccessibility=false"
+* Regression  -DargLine="-Dlocal=true -Dbrowser=Chrome -Dbrowser_version='89.0' -Dos='Windows' -Dos_version='10' -Dstage=regression -DcheckAccessibility=false"
+* For Browserstack have local as false
 
-# Performance testing 
+# Performance testing
 * Run test -> jmeter -n -t FHEOSubmission.jmx -l testresults.jtl
 * Generation of report -> jmeter -g testresults.jtl -o Reporttest
 * Jmeter download -> https://www.apache.org/dist/jmeter/binaries/apache-jmeter-5.4.1.zip.sha512

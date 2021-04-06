@@ -10,6 +10,7 @@ class AccessibilityUtil {
     private static final URL scriptUrl = AccessibilityUtil.class.getResource("/axe.min.js");
 
 
+
     static void checkAccessibility(WebDriver driver, String url) {
         if ("true".equalsIgnoreCase(System.getProperty("checkAccessibility"))) {
             JSONObject responseJSON = new AXE.Builder(driver, scriptUrl).analyze();

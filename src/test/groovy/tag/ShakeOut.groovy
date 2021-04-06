@@ -2,6 +2,7 @@ package tag
 
 import groovy.transform.InheritConstructors
 
+
 @InheritConstructors
 public class ShakeOut extends Closure<Boolean>{
     ShakeOut() {

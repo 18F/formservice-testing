@@ -19,6 +19,7 @@ import utils.ExcelUtil
 @Requires(Regression)
 class FHEOFormSubmissionSpec extends BaseSpec {
 
+
     def "FHEO form submission why discrimination occurred"() {
         when: "I navigate to FHEO home page"
         to FHEOLandingPage

@@ -2,6 +2,7 @@ package tag
 
 import groovy.transform.InheritConstructors
 
+
 @InheritConstructors
 public class Regression extends Closure<Boolean>{
     Regression() {

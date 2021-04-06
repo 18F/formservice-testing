@@ -9,7 +9,6 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook
 class ExcelUtil {
 
     static String testDataExcelFile = new File(ExcelUtil.class.getClassLoader().getResource("FHEO-Testdata.xlsx").getFile()).getAbsolutePath();
-//    static String testDataExcelFile = new Scanner(ExcelUtil.class.getResourceAsStream("FHEO-Testdata.xlsx"), "UTF-8").useDelimiter("\\A").next();
 
     static String[][] getTestData() {
         String[][] dataTable = null;

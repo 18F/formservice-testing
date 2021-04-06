@@ -6,6 +6,7 @@ import geb.module.Select
 
 class FHEODiscriminationHowToContactYouPage extends Page {
 
+
     static at = {
         title == "HUD Housing Discrimination Complaint"
         discriminationContactHeader.text() == "How can we contact you?"

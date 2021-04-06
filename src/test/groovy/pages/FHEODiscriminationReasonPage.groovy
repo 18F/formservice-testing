@@ -4,6 +4,7 @@ import geb.Page
 
 class FHEODiscriminationReasonPage extends Page {
 
+
     static at = { title == "HUD Housing Discrimination Complaint"
         respondentheader.text() == "Who discriminated against you?"
 

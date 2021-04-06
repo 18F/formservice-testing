@@ -4,6 +4,7 @@ import geb.Page
 
 class FHEODiscriminationWhatHappenedPage extends Page {
 
+
     static at = { title == "HUD Housing Discrimination Complaint"
         discriminationDesHeader.text() == "What happened?"
 

@@ -4,6 +4,7 @@ import geb.Page
 
 class FHEODiscriminationReviewAndSubmitPage extends Page {
 
+
     static at = {
         title == "HUD Housing Discrimination Complaint"
         discriminationReviewandSubmitHeader.text() == "Review and submit your complaint"
