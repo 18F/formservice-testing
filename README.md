@@ -13,7 +13,7 @@
 
 * Maveen Run config 
 * VM OPtions please have this (Provide the browser, OS versions, local or remote)
-* Shakeout   -DargLine="-Dlocal=false -Dbrowser=Safari -Dbrowser_version='14.0' -Dos='OS X' -Dos_version='Big Sur' -Dstage=shakeout -DcheckAccessibility=true"
+* Shakeout    -DargLine="-Dlocal=true -Dbrowser=Chrome -Dbrowser_version='89.0' -Dos='Windows' -Dos_version='10' -Dstage=shakeout -DcheckAccessibility=false"
 * Regression  -DargLine="-Dlocal=false -Dbrowser=Safari -Dbrowser_version='14.0' -Dos='OS X' -Dos_version='Big Sur' -Dstage=regression -DcheckAccessibility=true"
 * For Browserstack have local as false
 
