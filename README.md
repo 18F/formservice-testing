@@ -16,6 +16,7 @@
 * VM OPtions please have this
 * Shakeout   -DargLine="-Dlocal=true -Dbrowser=chrome -Dbrowser_version=89.0 -Dos=windows -Dos_version=10 -Dstage=shakeout"
 * Regression - -DargLine="-Dlocal=true -Dbrowser=chrome -Dbrowser_version=89.0 -Dos=windows -Dos_version=10 -Dstage=regression"
+* For Browserstack have local as false
 
 # Performance testing 
 * Run test -> jmeter -n -t FHEOSubmission.jmx -l testresults.jtl
