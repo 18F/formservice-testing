@@ -29,8 +29,6 @@ class FHEOFormSubmissionErrSpec extends BaseSpec {
         clickOtherReasonDiscriminationCheckbox(data[6], data[7])
         continueBtn.click()
 
-
-
         then: "land on dicrimination reason page"
         at FHEODiscriminationReasonPage
         AccessibilityUtil.checkAccessibility(driver, FHEODiscriminationReasonPage.url.toString())
