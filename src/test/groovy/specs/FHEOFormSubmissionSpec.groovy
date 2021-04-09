@@ -1,18 +1,8 @@
 package specs
 
-
-import pages.FHEOComplaintHomePage
-import pages.FHEOLandingPage
-import pages.FHEODiscriminationReasonPage
-import pages.FHEODiscriminationWhereHappenPage
-import pages.FHEODiscriminationDatePage
-import pages.FHEODiscriminationWhatHappenedPage
-import pages.FHEODiscriminationHowToContactYouPage
-import pages.FHEODiscriminationReviewAndSubmitPage
-import pages.FHEODiscriminationConfirmationPage
+import pages.*
 import spock.lang.Requires
 import tag.Regression
-import tag.ShakeOut
 import utils.AccessibilityUtil
 import utils.ExcelUtil
 

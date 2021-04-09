@@ -12,10 +12,12 @@ class ExcelUtil {
 
     static String[][] getTestData() {
         String[][] dataTable = null;
-        if (System.getenv("stage") == 'shakeout'){
+        if (System.getProperty("stage") == 'shakeout'){
+
             testDataExcelFile = new File(ExcelUtil.class.getClassLoader().getResource("FHEO-Testdata.xlsx").getFile()).getAbsolutePath();
         }
-        else if (System.getenv("stage") == 'regression'){
+        else if (System.getProperty("stage") == 'regression'){
+
             testDataExcelFile = new File(ExcelUtil.class.getClassLoader().getResource("FHEO-Testdata1.xlsx").getFile()).getAbsolutePath();
         }
 
