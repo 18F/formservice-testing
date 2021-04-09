@@ -7,11 +7,18 @@ import org.apache.poi.xssf.usermodel.XSSFSheet
 import org.apache.poi.xssf.usermodel.XSSFWorkbook
 
 class ExcelUtil {
+    static String testDataExcelFile;
 
-    static String testDataExcelFile = new File(ExcelUtil.class.getClassLoader().getResource("FHEO-Testdata.xlsx").getFile()).getAbsolutePath();
 
     static String[][] getTestData() {
         String[][] dataTable = null;
+        if (System.getenv("stage") == 'shakeout'){
+            testDataExcelFile = new File(ExcelUtil.class.getClassLoader().getResource("FHEO-Testdata.xlsx").getFile()).getAbsolutePath();
+        }
+        else if (System.getenv("stage") == 'regression'){
+            testDataExcelFile = new File(ExcelUtil.class.getClassLoader().getResource("FHEO-Testdata1.xlsx").getFile()).getAbsolutePath();
+        }
+
         File file = new File(testDataExcelFile);
         try {
             // Create a file input stream to read Excel workbook and worksheet
