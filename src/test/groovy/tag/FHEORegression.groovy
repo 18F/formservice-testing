@@ -3,13 +3,13 @@ package tag
 import groovy.transform.InheritConstructors
 
 @InheritConstructors
-public class ShakeOut extends Closure<Boolean>{
-    ShakeOut() {
+public class FHEORegression extends Closure<Boolean>{
+    FHEORegression() {
         super(null)
     }
 
     Boolean call(){
         def stage = System.getProperty("stage").toString()
-        stage.equalsIgnoreCase("shakeout")
+        stage.equalsIgnoreCase("FHEORegression")
     }
 }

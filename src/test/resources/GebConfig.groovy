@@ -75,10 +75,10 @@ waiting {
 }
 
 String calculateBaseUrl(){
-    if (System.getProperty("env")== 'dev') {
+    if (System.getProperty("env")== 'fheodev') {
         "https://fheo.app.cloud.gov/"
     }
-    else if (System.getProperty("env")== 'dark'){
+    else if (System.getProperty("env")== 'fheodark'){
         "https://fheo-dark.app.cloud.gov/"
     }
 

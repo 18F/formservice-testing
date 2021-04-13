@@ -20,6 +20,9 @@ class FHEODiscriminationWhereHappenPage extends Page {
          discriminationState(wait: true) { $("select[id\$=discriminationState]") }
          discriminationZip(wait: true) { $("input[id\$=discriminationZip]") }
          continueBtn(wait: true) { $("button[aria-label=\"CONTINUE button. Click to go to the next tab\"]") }
+         errMsgs1(wait: true, required: false) { $("span[id\$=discriminationLocationName]") }
+         errMsgs2(wait: true, required: false) { $("span[id\$=discriminationCity]") }
+         errMsgs3(wait: true, required: false) { $("span[id\$=discriminationState]") }
 
     }
 
@@ -45,6 +48,24 @@ class FHEODiscriminationWhereHappenPage extends Page {
 
     void discriminationZip(String discZip) {
         discriminationZip =(""!=discZip)?discZip:""
+    }
+
+    boolean checkErrMsg1(String errMessage1) {
+        if (errMessage1 != "") {
+           waitFor { errMsgs1.text() == errMessage1}
+        }
+    }
+
+    boolean checkErrMsg2(String errMessage2) {
+        if (errMessage2 != "") {
+            waitFor {errMsgs2.text() == errMessage2}
+        }
+    }
+
+    boolean checkErrMsg3(String errMessage3) {
+        if (errMessage3 != "") {
+            waitFor {errMsgs3.text() == errMessage3}
+        }
     }
 
 
