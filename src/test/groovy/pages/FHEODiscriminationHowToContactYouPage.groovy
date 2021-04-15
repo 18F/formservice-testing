@@ -37,6 +37,13 @@ class FHEODiscriminationHowToContactYouPage extends Page {
         discriminationaltOtherRelationshipDescription(wait: true) { $("input[id\$=alternativeContactOtherRelationshipDescription]") }
         discriminationaltContactPhoneNumber(wait: true) { $("input[id\$=alternateContactPhoneNumber]") }
         discriminationaltContactEmail(wait: true) { $("input[id\$=alternateContactEmail]") }
+        errMsg6(wait: true, required: false) { $("span[id\$=complainantFirstName]") }
+        errMsg7(wait: true, required: false) { $("span[id\$=complainantLastName]") }
+        errMsg8(wait: true, required: false) { $("span[id\$=complainantPhoneNumber]") }
+        errMsg9(wait: true, required: false) { $("span[id\$=complainantAddress]") }
+        errMsg10(wait: true, required: false) { $("span[id\$=complainantCity]") }
+        errMsg11(wait: true, required: false) { $("span[id\$=complainantState]") }
+        errMsg12(wait: true, required: false) { $("span[id\$=complainantZip]") }
         continueBtn(wait: true) { $("button[aria-label=\"CONTINUE button. Click to go to the next tab\"]") }
 
     }
@@ -118,5 +125,48 @@ class FHEODiscriminationHowToContactYouPage extends Page {
     void discriminationaltContactEmail(String discaltContactPhoneNumber) {
         discriminationaltContactEmail = discaltContactPhoneNumber
     }
+
+    boolean checkErrMsg6(String errMessage6) {
+        if (errMessage6 != "") {
+            waitFor {errMsg6.text() == errMessage6}
+        }
+    }
+
+    boolean checkErrMsg7(String errMessage7) {
+        if (errMessage7 != "") {
+            waitFor {errMsg7.text() == errMessage7}
+        }
+    }
+
+    boolean checkErrMsg8(String errMessage8) {
+        if (errMessage8 != "") {
+            waitFor {errMsg8.text() == errMessage8}
+        }
+    }
+
+    boolean checkErrMsg9(String errMessage9) {
+        if (errMessage9 != "") {
+            waitFor {errMsg9.text() == errMessage9}
+        }
+    }
+
+    boolean checkErrMsg10(String errMessage10) {
+        if (errMessage10 != "") {
+            waitFor {errMsg10.text() == errMessage10}
+        }
+    }
+
+    boolean checkErrMsg11(String errMessage11) {
+        if (errMessage11 != "") {
+            waitFor {errMsg11.text() == errMessage11}
+        }
+    }
+
+    boolean checkErrMsg12(String errMessage12) {
+        if (errMessage12 != "") {
+            waitFor {errMsg12.text() == errMessage12}
+        }
+    }
+
 
 }

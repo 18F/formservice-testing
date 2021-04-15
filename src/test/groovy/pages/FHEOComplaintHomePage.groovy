@@ -10,15 +10,17 @@ class FHEOComplaintHomePage extends Page {
 
     static content = {
 
-        raceDiscrimination(wait: true) { $("div.usa-checkbox > label", text:contains("race or skin color")) }
-        nationalOrigin(wait: true) { $("div.usa-checkbox > label", text:contains("national origin (ancestry or ethnicity")) }
-        religionDiscrimination(wait: true) { $("div.usa-checkbox > label", text:contains("religion")) }
-        gender(wait: true) { $("div.usa-checkbox > label", text:contains("sex, gender identity, or sexual orientation or because I was sexually harassed")) }
-        disability(wait: true) { $("div.usa-checkbox > label", text:contains("disability")) }
-        family(wait: true) { $("b > label[for\$='reason.familialstatus']") }
-        otherReason(wait: true) { $("div.usa-checkbox > label", text:contains("Other reason")) }
+        raceDiscrimination(wait: true) { $("div.usa-checkbox > label", text: contains("race or skin color")) }
+        nationalOrigin(wait: true) { $("div.usa-checkbox > label", text: contains("national origin (ancestry or ethnicity")) }
+        religionDiscrimination(wait: true) { $("div.usa-checkbox > label", text: contains("religion")) }
+        gender(wait: true) { $("div.usa-checkbox > label", text: contains("sex, gender identity, or sexual orientation or because I was sexually harassed")) }
+        disability(wait: true) { $("div.usa-checkbox > label", text: contains("disability")) }
+        family(wait: true) { $("div.usa-checkbox > label[for\$=familialstatus]") }
+        otherReason(wait: true) { $("div.usa-checkbox > label", text: contains("Other reason")) }
         otherDescription(wait: true) { $("input[id\$=otherReasonDescription]") }
         continueBtn(wait: true) { $("button[aria-label=\"CONTINUE button. Click to go to the next tab\"]") }
+        errMsg(wait: true, required: false) { $("div > span.usa-error-message") }
+        otherMsg(wait: true, required: false) { $("#e-e4ncmn-otherReasonDescription") }
 
     }
 
@@ -65,5 +67,18 @@ class FHEOComplaintHomePage extends Page {
         }
     }
 
+    boolean checkErrMsg(String errMessage) {
+        if (errMessage != "") {
+            errMsg.text() == errMessage
+        }
+        true
+    }
+
+    boolean checkOtherErrMsg(String otherErrMessage) {
+        if (otherErrMessage != "") {
+            otherMsg.text() == otherErrMessage
+        }
+        true
+    }
 
 }

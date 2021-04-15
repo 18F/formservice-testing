@@ -60,6 +60,10 @@ environments {
             } else {
                 driver = new RemoteWebDriver(new URL(url), capabilities)
             }
+
+
+
+
         }
     }
 
@@ -70,4 +74,14 @@ waiting {
     retryInterval = 0.5
 }
 
-baseUrl = "https://fheo.app.cloud.gov/"
+String calculateBaseUrl(){
+    if (System.getProperty("env")== 'fheodev') {
+        "https://fheo.app.cloud.gov/"
+    }
+    else if (System.getProperty("env")== 'fheodark'){
+        "https://fheo-dark.app.cloud.gov/"
+    }
+
+}
+
+baseUrl=calculateBaseUrl()
