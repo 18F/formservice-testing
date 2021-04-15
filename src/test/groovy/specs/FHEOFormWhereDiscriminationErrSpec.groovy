@@ -27,8 +27,8 @@ class FHEOFormWhereDiscriminationErrSpec extends BaseSpec {
         clickReligionDiscriminationCheckbox()
         clickOriginDiscriminationCheckbox()
         clickGenderDiscriminationCheckbox()
-        clickDisabilityDiscriminationCheckbox()
-        clickFamilyDiscriminationCheckbox("Yes")
+        clickDisabilityDiscriminationCheckbox("Yes")
+        clickFamilyDiscriminationCheckbox()
         clickOtherReasonDiscriminationCheckbox("", "")
         continueBtn.click()
 
