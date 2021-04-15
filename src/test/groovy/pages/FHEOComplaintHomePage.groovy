@@ -15,7 +15,7 @@ class FHEOComplaintHomePage extends Page {
         religionDiscrimination(wait: true) { $("div.usa-checkbox > label", text: contains("religion")) }
         gender(wait: true) { $("div.usa-checkbox > label", text: contains("sex, gender identity, or sexual orientation or because I was sexually harassed")) }
         disability(wait: true) { $("div.usa-checkbox > label", text: contains("disability")) }
-        family(wait: true) { $("b > label[for\$='reason.familialstatus']") }
+        family(wait: true) { $("div.usa-checkbox > label[for\$=familialstatus]") }
         otherReason(wait: true) { $("div.usa-checkbox > label", text: contains("Other reason")) }
         otherDescription(wait: true) { $("input[id\$=otherReasonDescription]") }
         continueBtn(wait: true) { $("button[aria-label=\"CONTINUE button. Click to go to the next tab\"]") }

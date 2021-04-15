@@ -12,7 +12,7 @@ import spock.lang.Unroll
 import tag.FHEORegression
 import tag.FHEOShakeOut
 
-@Requires(FHEOShakeOut)
+@Requires(FHEORegression)
 class FHEOFormHowtoContactErrSpec extends BaseSpec {
 
     @Unroll

@@ -7,7 +7,7 @@ import tag.FHEORegression
 import tag.FHEOShakeOut
 import utils.AccessibilityUtil
 
-@Requires(FHEOShakeOut)
+@Requires(FHEORegression)
 class FHEOFormWhenDiscriminationErrSpec extends BaseSpec {
 
     @Unroll
