@@ -28,8 +28,9 @@ class FHEOFormHomePageErrSpec extends BaseSpec {
         clickDisabilityDiscriminationCheckbox()
         clickFamilyDiscriminationCheckbox(data)
         clickOtherReasonDiscriminationCheckbox(otherdata, "")
-        continueBtn.click()
-
+        waitFor {
+            continueBtn.click()
+        }
         then: "At Homepage verify the error message"
         at FHEOComplaintHomePage
         checkErrMsg(errMsg)
