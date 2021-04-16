@@ -3,6 +3,16 @@ version: 2.1
 orbs:
   newman: postman/newman@0.0.2
 jobs:
+  build_machine:
+    machine:
+      image: ubuntu-2004:202010-01
+    steps:
+      - run:
+          name: install NPM
+          command: "sudo npm install -g npm"
+      - run:
+          name: install newman
+          command: "sudo npm install -g newman"
   newman-collection-run:
     executor: newman/postman-newman-docker
     steps:
@@ -14,4 +24,5 @@ jobs:
 workflows:
   build_and_test:
     jobs:
+      - build_machine
       - newman-collection-run
