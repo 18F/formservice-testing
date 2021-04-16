@@ -13,5 +13,5 @@ jobs:
           iteration-data: formservice/data/FHEO-Service-TestData.csv
 workflows:
   build_and_test:
-  jobs:
-    - newman-collection-run
+    jobs:
+      - newman-collection-run
