@@ -4,15 +4,14 @@ orbs:
   newman: postman/newman@0.0.2
 jobs:
   newman-collection-run:
-     executor: newman/postman-newman-docker
-     steps:
-       - checkout
-       - newman/newman-run:
+    executor: newman/postman-newman-docker
+    steps:
+      - checkout
+      - newman/newman-run:
           collection: formservice/collections/FHEOFormService.postman_collection.json
           environment: formservice/environments/EnvironmentVar.postman_environment.json
           iteration-data: formservice/data/FHEO-Service-TestData.csv
 workflows:
-  version: 2
   build_and_test:
   jobs:
-    -newman-collection-run
+    - newman-collection-run
