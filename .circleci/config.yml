@@ -18,7 +18,7 @@ jobs:
           command: |
                     newman run "formservice/collections/FHEOFormService.postman_collection.json" -e "formservice/environments/EnvironmentVar.postman_environment.json" -d "formservice/data/FHEO-Service-TestData.csv"
 workflows:
-    build_machine
+    build_machine:
       jobs:
         - build
 
