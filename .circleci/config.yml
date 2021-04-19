@@ -12,6 +12,7 @@ jobs:
                     npm install -g npm@latest > /dev/null 2<&1
                     npm config -g delete ca
                     $SUDO npm install -g newman
+                    npm update -g
       - checkout
       - run:
           name: "checkout and run tests"
