@@ -1,26 +1,25 @@
 # Circleci config
 version: 2.1
 jobs:
-  build_machine:
+  build:
     machine:
       image: ubuntu-2004:202010-01
+docker-compose 1.27.4
     steps:
       - run:
-          name: install NPM
-          command: "sudo npm install -g npm"
-      - run:
-          name: install newman
-          command: "sudo npm install -g newman"
-  newman-collection-run:
-    executor: newman/postman-newman-docker
-    steps:
+          name: "install NPM"
+          command: |
+                    $sudo npm install -g npm@latest > /dev/null 2>&1 || \
+                    npm install -g npm@latest > /dev/null 2<&1
+                    npm config -g delete ca
+                    $SUDO npm install -g newman
       - checkout
-      - newman/newman-run:
-          collection: formservice/collections/FHEOFormService.postman_collection.json
-          environment: formservice/environments/EnvironmentVar.postman_environment.json
-          iteration-data: formservice/data/FHEO-Service-TestData.csv
+      - run:
+          name: "checkout and run tests"
+          command: |
+                    newman run "formservice/collections/FHEOFormService.postman_collection.json" -e "formservice/environments/EnvironmentVar.postman_environment.json" -d "formservice/data/FHEO-Service-TestData.csv"
 workflows:
-  build_and_test:
-    jobs:
-      - build_machine
-      - newman-collection-run
+    build_machine
+      jobs:
+        - build
+
