@@ -1,0 +1,26 @@
+# Circleci config
+version: 2.1
+jobs:
+  build:
+    machine:
+      image: ubuntu-2004:202010-01 # # recommended linux image - includes Ubuntu 20.04, docker-compose 1.27.4
+    steps:
+      - run:
+          name: "install NPM"
+          command: |
+                    $sudo npm install -g npm@latest > /dev/null 2>&1 || \
+                    npm install -g npm@latest > /dev/null 2<&1
+                    npm config -g delete ca
+                    $SUDO npm install -g newman
+#                    npm i --package-lock-only
+#                    npm audit fix
+      - checkout
+      - run:
+          name: "checkout and run tests"
+          command: |
+                    newman run "formservice/collections/FHEOFormService.postman_collection.json" -e "formservice/environments/EnvironmentVar.postman_environment.json" -d "formservice/data/FHEO-Service-TestData.csv"
+workflows:
+    build_machine:
+      jobs:
+        - build
+
