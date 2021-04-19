@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   build:
     machine:
-      image: ubuntu-2004:202010-01 # # recommended linux image - includes Ubuntu 20.04, docker-compose 1.27.4
+      image: ubuntu-2104:202101-01 # # recommended linux image - includes Ubuntu 20.04, docker-compose 1.27.4
     steps:
       - run:
           name: "install NPM"
@@ -14,7 +14,7 @@ jobs:
                     $SUDO npm install -g newman
 #                    npm i --package-lock-only
 #                    npm audit fix
-      - checkout ~/formservice-testing
+      - checkout
       - run:
           name: "checkout and run tests"
           command: |
