@@ -1,7 +1,7 @@
 # Circleci config
 version: 2.1
 jobs:
-  build:
+  FHEO-acceptance-tests:
     machine:
       image: ubuntu-2004:202101-01 # # recommended linux image - includes Ubuntu 20.04, docker-compose 1.27.4
     steps:
@@ -12,8 +12,6 @@ jobs:
                     npm install -g npm@latest > /dev/null 2<&1
                     npm config -g delete ca
                     $SUDO npm install -g newman
-#                    npm i --package-lock-only
-#                    npm audit fix
       - checkout
       - run:
           name: "checkout and run tests"
@@ -22,5 +20,5 @@ jobs:
 workflows:
     build_machine:
       jobs:
-        - build
+        - FHEO-acceptance-tests
 
