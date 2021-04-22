@@ -1,5 +1,9 @@
 # Circleci config
 version: 2.1
+workflows:
+  build:
+    jobs:
+      - FHEO-acceptance-tests
 jobs:
   FHEO-acceptance-tests:
     machine:
@@ -17,8 +21,4 @@ jobs:
           name: "checkout and run tests"
           command: |
                     newman run "formservice/collections/FHEOFormService.postman_collection.json" -e "formservice/environments/EnvironmentVar.postman_environment.json" -d "formservice/data/FHEO-Service-TestData.csv"
-workflows:
-  build:
-    jobs:
-      - FHEO-acceptance-tests
 
