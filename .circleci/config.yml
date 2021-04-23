@@ -25,8 +25,8 @@ jobs:
       - run:
           name:
           command: |
-            -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet1' -DcheckAccessibility=true -Denv='fheodev'"
-
+                    mvn clean webdriverextensions:install-drivers test-compile test allure:report -f pom.xml
+                    "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet1' -DcheckAccessibility=true -Denv='fheodev'"
   FHEO-uitests-Set2:
     machine:
       image: ubuntu-2004:202101-01
@@ -35,8 +35,8 @@ jobs:
       - run:
           name:
           command: |
-            -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet2' -DcheckAccessibility=true -Denv='fheodev'"
-
+                    mvn clean webdriverextensions:install-drivers test-compile test allure:report -f pom.xml
+                    "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet2' -DcheckAccessibility=true -Denv='fheodev'"
   FHEO-uitests-Set3:
     machine:
       image: ubuntu-2004:202101-01
@@ -45,8 +45,8 @@ jobs:
       - run:
           name:
           command: |
-            -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet3' -DcheckAccessibility=true -Denv='fheodev'"
-
+                    mvn clean webdriverextensions:install-drivers test-compile test allure:report -f pom.xml
+                    "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet3' -DcheckAccessibility=true -Denv='fheodev'"
   FHEO-uitests-Set4:
     machine:
       image: ubuntu-2004:202101-01
@@ -55,8 +55,8 @@ jobs:
       - run:
           name:
           command: |
-            -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet4' -DcheckAccessibility=true -Denv='fheodev'"
-
+                    mvn clean webdriverextensions:install-drivers test-compile test allure:report -f pom.xml
+                    "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet4' -DcheckAccessibility=true -Denv='fheodev'"
   FHEO-ErrSpec:
     machine:
       image: ubuntu-2004:202101-01
@@ -65,7 +65,8 @@ jobs:
       - run:
           name:
           command: |
-            -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionErrSpec' -DcheckAccessibility=true -Denv='fheodev'"
+                    mvn clean webdriverextensions:install-drivers test-compile test allure:report -f pom.xml
+                    "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet1' -DcheckAccessibility=true -Denv='fheodev'"
 
 workflows:
   build:
