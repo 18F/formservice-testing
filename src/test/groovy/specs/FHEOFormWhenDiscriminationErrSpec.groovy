@@ -3,11 +3,10 @@ package specs
 import pages.*
 import spock.lang.Requires
 import spock.lang.Unroll
-import tag.FHEORegression
-import tag.FHEOShakeOut
+import tag.FHEORegressionErrSpec
 import utils.AccessibilityUtil
 
-@Requires(FHEORegression)
+@Requires(FHEORegressionErrSpec)
 class FHEOFormWhenDiscriminationErrSpec extends BaseSpec {
 
     @Unroll

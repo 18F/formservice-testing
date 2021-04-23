@@ -4,11 +4,10 @@ import pages.FHEOComplaintHomePage
 import pages.FHEOLandingPage
 import spock.lang.Requires
 import spock.lang.Unroll
-import tag.FHEORegression
-import tag.FHEOShakeOut
+import tag.FHEORegressionErrSpec
 import utils.AccessibilityUtil
 
-@Requires(FHEORegression)
+@Requires(FHEORegressionErrSpec)
 class FHEOFormHomePageErrSpec extends BaseSpec {
 
     @Unroll

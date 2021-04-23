@@ -9,10 +9,9 @@ import pages.FHEODiscriminationWhereHappenPage
 import pages.FHEOLandingPage
 import spock.lang.Requires
 import spock.lang.Unroll
-import tag.FHEORegression
-import tag.FHEOShakeOut
+import tag.FHEORegressionErrSpec
 
-@Requires(FHEORegression)
+@Requires(FHEORegressionErrSpec)
 class FHEOFormHowtoContactErrSpec extends BaseSpec {
 
     @Unroll

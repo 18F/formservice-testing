@@ -1,7 +1,7 @@
 # Circleci config
 version: 2.1
 jobs:
-  FHEO-acceptance-tests:
+  FHEO-service-tests:
     machine:
       image: ubuntu-2004:202101-01 # # recommended linux image - includes Ubuntu 20.04, docker-compose 1.27.4
     steps:
@@ -17,8 +17,64 @@ jobs:
           name: "checkout and run tests"
           command: |
                     newman run "formservice/collections/FHEOFormService.postman_collection.json" -e "formservice/environments/EnvironmentVar.postman_environment.json" -d "formservice/data/FHEO-Service-TestData.csv"
+  FHEO-uitests-Set1:
+    machine:
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run:
+          name:
+          command: |
+            -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet1' -DcheckAccessibility=true -Denv='fheodev'"
+
+  FHEO-uitests-Set2:
+    machine:
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run:
+          name:
+          command: |
+          -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet2' -DcheckAccessibility=true -Denv='fheodev'"
+
+  FHEO-uitests-Set3:
+    machine:
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run:
+          name:
+          command: |
+          -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet3' -DcheckAccessibility=true -Denv='fheodev'"
+
+
+  FHEO-uitests-Set4:
+    machine:
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run:
+          name:
+          command: |
+          -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet4' -DcheckAccessibility=true -Denv='fheodev'"
+
+   FHEO-ErrSpec:
+    machine:
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run:
+          name:
+          command: |
+          -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionErrSpec' -DcheckAccessibility=true -Denv='fheodev'"
+
 workflows:
   build:
     jobs:
-      - FHEO-acceptance-tests
+      - FHEO-service-tests
+      - FHEO-uitests-Set1
+      - FHEO-uitests-Set2
+      - FHEO-uitests-Set3
+      - FHEO-uitests-Set4
+      - FHEO-ErrSpec
 

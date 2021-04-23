@@ -14,11 +14,15 @@ class ExcelUtil {
         String[][] dataTable = null;
         if (System.getProperty("stage") == 'FHEOShakeOut'){
 
-            testDataExcelFile = new File(ExcelUtil.class.getClassLoader().getResource("FHEO-Testdata.xlsx").getFile()).getAbsolutePath();
+            testDataExcelFile = new File(ExcelUtil.class.getClassLoader().getResource("FHEO-Shakeoutdata.xlsx").getFile()).getAbsolutePath();
         }
-        else if (System.getProperty("stage") == 'FHEORegression'){
+        else if (System.getProperty("stage") == 'FHEORegressionSet1'){
 
             testDataExcelFile = new File(ExcelUtil.class.getClassLoader().getResource("FHEO-Testdata1.xlsx").getFile()).getAbsolutePath();
+        }
+        else if (System.getProperty("stage") == 'FHEORegressionSet2'){
+
+            testDataExcelFile = new File(ExcelUtil.class.getClassLoader().getResource("FHEO-Testdata2.xlsx").getFile()).getAbsolutePath();
         }
 
         File file = new File(testDataExcelFile);
