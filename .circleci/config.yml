@@ -16,7 +16,7 @@ jobs:
       - run:
           name: "checkout and run tests"
           command: |
-                    newman run "formservice/collections/FHEOFormService.postman_collection.json" -e "formservice/environments/EnvironmentVar.postman_environment.json" -d "formservice/data/FHEO-Service-TestData.csv"
+                    newman run "formservice/collections/FHEOFormService.postman_collection.json" -e "formservice/environments/EnvironmentVar.postman_environment.json" -d "formservice/data/FHEO-Service-TestData2.csv"
 workflows:
   build:
     jobs:
