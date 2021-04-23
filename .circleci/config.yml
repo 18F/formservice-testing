@@ -47,7 +47,6 @@ jobs:
           command: |
           -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet3' -DcheckAccessibility=true -Denv='fheodev'"
 
-
   FHEO-uitests-Set4:
     machine:
       image: ubuntu-2004:202101-01
@@ -58,7 +57,7 @@ jobs:
           command: |
           -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet4' -DcheckAccessibility=true -Denv='fheodev'"
 
-   FHEO-ErrSpec:
+  FHEO-ErrSpec:
     machine:
       image: ubuntu-2004:202101-01
     steps:
