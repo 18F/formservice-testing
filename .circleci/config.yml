@@ -36,7 +36,7 @@ jobs:
           name:
           command: |
                     mvn clean webdriverextensions:install-drivers test-compile test allure:report
-                    "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet2' -DcheckAccessibility=true -Denv='fheodark'"
+                    "-DargLine="-Dlocal=false -Dbrowser=Edge -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet2' -DcheckAccessibility=true -Denv='fheodark'"
   FHEO-uitests-Set3:
     machine:
       image: ubuntu-2004:202101-01
@@ -46,7 +46,7 @@ jobs:
           name:
           command: |
                     mvn clean webdriverextensions:install-drivers test-compile test allure:report
-                    "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet3' -DcheckAccessibility=true -Denv='fheodark'"
+                    "-DargLine="-Dlocal=false -Dbrowser=Safari -Dbrowser_version='latest' -Dos='OS X' -Dos_version='Big Sur' -Dstage='FHEORegressionSet3' -DcheckAccessibility=true -Denv='fheodark'"
   FHEO-uitests-Set4:
     machine:
       image: ubuntu-2004:202101-01
@@ -103,7 +103,7 @@ jobs:
           name:
           command: |
             mvn clean webdriverextensions:install-drivers test-compile test allure:report
-            "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet2' -DcheckAccessibility=true -Denv='fheodev'"
+            "-DargLine="-Dlocal=false -Dbrowser=Edge -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet2' -DcheckAccessibility=true -Denv='fheodev'"
   FHEO-uitest-Set3:
     machine:
       image: ubuntu-2004:202101-01
@@ -113,7 +113,7 @@ jobs:
           name:
           command: |
             mvn clean webdriverextensions:install-drivers test-compile test allure:report
-            "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet3' -DcheckAccessibility=true -Denv='fheodev'"
+            "-DargLine="-Dlocal=false -Dbrowser=Safari -Dbrowser_version='latest' -Dos='OS X' -Dos_version='Big Sur' -Dstage='FHEORegressionSet3' -DcheckAccessibility=true -Denv='fheodev'"
   FHEO-uitest-Set4:
     machine:
       image: ubuntu-2004:202101-01
