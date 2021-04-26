@@ -24,6 +24,15 @@ class ExcelUtil {
 
             testDataExcelFile = new File(ExcelUtil.class.getClassLoader().getResource("FHEO-Testdata2.xlsx").getFile()).getAbsolutePath();
         }
+        else if (System.getProperty("stage") == 'FHEORegressionSet3'){
+
+            testDataExcelFile = new File(ExcelUtil.class.getClassLoader().getResource("FHEO-Testdata3.xlsx").getFile()).getAbsolutePath();
+        }
+        else if (System.getProperty("stage") == 'FHEORegressionSet4'){
+
+            testDataExcelFile = new File(ExcelUtil.class.getClassLoader().getResource("FHEO-Testdata4.xlsx").getFile()).getAbsolutePath();
+        }
+
 
         File file = new File(testDataExcelFile);
         try {

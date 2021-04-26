@@ -3,12 +3,12 @@ package specs
 import pages.*
 import spock.lang.Requires
 import tag.FHEORegressionSet1
-import tag.FHEORegressionSet4
+import tag.FHEORegressionSet3
 import utils.AccessibilityUtil
 import utils.ExcelUtil
 
-@Requires(FHEORegressionSet4)
-class FHEOFormSubmissionSpecSet4 extends BaseSpec {
+@Requires(FHEORegressionSet3)
+class FHEOFormSubmissionSet3Spec extends BaseSpec {
 
     def "FHEO form submission why discrimination occurred"() {
         when: "I navigate to FHEO home page"
