@@ -138,32 +138,32 @@ jobs:
 workflows:
   build:
     jobs:
-      - FHEO-acceptance-tests
-      - FHEO-ErrSpecs
-      - FHEO-uitests-Set1
+      - FHEO-acceptance-tests:
+      - FHEO-ErrSpecs:
+      - FHEO-uitests-Set1:
           requires:
             - FHEO-ErrSpecs
-      - FHEO-uitests-Set2
+      - FHEO-uitests-Set2:
           requires:
             - FHEO-ErrSpecs
-      - FHEO-uitests-Set3
+      - FHEO-uitests-Set3:
           requires:
             - FHEO-ErrSpecs
-      - FHEO-uitests-Set4
+      - FHEO-uitests-Set4:
           requires:
             - FHEO-ErrSpecs
-      - FHEO-acceptance-test
-      - FHEO-ErrSpec
-      - FHEO-uitest-Set1
+      - FHEO-acceptance-test:
+      - FHEO-ErrSpec:
+      - FHEO-uitest-Set1:
           requires:
             - FHEO-ErrSpec
-      - FHEO-uitest-Set2
+      - FHEO-uitest-Set2:
           requires:
             - FHEO-ErrSpec
-      - FHEO-uitest-Set3
+      - FHEO-uitest-Set3:
           requires:
             - FHEO-ErrSpec
-      - FHEO-uitest-Set4
+      - FHEO-uitest-Set4:
           requires:
             - FHEO-ErrSpec
 
