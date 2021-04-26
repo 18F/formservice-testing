@@ -25,7 +25,7 @@ jobs:
       - run:
           name:
           command: |
-                    mvn clean webdriverextensions:install-drivers test-compile test allure:report -f pom.xml
+                    mvn clean webdriverextensions:install-drivers test-compile test allure:report
                     "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet1' -DcheckAccessibility=true -Denv='fheodark'"
   FHEO-uitests-Set2:
     machine:
@@ -35,7 +35,7 @@ jobs:
       - run:
           name:
           command: |
-                    mvn clean webdriverextensions:install-drivers test-compile test allure:report -f pom.xml
+                    mvn clean webdriverextensions:install-drivers test-compile test allure:report
                     "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet2' -DcheckAccessibility=true -Denv='fheodark'"
   FHEO-uitests-Set3:
     machine:
@@ -45,7 +45,7 @@ jobs:
       - run:
           name:
           command: |
-                    mvn clean webdriverextensions:install-drivers test-compile test allure:report -f pom.xml
+                    mvn clean webdriverextensions:install-drivers test-compile test allure:report
                     "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet3' -DcheckAccessibility=true -Denv='fheodark'"
   FHEO-uitests-Set4:
     machine:
@@ -55,7 +55,7 @@ jobs:
       - run:
           name:
           command: |
-                    mvn clean webdriverextensions:install-drivers test-compile test allure:report -f pom.xml
+                    mvn clean webdriverextensions:install-drivers test-compile test allure:report
                     "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet4' -DcheckAccessibility=true -Denv='fheodark'"
   FHEO-ErrSpecs:
     machine:
@@ -65,7 +65,7 @@ jobs:
       - run:
           name:
           command: |
-                    mvn clean webdriverextensions:install-drivers test-compile test allure:report -f pom.xml
+                    mvn clean webdriverextensions:install-drivers test-compile test allure:report
                     "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionErrSpec' -DcheckAccessibility=true -Denv='fheodark'"
 
   FHEO-acceptance-test:
@@ -92,7 +92,7 @@ jobs:
       - run:
           name:
           command: |
-            mvn clean webdriverextensions:install-drivers test-compile test allure:report -f pom.xml
+            mvn clean webdriverextensions:install-drivers test-compile test allure:report
             "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet1' -DcheckAccessibility=true -Denv='fheodev'"
   FHEO-uitest-Set2:
     machine:
@@ -102,7 +102,7 @@ jobs:
       - run:
           name:
           command: |
-            mvn clean webdriverextensions:install-drivers test-compile test allure:report -f pom.xml
+            mvn clean webdriverextensions:install-drivers test-compile test allure:report
             "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet2' -DcheckAccessibility=true -Denv='fheodev'"
   FHEO-uitest-Set3:
     machine:
@@ -112,7 +112,7 @@ jobs:
       - run:
           name:
           command: |
-            mvn clean webdriverextensions:install-drivers test-compile test allure:report -f pom.xml
+            mvn clean webdriverextensions:install-drivers test-compile test allure:report
             "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet3' -DcheckAccessibility=true -Denv='fheodev'"
   FHEO-uitest-Set4:
     machine:
@@ -122,7 +122,7 @@ jobs:
       - run:
           name:
           command: |
-            mvn clean webdriverextensions:install-drivers test-compile test allure:report -f pom.xml
+            mvn clean webdriverextensions:install-drivers test-compile test allure:report
             "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet4' -DcheckAccessibility=true -Denv='fheodev'"
   FHEO-ErrSpec:
     machine:
@@ -132,7 +132,7 @@ jobs:
       - run:
           name:
           command: |
-            mvn clean webdriverextensions:install-drivers test-compile test allure:report -f pom.xml
+            mvn clean webdriverextensions:install-drivers test-compile test allure:report
             "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionErrSpec' -DcheckAccessibility=true -Denv='fheodev'"
 
 workflows:
