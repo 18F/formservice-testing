@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "https://dev-portal.fs.gsa.gov/review/hud903/submission",
+			"name": "https://portal-dev.forms.gov/review/hud903/submission",
 			"event": [
 				{
 					"listen": "test",
@@ -58,7 +58,7 @@
 			"response": []
 		},
 		{
-			"name": "https://dev-portal.fs.gsa.gov/review/hud903/submission",
+			"name": "https://portal-dev.forms.gov/review/hud903/submission?_id={{id}}",
 			"event": [
 				{
 					"listen": "prerequest",
