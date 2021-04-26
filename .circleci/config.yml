@@ -23,7 +23,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name:
+          name: ""
           command: |
                     mvn clean webdriverextensions:install-drivers test-compile test allure:report
                     -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet1' -DcheckAccessibility=true -Denv='fheodark'"
@@ -33,7 +33,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name:
+          name: ""
           command: |
                     mvn clean webdriverextensions:install-drivers test-compile test allure:report
                     -DargLine="-Dlocal=false -Dbrowser=Edge -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet2' -DcheckAccessibility=true -Denv='fheodark'"
@@ -43,7 +43,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name:
+          name: ""
           command: |
                     mvn clean webdriverextensions:install-drivers test-compile test allure:report
                     -DargLine="-Dlocal=false -Dbrowser=Safari -Dbrowser_version='latest' -Dos='OS X' -Dos_version='Big Sur' -Dstage='FHEORegressionSet3' -DcheckAccessibility=true -Denv='fheodark'"
@@ -53,7 +53,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name:
+          name: ""
           command: |
                     mvn clean webdriverextensions:install-drivers test-compile test allure:report
                     -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet4' -DcheckAccessibility=true -Denv='fheodark'"
@@ -63,7 +63,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name:
+          name: ""
           command: |
                     mvn clean webdriverextensions:install-drivers test-compile test allure:report
                     -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionErrSpec' -DcheckAccessibility=true -Denv='fheodark'"
@@ -90,7 +90,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name:
+          name: ""
           command: |
             mvn clean webdriverextensions:install-drivers test-compile test allure:report
             -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet1' -DcheckAccessibility=true -Denv='fheodev'"
@@ -100,7 +100,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name:
+          name: ""
           command: |
             mvn clean webdriverextensions:install-drivers test-compile test allure:report
             -DargLine="-Dlocal=false -Dbrowser=Edge -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet2' -DcheckAccessibility=true -Denv='fheodev'"
@@ -110,7 +110,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name:
+          name: ""
           command: |
             mvn clean webdriverextensions:install-drivers test-compile test allure:report
             -DargLine="-Dlocal=false -Dbrowser=Safari -Dbrowser_version='latest' -Dos='OS X' -Dos_version='Big Sur' -Dstage='FHEORegressionSet3' -DcheckAccessibility=true -Denv='fheodev'"
@@ -130,7 +130,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name:
+          name: ""
           command: |
             mvn clean webdriverextensions:install-drivers test-compile test allure:report
             -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionErrSpec' -DcheckAccessibility=true -Denv='fheodev'"
@@ -138,8 +138,10 @@ jobs:
 workflows:
   build:
     jobs:
-      - FHEO-acceptance-tests:
-      - FHEO-ErrSpecs:
+      - FHEO-acceptance-tests
+      - FHEO-ErrSpecs
+      - FHEO-acceptance-test
+      - FHEO-ErrSpec
       - FHEO-uitests-Set1:
           requires:
             - FHEO-ErrSpecs
@@ -152,8 +154,6 @@ workflows:
       - FHEO-uitests-Set4:
           requires:
             - FHEO-ErrSpecs
-      - FHEO-acceptance-test:
-      - FHEO-ErrSpec:
       - FHEO-uitest-Set1:
           requires:
             - FHEO-ErrSpec
