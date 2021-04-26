@@ -1,7 +1,7 @@
 # Circleci config
 version: 2.1
 jobs:
-  FHEO-service-tests:
+  FHEO-acceptance-tests:
     machine:
       image: ubuntu-2004:202101-01 # # recommended linux image - includes Ubuntu 20.04, docker-compose 1.27.4
     steps:
@@ -26,7 +26,7 @@ jobs:
           name:
           command: |
                     mvn clean webdriverextensions:install-drivers test-compile test allure:report -f pom.xml
-                    "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet1' -DcheckAccessibility=true -Denv='fheodev'"
+                    "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet1' -DcheckAccessibility=true -Denv='fheodark'"
   FHEO-uitests-Set2:
     machine:
       image: ubuntu-2004:202101-01
@@ -36,7 +36,7 @@ jobs:
           name:
           command: |
                     mvn clean webdriverextensions:install-drivers test-compile test allure:report -f pom.xml
-                    "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet2' -DcheckAccessibility=true -Denv='fheodev'"
+                    "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet2' -DcheckAccessibility=true -Denv='fheodark'"
   FHEO-uitests-Set3:
     machine:
       image: ubuntu-2004:202101-01
@@ -46,7 +46,7 @@ jobs:
           name:
           command: |
                     mvn clean webdriverextensions:install-drivers test-compile test allure:report -f pom.xml
-                    "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet3' -DcheckAccessibility=true -Denv='fheodev'"
+                    "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet3' -DcheckAccessibility=true -Denv='fheodark'"
   FHEO-uitests-Set4:
     machine:
       image: ubuntu-2004:202101-01
@@ -56,8 +56,8 @@ jobs:
           name:
           command: |
                     mvn clean webdriverextensions:install-drivers test-compile test allure:report -f pom.xml
-                    "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet4' -DcheckAccessibility=true -Denv='fheodev'"
-  FHEO-ErrSpec:
+                    "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet4' -DcheckAccessibility=true -Denv='fheodark'"
+  FHEO-ErrSpecs:
     machine:
       image: ubuntu-2004:202101-01
     steps:
@@ -66,15 +66,88 @@ jobs:
           name:
           command: |
                     mvn clean webdriverextensions:install-drivers test-compile test allure:report -f pom.xml
-                    "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet1' -DcheckAccessibility=true -Denv='fheodev'"
+                    "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionErrSpec' -DcheckAccessibility=true -Denv='fheodark'"
+
+  FHEO-acceptance-test:
+    machine:
+      image: ubuntu-2004:202101-01 # # recommended linux image - includes Ubuntu 20.04, docker-compose 1.27.4
+    steps:
+      - run:
+          name: "install NPM"
+          command: |
+            $sudo npm install -g npm@latest > /dev/null 2>&1 || \
+            npm install -g npm@latest > /dev/null 2<&1
+            npm config -g delete ca
+            $SUDO npm install -g newman
+      - checkout
+      - run:
+          name: "checkout and run tests"
+          command: |
+            newman run "formservice/collections/FHEOFormService.postman_collection.json" -e "formservice/environments/EnvironmentVar.postman_environment.json" -d "formservice/data/FHEO-Service-TestData.csv"
+  FHEO-uitest-Set1:
+    machine:
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run:
+          name:
+          command: |
+            mvn clean webdriverextensions:install-drivers test-compile test allure:report -f pom.xml
+            "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet1' -DcheckAccessibility=true -Denv='fheodev'"
+  FHEO-uitest-Set2:
+    machine:
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run:
+          name:
+          command: |
+            mvn clean webdriverextensions:install-drivers test-compile test allure:report -f pom.xml
+            "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet2' -DcheckAccessibility=true -Denv='fheodev'"
+  FHEO-uitest-Set3:
+    machine:
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run:
+          name:
+          command: |
+            mvn clean webdriverextensions:install-drivers test-compile test allure:report -f pom.xml
+            "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet3' -DcheckAccessibility=true -Denv='fheodev'"
+  FHEO-uitest-Set4:
+    machine:
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run:
+          name:
+          command: |
+            mvn clean webdriverextensions:install-drivers test-compile test allure:report -f pom.xml
+            "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet4' -DcheckAccessibility=true -Denv='fheodev'"
+  FHEO-ErrSpec:
+    machine:
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run:
+          name:
+          command: |
+            mvn clean webdriverextensions:install-drivers test-compile test allure:report -f pom.xml
+            "-DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionErrSpec' -DcheckAccessibility=true -Denv='fheodev'"
 
 workflows:
   build:
     jobs:
-      - FHEO-service-tests
+      - FHEO-acceptance-tests
       - FHEO-uitests-Set1
       - FHEO-uitests-Set2
       - FHEO-uitests-Set3
       - FHEO-uitests-Set4
+      - FHEO-ErrSpecs
+      - FHEO-acceptance-test
+      - FHEO-uitest-Set1
+      - FHEO-uitest-Set2
+      - FHEO-uitest-Set3
+      - FHEO-uitest-Set4
       - FHEO-ErrSpec
 
