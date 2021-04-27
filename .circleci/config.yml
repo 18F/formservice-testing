@@ -178,10 +178,10 @@ workflows:
   build:
     jobs:
       - FHEO-acceptance-tests
-      - FHEO-ErrSpecs
-      - FHEO-508Specs:
+      - FHEO-508Specs
+      - FHEO-ErrSpecs:
           requires:
-            - FHEO-ErrSpecs
+            - FHEO-508Specs
       - FHEO-uitests-Set1:
           requires:
             - FHEO-508Specs
