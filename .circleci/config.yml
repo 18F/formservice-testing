@@ -190,7 +190,7 @@ workflows:
             - FHEO-ErrSpecs
       - FHEO-uitests-Set3:
           requires:
-            - FHEO-ErrSpecs
+            - FHEO-uitests-Set2
       - FHEO-uitests-Set4:
           requires:
             - FHEO-uitests-Set1
