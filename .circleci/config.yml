@@ -27,6 +27,8 @@ jobs:
           no_output_timeout: 120m
           command: |
                     mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet1' -DcheckAccessibility=false -Denv='fheodark'"
+      - store_artifacts:
+           path: /home/circleci/project/allure-reports
   FHEO-uitests-Set2:
     machine:
       image: ubuntu-2004:202101-01
@@ -37,6 +39,8 @@ jobs:
           no_output_timeout: 120m
           command: |
                     mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Edge -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet2' -DcheckAccessibility=false -Denv='fheodark'"
+      - store_artifacts:
+           path: /home/circleci/project/allure-reports
   FHEO-uitests-Set3:
     machine:
       image: ubuntu-2004:202101-01
@@ -47,6 +51,8 @@ jobs:
           no_output_timeout: 120m
           command: |
                     mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Safari -Dbrowser_version='latest' -Dos='OS X' -Dos_version='Big Sur' -Dstage='FHEORegressionSet3' -DcheckAccessibility=false -Denv='fheodark'"
+      - store_artifacts:
+           path: /home/circleci/project/allure-reports
   FHEO-uitests-Set4:
     machine:
       image: ubuntu-2004:202101-01
@@ -57,6 +63,8 @@ jobs:
           no_output_timeout: 120m
           command: |
                     mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet4' -DcheckAccessibility=false -Denv='fheodark'"
+      - store_artifacts:
+           path: /home/circleci/project/allure-reports
   FHEO-ErrSpecs:
     machine:
       image: ubuntu-2004:202101-01
@@ -66,6 +74,8 @@ jobs:
           name: ""
           command: |
                     mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionErrSpec' -DcheckAccessibility=false -Denv='fheodark'"
+      - store_artifacts:
+           path: /home/circleci/project/allure-reports
 
   FHEO-acceptance-test: ## These are for dev environment
     machine:
@@ -94,7 +104,7 @@ jobs:
           command: |
             mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet1' -DcheckAccessibility=false -Denv='fheodev'"
       - store_artifacts:
-           path: /home/circleci/formservice-testing/allure-reports
+           path: /home/circleci/project/allure-reports
   FHEO-uitest-Set2:
     machine:
       image: ubuntu-2004:202101-01
@@ -105,6 +115,8 @@ jobs:
           no_output_timeout: 120m
           command: |
             mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Edge -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet2' -DcheckAccessibility=false -Denv='fheodev'"
+      - store_artifacts:
+           path: /home/circleci/project/allure-reports
   FHEO-uitest-Set3:
     machine:
       image: ubuntu-2004:202101-01
@@ -115,6 +127,8 @@ jobs:
           no_output_timeout: 120m
           command: |
             mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Safari -Dbrowser_version='latest' -Dos='OS X' -Dos_version='Big Sur' -Dstage='FHEORegressionSet3' -DcheckAccessibility=false -Denv='fheodev'"
+      - store_artifacts:
+           path: /home/circleci/project/allure-reports
   FHEO-uitest-Set4:
     machine:
       image: ubuntu-2004:202101-01
@@ -125,6 +139,8 @@ jobs:
           no_output_timeout: 120m
           command: |
             mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet4' -DcheckAccessibility=false -Denv='fheodev'"
+      - store_artifacts:
+           path: /home/circleci/project/allure-reports
   FHEO-ErrSpec:
     machine:
       image: ubuntu-2004:202101-01
@@ -134,7 +150,8 @@ jobs:
           name: ""
           command: |
             mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionErrSpec' -DcheckAccessibility=false -Denv='fheodev'"
-
+      - store_artifacts:
+           path: /home/circleci/project/allure-reports
 workflows:
   build:
     jobs:
