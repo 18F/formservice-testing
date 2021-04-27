@@ -112,7 +112,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name:
+          name: ""
           command: |
             mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet4' -DcheckAccessibility=false -Denv='fheodev'"
   FHEO-ErrSpec:
@@ -128,11 +128,11 @@ jobs:
 workflows:
   build:
     jobs:
-      - FHEO-acceptance-tests
+      - FHEO-acceptance-tests:
           requires:
             - FHEO-uitests-Set4
       - FHEO-ErrSpecs
-      - FHEO-acceptance-test
+      - FHEO-acceptance-test:
           requires:
             - FHEO-uitest-Set4
       - FHEO-ErrSpec
