@@ -181,9 +181,15 @@ workflows:
       - FHEO-ErrSpecs
       - FHEO-acceptance-test
       - FHEO-ErrSpec
-      - FHEO-uitests-Set1:
+      - FHEO-508Specs
           requires:
             - FHEO-ErrSpecs
+      - FHEO-508Spec
+          requires:
+            - FHEO-ErrSpec
+      - FHEO-uitests-Set1:
+          requires:
+            - FHEO-508Specs
       - FHEO-uitests-Set2:
           requires:
             - FHEO-ErrSpecs
@@ -201,7 +207,7 @@ workflows:
             - FHEO-ErrSpec
       - FHEO-uitest-Set3:
           requires:
-            - FHEO-ErrSpec
+            - FHEO-508Spec
       - FHEO-uitest-Set4:
           requires:
             - FHEO-uitest-Set1

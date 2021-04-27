@@ -32,7 +32,7 @@ class ExcelUtil {
 
             testDataExcelFile = new File(ExcelUtil.class.getClassLoader().getResource("FHEO-Testdata4.xlsx").getFile()).getAbsolutePath();
         }
-        else if (System.getProperty("stage") == 'FHEORegressionABTest'){
+        else if (System.getProperty("stage") == 'FHEORegression508Test'){
 
             testDataExcelFile = new File(ExcelUtil.class.getClassLoader().getResource("FHEO-Testdata508.xlsx").getFile()).getAbsolutePath();
         }
