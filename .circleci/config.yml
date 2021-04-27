@@ -84,7 +84,7 @@ jobs:
       - run:
           name: ""
           command: |
-            mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegression508Test' -DcheckAccessibility=true -Denv='fheodev'"
+            mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegression508Test' -DcheckAccessibility=true -Denv='fheodark'"
       - store_artifacts:
           path: /home/circleci/project/target/allure-reports
   FHEO-acceptance-test: ## These are for dev environment
