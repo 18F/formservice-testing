@@ -93,6 +93,8 @@ jobs:
           no_output_timeout: 120m
           command: |
             mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet1' -DcheckAccessibility=false -Denv='fheodev'"
+      - store_artifacts:
+           path: /home/circleci/formservice-testing/allure-reports
   FHEO-uitest-Set2:
     machine:
       image: ubuntu-2004:202101-01
