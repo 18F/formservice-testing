@@ -24,6 +24,7 @@ jobs:
       - checkout
       - run:
           name: ""
+          no_output_timeout: 60m
           command: |
                     mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet1' -DcheckAccessibility=false -Denv='fheodark'"
   FHEO-uitests-Set2:
@@ -33,6 +34,7 @@ jobs:
       - checkout
       - run:
           name: ""
+          no_output_timeout: 60m
           command: |
                     mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Edge -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet2' -DcheckAccessibility=false -Denv='fheodark'"
   FHEO-uitests-Set3:
@@ -42,6 +44,7 @@ jobs:
       - checkout
       - run:
           name: ""
+          no_output_timeout: 60m
           command: |
                     mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Safari -Dbrowser_version='latest' -Dos='OS X' -Dos_version='Big Sur' -Dstage='FHEORegressionSet3' -DcheckAccessibility=false -Denv='fheodark'"
   FHEO-uitests-Set4:
@@ -51,6 +54,7 @@ jobs:
       - checkout
       - run:
           name: ""
+          no_output_timeout: 60m
           command: |
                     mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet4' -DcheckAccessibility=false -Denv='fheodark'"
   FHEO-ErrSpecs:
@@ -86,6 +90,7 @@ jobs:
       - checkout
       - run:
           name: ""
+          no_output_timeout: 60m
           command: |
             mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet1' -DcheckAccessibility=false -Denv='fheodev'"
   FHEO-uitest-Set2:
@@ -95,6 +100,7 @@ jobs:
       - checkout
       - run:
           name: ""
+          no_output_timeout: 60m
           command: |
             mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Edge -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet2' -DcheckAccessibility=false -Denv='fheodev'"
   FHEO-uitest-Set3:
@@ -104,6 +110,7 @@ jobs:
       - checkout
       - run:
           name: ""
+          no_output_timeout: 60m
           command: |
             mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Safari -Dbrowser_version='latest' -Dos='OS X' -Dos_version='Big Sur' -Dstage='FHEORegressionSet3' -DcheckAccessibility=false -Denv='fheodev'"
   FHEO-uitest-Set4:
@@ -113,6 +120,7 @@ jobs:
       - checkout
       - run:
           name: ""
+          no_output_timeout: 60m
           command: |
             mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet4' -DcheckAccessibility=false -Denv='fheodev'"
   FHEO-ErrSpec:
