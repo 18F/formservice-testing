@@ -76,7 +76,17 @@ jobs:
                     mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionErrSpec' -DcheckAccessibility=false -Denv='fheodark'"
       - store_artifacts:
            path: /home/circleci/project/target/allure-reports
-
+  FHEO-508Specs:
+    machine:
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run:
+          name: ""
+          command: |
+            mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegression508Test' -DcheckAccessibility=true -Denv='fheodev'"
+      - store_artifacts:
+          path: /home/circleci/project/target/allure-reports
   FHEO-acceptance-test: ## These are for dev environment
     machine:
       image: ubuntu-2004:202101-01 # # recommended linux image - includes Ubuntu 20.04, docker-compose 1.27.4
@@ -152,16 +162,24 @@ jobs:
             mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionErrSpec' -DcheckAccessibility=false -Denv='fheodev'"
       - store_artifacts:
            path: /home/circleci/project/target/allure-reports
+  FHEO-508Spec:
+    machine:
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run:
+          name: ""
+          command: |
+            mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegression508Test' -DcheckAccessibility=true -Denv='fheodev'"
+      - store_artifacts:
+          path: /home/circleci/project/target/allure-reports
+
 workflows:
   build:
     jobs:
-      - FHEO-acceptance-tests:
-          requires:
-            - FHEO-uitests-Set4
+      - FHEO-acceptance-tests
       - FHEO-ErrSpecs
-      - FHEO-acceptance-test:
-          requires:
-            - FHEO-uitest-Set4
+      - FHEO-acceptance-test
       - FHEO-ErrSpec
       - FHEO-uitests-Set1:
           requires:
