@@ -105,7 +105,7 @@
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
                 <configuration>
-                    <reportVersion>2.7.0</reportVersion>
+                    <reportVersion>2.8.1</reportVersion>
                     <resultsDirectory>${project.basedir}/target/allure-results/</resultsDirectory>
                     <reportDirectory>${project.basedir}/target/allure-reports/</reportDirectory>
                 </configuration>

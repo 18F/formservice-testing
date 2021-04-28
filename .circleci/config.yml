@@ -1,7 +1,7 @@
 # Circleci config
 version: 2.1
 jobs:
-  FHEO-acceptance-tests:
+  FHEO-acceptance-tests-Dark: ## These are for dark environment
     machine:
       image: ubuntu-2004:202101-01 # # recommended linux image - includes Ubuntu 20.04, docker-compose 1.27.4
     steps:
@@ -17,8 +17,204 @@ jobs:
           name: "checkout and run tests"
           command: |
                     newman run "formservice/collections/FHEOFormService.postman_collection.json" -e "formservice/environments/EnvironmentVar.postman_environment.json" -d "formservice/data/FHEO-Service-TestData.csv"
+  FHEO-uitests-Set1-Dark:
+    machine:
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run:
+          name: ""
+          no_output_timeout: 120m
+          command: |
+                    mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet1' -DcheckAccessibility=false -Denv='fheodark'"
+      - store_artifacts:
+           path: /home/circleci/project/target/allure-reports
+  FHEO-uitests-Set2-Dark:
+    machine:
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run:
+          name: ""
+          no_output_timeout: 120m
+          command: |
+                    mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Edge -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet2' -DcheckAccessibility=false -Denv='fheodark'"
+      - store_artifacts:
+           path: /home/circleci/project/target/allure-reports
+  FHEO-uitests-Set3-Dark:
+    machine:
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run:
+          name: ""
+          no_output_timeout: 120m
+          command: |
+                    mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Safari -Dbrowser_version='latest' -Dos='OS X' -Dos_version='Big Sur' -Dstage='FHEORegressionSet3' -DcheckAccessibility=false -Denv='fheodark'"
+      - store_artifacts:
+           path: /home/circleci/project/target/allure-reports
+  FHEO-uitests-Set4-Dark:
+    machine:
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run:
+          name: ""
+          no_output_timeout: 120m
+          command: |
+                    mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet4' -DcheckAccessibility=false -Denv='fheodark'"
+      - store_artifacts:
+           path: /home/circleci/project/target/allure-reports
+  FHEO-ErrSpecs-Dark:
+    machine:
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run:
+          name: ""
+          command: |
+                    mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionErrSpec' -DcheckAccessibility=false -Denv='fheodark'"
+      - store_artifacts:
+           path: /home/circleci/project/target/allure-reports
+  FHEO-508Specs-Dark:
+    machine:
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run:
+          name: ""
+          command: |
+            mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegression508Test' -DcheckAccessibility=true -Denv='fheodark'"
+      - store_artifacts:
+          path: /home/circleci/project/target/allure-reports
+      - store_artifacts:
+          path: /home/circleci/project/target/accessibilityReport
+
+  FHEO-acceptance-test-Dev: ## These are for dev environment
+    machine:
+      image: ubuntu-2004:202101-01 # # recommended linux image - includes Ubuntu 20.04, docker-compose 1.27.4
+    steps:
+      - run:
+          name: "install NPM"
+          command: |
+            $sudo npm install -g npm@latest > /dev/null 2>&1 || \
+            npm install -g npm@latest > /dev/null 2<&1
+            npm config -g delete ca
+            $SUDO npm install -g newman
+      - checkout
+      - run:
+          name: "checkout and run tests"
+          command: |
+            newman run "formservice/collections/FHEOFormService.postman_collection.json" -e "formservice/environments/EnvironmentVar.postman_environment.json" -d "formservice/data/FHEO-Service-TestData.csv"
+  FHEO-uitest-Set1-Dev:
+    machine:
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run:
+          name: ""
+          no_output_timeout: 120m
+          command: |
+            mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet1' -DcheckAccessibility=false -Denv='fheodev'"
+      - store_artifacts:
+           path: /home/circleci/project/target/allure-reports
+  FHEO-uitest-Set2-Dev:
+    machine:
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run:
+          name: ""
+          no_output_timeout: 120m
+          command: |
+            mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Edge -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet2' -DcheckAccessibility=false -Denv='fheodev'"
+      - store_artifacts:
+           path: /home/circleci/project/target/allure-reports
+  FHEO-uitest-Set3-Dev:
+    machine:
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run:
+          name: ""
+          no_output_timeout: 120m
+          command: |
+            mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Safari -Dbrowser_version='latest' -Dos='OS X' -Dos_version='Big Sur' -Dstage='FHEORegressionSet3' -DcheckAccessibility=false -Denv='fheodev'"
+      - store_artifacts:
+           path: /home/circleci/project/target/allure-reports
+  FHEO-uitest-Set4-Dev:
+    machine:
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run:
+          name: ""
+          no_output_timeout: 120m
+          command: |
+            mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionSet4' -DcheckAccessibility=false -Denv='fheodev'"
+      - store_artifacts:
+           path: /home/circleci/project/target/allure-reports
+  FHEO-ErrSpec-Dev:
+    machine:
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run:
+          name: ""
+          command: |
+            mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegressionErrSpec' -DcheckAccessibility=false -Denv='fheodev'"
+      - store_artifacts:
+           path: /home/circleci/project/target/allure-reports
+  FHEO-508Spec-Dev:
+    machine:
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run:
+          name: ""
+          command: |
+            mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dbrowser=Chrome -Dbrowser_version='latest' -Dos='Windows' -Dos_version='10' -Dstage='FHEORegression508Test' -DcheckAccessibility=true -Denv='fheodev'"
+      - store_artifacts:
+          path: /home/circleci/project/target/allure-reports
+      - store_artifacts:
+          path: /home/circleci/project/target/accessibilityReport
+
 workflows:
   build:
     jobs:
-      - FHEO-acceptance-tests
+      - FHEO-acceptance-tests-Dark
+      - FHEO-508Specs-Dark
+      - FHEO-ErrSpecs-Dark:
+          requires:
+            - FHEO-508Specs-Dark
+      - FHEO-uitests-Set1-Dark:
+          requires:
+            - FHEO-508Specs-Dark
+      - FHEO-uitests-Set2-Dark:
+          requires:
+            - FHEO-ErrSpecs-Dark
+      - FHEO-uitests-Set3-Dark:
+          requires:
+            - FHEO-uitests-Set2-Dark
+      - FHEO-uitests-Set4-Dark:
+          requires:
+            - FHEO-uitests-Set1-Dark
+      - FHEO-acceptance-test-Dev
+      - FHEO-ErrSpec-Dev
+      - FHEO-508Spec-Dev:
+          requires:
+            - FHEO-ErrSpec-Dev
+      - FHEO-uitest-Set1-Dev:
+          requires:
+            - FHEO-ErrSpec-Dev
+      - FHEO-uitest-Set2-Dev:
+          requires:
+            - FHEO-ErrSpec-Dev
+      - FHEO-uitest-Set3-Dev:
+          requires:
+            - FHEO-508Spec-Dev
+      - FHEO-uitest-Set4-Dev:
+          requires:
+            - FHEO-uitest-Set1-Dev
+
 

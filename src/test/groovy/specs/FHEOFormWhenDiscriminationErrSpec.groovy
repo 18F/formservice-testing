@@ -3,11 +3,10 @@ package specs
 import pages.*
 import spock.lang.Requires
 import spock.lang.Unroll
-import tag.FHEORegression
-import tag.FHEOShakeOut
+import tag.FHEORegressionErrSpec
 import utils.AccessibilityUtil
 
-@Requires(FHEORegression)
+@Requires(FHEORegressionErrSpec)
 class FHEOFormWhenDiscriminationErrSpec extends BaseSpec {
 
     @Unroll
@@ -55,7 +54,7 @@ class FHEOFormWhenDiscriminationErrSpec extends BaseSpec {
         then: "Click on continue"
         at FHEODiscriminationDatePage
         continueBtn.click()
-        AccessibilityUtil.checkAccessibility(driver, FHEODiscriminationDatePage.url.toString())
+
         checkErrMsg4(errMsg4)
 
 
