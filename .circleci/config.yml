@@ -195,10 +195,10 @@ workflows:
             - FHEO-ErrSpecs
       - FHEO-uitests-Set3-Dark:
           requires:
-            - FHEO-uitests-Set2
+            - FHEO-uitests-Set2-Dark
       - FHEO-uitests-Set4-Dark:
           requires:
-            - FHEO-uitests-Set1
+            - FHEO-uitests-Set1-Dark
       - FHEO-acceptance-test-Dev
       - FHEO-ErrSpec-Dev
       - FHEO-508Spec-Dev:
