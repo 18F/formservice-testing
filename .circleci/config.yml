@@ -192,7 +192,7 @@ workflows:
             - FHEO-508Specs-Dark
       - FHEO-uitests-Set2-Dark:
           requires:
-            - FHEO-ErrSpecs
+            - FHEO-ErrSpecs-Dark
       - FHEO-uitests-Set3-Dark:
           requires:
             - FHEO-uitests-Set2-Dark
