@@ -33,9 +33,9 @@ class FHEOFormHomePageErrSpec extends BaseSpec {
         then: "At Homepage verify the error message"
         at FHEOComplaintHomePage
         checkErrMsg(errMsg)
-        AccessibilityUtil.checkAccessibility(driver, FHEOComplaintHomePage.url.toString())
+
         checkOtherErrMsg(otherMsg)
-        AccessibilityUtil.checkAccessibility(driver, FHEOComplaintHomePage.url.toString())
+
 
         where:
         data | errMsg                             | otherdata | otherMsg

@@ -54,7 +54,7 @@ class FHEOFormWhenDiscriminationErrSpec extends BaseSpec {
         then: "Click on continue"
         at FHEODiscriminationDatePage
         continueBtn.click()
-        AccessibilityUtil.checkAccessibility(driver, FHEODiscriminationDatePage.url.toString())
+
         checkErrMsg4(errMsg4)
 
 
