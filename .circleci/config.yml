@@ -219,10 +219,10 @@ workflows:
   nightly:
     triggers:
       - schedule:
-          cron: "11 0 * * *"
+          cron: "11 5 * * *"
           filters:
             branches:
-              only: Dev
+              only: ScheduleRuns
     jobs:
       - FHEO-acceptance-test-Dev
       - FHEO-ErrSpec-Dev
