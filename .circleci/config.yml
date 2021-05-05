@@ -221,44 +221,12 @@ workflows:
       - schedule:
           # The cron format is:
           # min (0-59) hour (0-23) monthday (1-31) month (1-12) weekday (0-6, 0=Sun)
-          cron: "16 40 * * *"
+          cron: "40 15 * * *"
           filters:
             branches:
               only: ScheduleRuns
     jobs:
-      - FHEO-acceptance-tests-Dark
-      - FHEO-508Specs-Dark
-      - FHEO-ErrSpecs-Dark:
-          requires:
-            - FHEO-508Specs-Dark
-      - FHEO-uitests-Set1-Dark:
-          requires:
-            - FHEO-508Specs-Dark
-      - FHEO-uitests-Set2-Dark:
-          requires:
-            - FHEO-ErrSpecs-Dark
-      - FHEO-uitests-Set3-Dark:
-          requires:
-            - FHEO-uitests-Set2-Dark
-      - FHEO-uitests-Set4-Dark:
-          requires:
-            - FHEO-uitests-Set1-Dark
       - FHEO-acceptance-test-Dev
       - FHEO-ErrSpec-Dev
-      - FHEO-508Spec-Dev:
-          requires:
-            - FHEO-ErrSpec-Dev
-      - FHEO-uitest-Set1-Dev:
-          requires:
-            - FHEO-ErrSpec-Dev
-      - FHEO-uitest-Set2-Dev:
-          requires:
-            - FHEO-ErrSpec-Dev
-      - FHEO-uitest-Set3-Dev:
-          requires:
-            - FHEO-508Spec-Dev
-      - FHEO-uitest-Set4-Dev:
-          requires:
-            - FHEO-uitest-Set1-Dev
 
 
