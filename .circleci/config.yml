@@ -220,8 +220,8 @@ workflows:
     triggers:
       - schedule:
           # The cron format is:
-          # min (0-59) hour (0-23) monthday (1-31) month (1-12) weekday (0-6, 0=Sun)
-          cron: "45 15 * * *"
+          # min (0-59) hour (0-23) monthday (1-31) month (1-12) weekday (0-6, 0=Sun) - UTC time
+          cron: "50 16 * * *"
           filters:
             branches:
               only: ScheduleRuns
