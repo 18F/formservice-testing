@@ -36,6 +36,10 @@ class ExcelUtil {
 
             testDataExcelFile = new File(ExcelUtil.class.getClassLoader().getResource("FHEO-Testdata508.xlsx").getFile()).getAbsolutePath();
         }
+        else if (System.getProperty("stage") == 'FHEORegressionDeviceTest'){
+
+            testDataExcelFile = new File(ExcelUtil.class.getClassLoader().getResource("FHEO-Devicedata.xlsx").getFile()).getAbsolutePath();
+        }
 
 
         File file = new File(testDataExcelFile);

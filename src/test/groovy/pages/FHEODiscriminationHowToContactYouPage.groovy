@@ -57,7 +57,16 @@ class FHEODiscriminationHowToContactYouPage extends Page {
     }
 
     void discriminationcomplainantPhoneNumber(String disccomplainantPhoneNumber) {
-        discriminationcomplainantPhoneNumber = disccomplainantPhoneNumber
+        if (System.getProperty("device") == null)
+        {
+            discriminationcomplainantPhoneNumber = disccomplainantPhoneNumber
+        }
+        else if (System.getProperty("device") != null)
+        {
+            disccomplainantPhoneNumber.each { it ->
+                discriminationcomplainantPhoneNumber << it
+            }
+        }
     }
 
     void discriminationcomplainantEmail(String disccomplainantEmail) {
@@ -91,8 +100,18 @@ class FHEODiscriminationHowToContactYouPage extends Page {
     }
 
     void discriminationcomplainantZip(String disccomplainantZip) {
-        discriminationcomplainantZip = disccomplainantZip
+        if (System.getProperty("device") == null)
+        {
+            discriminationcomplainantZip = disccomplainantZip
+        }
+        else if (System.getProperty("device") != null)
+        {
+            disccomplainantZip.each { it ->
+                discriminationcomplainantZip << it
+            }
+        }
     }
+
 
     void discriminationaltContactFirstName(String discaltContactFirstName) {
         discriminationaltContactFirstName =(""!= discaltContactFirstName)?discaltContactFirstName:""
@@ -116,14 +135,22 @@ class FHEODiscriminationHowToContactYouPage extends Page {
         }
     }
 
-
-
     void discriminationaltContactPhoneNumber(String discaltContactPhoneNumber) {
-        discriminationaltContactPhoneNumber =(""!= discaltContactPhoneNumber)?discaltContactPhoneNumber:""
+        if (System.getProperty("device") == null)
+        {
+            discriminationaltContactPhoneNumber =(""!= discaltContactPhoneNumber)?discaltContactPhoneNumber:""
+        }
+        else if (System.getProperty("device") != null)
+        {
+            discaltContactPhoneNumber.each { it ->
+                discriminationaltContactPhoneNumber << it
+            }
+        }
     }
 
-    void discriminationaltContactEmail(String discaltContactPhoneNumber) {
-        discriminationaltContactEmail = discaltContactPhoneNumber
+
+    void discriminationaltContactEmail(String discaltContactEmail) {
+        discriminationaltContactEmail = discaltContactEmail
     }
 
     boolean checkErrMsg6(String errMessage6) {

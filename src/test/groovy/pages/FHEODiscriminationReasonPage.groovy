@@ -34,8 +34,18 @@ class FHEODiscriminationReasonPage extends Page {
     }
 
     void enterrespondentPhoneNumber(String respPhoneNumber) {
-            respondentPhoneNumber =(""!=respPhoneNumber)?respPhoneNumber:""
+    if (System.getProperty("device") == null)
+    {
+        respondentPhoneNumber =(""!=respPhoneNumber)?respPhoneNumber:""
     }
+    else if (System.getProperty("device") != null)
+    {
+        respPhoneNumber.each { it ->
+            respondentPhoneNumber << it
+        }
+    }
+    }
+
 
     void enterrespondentEmail(String respEmail) {
             respondentEmail =(""!=respEmail)?respEmail:""
