@@ -89,6 +89,32 @@ jobs:
           path: /home/circleci/project/target/allure-reports
       - store_artifacts:
           path: /home/circleci/project/target/accessibilityReport
+  FHEO-DeviceAndroidphone-Dark:
+    machine:
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run:
+          name: ""
+          command: |
+            mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dos_version='10.0' -Dstage='FHEORegressionDeviceTest' -DcheckAccessibility=false -Denv='fheodark' -Ddevice='Samsung Galaxy S20'"
+      - store_artifacts:
+          path: /home/circleci/project/target/allure-reports
+      - store_artifacts:
+          path: /home/circleci/project/target/accessibilityReport
+  FHEO-DeviceAndroidtablet-Dark:
+    machine:
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run:
+          name: ""
+          command: |
+            mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dos_version='10.0' -Dstage='FHEORegressionDeviceTest' -DcheckAccessibility=false -Denv='fheodark' -Ddevice='Samsung Galaxy Tab S7'"
+      - store_artifacts:
+          path: /home/circleci/project/target/allure-reports
+      - store_artifacts:
+          path: /home/circleci/project/target/accessibilityReport
 
   FHEO-acceptance-test-Dev: ## These are for dev environment
     machine:
@@ -178,12 +204,43 @@ jobs:
           path: /home/circleci/project/target/allure-reports
       - store_artifacts:
           path: /home/circleci/project/target/accessibilityReport
+  FHEO-DeviceAndroidphone-Dev:
+    machine:
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run:
+          name: ""
+          command: |
+            mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dos_version='10.0' -Dstage='FHEORegressionDeviceTest' -DcheckAccessibility=false -Denv='fheodev' -Ddevice='Samsung Galaxy S20'"
+      - store_artifacts:
+          path: /home/circleci/project/target/allure-reports
+      - store_artifacts:
+          path: /home/circleci/project/target/accessibilityReport
+  FHEO-DeviceAndroidtablet-Dev:
+    machine:
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run:
+          name: ""
+          command: |
+            mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dos_version='10.0' -Dstage='FHEORegressionDeviceTest' -DcheckAccessibility=false -Denv='fheodev' -Ddevice='Samsung Galaxy Tab S7'"
+      - store_artifacts:
+          path: /home/circleci/project/target/allure-reports
+      - store_artifacts:
+          path: /home/circleci/project/target/accessibilityReport
+
 
 workflows:
   build:
     jobs:
+      - FHEO-DeviceAndroidphone-Dark
+      - FHEO-DeviceAndroidtablet-Dark
       - FHEO-acceptance-tests-Dark
-      - FHEO-508Specs-Dark
+      - FHEO-508Specs-Dark:
+        requires:
+          - FHEO-DeviceAndroidphone-Dark
       - FHEO-ErrSpecs-Dark:
           requires:
             - FHEO-508Specs-Dark
@@ -199,8 +256,12 @@ workflows:
       - FHEO-uitests-Set4-Dark:
           requires:
             - FHEO-uitests-Set1-Dark
+      - FHEO-DeviceAndroidphone-Dev
+      - FHEO-DeviceAndroidtablet-Dev
       - FHEO-acceptance-test-Dev
-      - FHEO-ErrSpec-Dev
+      - FHEO-ErrSpec-Dev:
+          requires:
+            - FHEO-DeviceAndroidphone-Dev
       - FHEO-508Spec-Dev:
           requires:
             - FHEO-ErrSpec-Dev
