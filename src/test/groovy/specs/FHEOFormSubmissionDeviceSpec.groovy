@@ -1,5 +1,8 @@
 package specs
 
+import org.openqa.selenium.By
+import org.openqa.selenium.JavascriptExecutor
+import org.openqa.selenium.WebElement
 import pages.*
 import spock.lang.Requires
 import tag.FHEORegressionDeviceTest
@@ -62,10 +65,8 @@ class FHEOFormSubmissionDeviceSpec extends BaseSpec {
 
 
          when: "I enter when the discrimination happened"
-         discriminationDate.click()
-         discriminationDate(data[19])
+         discriminationDate(data[19], data[37])
          continueBtn.click()
-
 
         then: "Click on continue"
         at FHEODiscriminationWhatHappenedPage

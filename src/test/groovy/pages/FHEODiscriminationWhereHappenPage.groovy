@@ -47,7 +47,16 @@ class FHEODiscriminationWhereHappenPage extends Page {
     }
 
     void discriminationZip(String discZip) {
+    if (System.getProperty("device") == null)
+    {
         discriminationZip =(""!=discZip)?discZip:""
+    }
+    else if (System.getProperty("device") != null)
+    {
+        discZip.each { it ->
+        discriminationZip << it
+        }
+    }
     }
 
     boolean checkErrMsg1(String errMessage1) {

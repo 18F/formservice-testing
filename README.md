@@ -1,5 +1,8 @@
 # Testing repo reference formservice
 
+# Test data
+* Date on excel file needs to be with in one year for FHEO tests
+
 # API
 * Postman reference location - https://learning.postman.com/docs/getting-started/introduction/
 * Newman for local installation  - https://www.npmjs.com/package/newman
@@ -17,6 +20,7 @@
 * Shakeout   -DargLine="-Dlocal=true -Dbrowser=chrome -Dbrowser_version=89.0 -Dos=windows -Dos_version=10 -Dstage=shakeout"
 * Regression - -DargLine="-Dlocal=true -Dbrowser=chrome -Dbrowser_version=89.0 -Dos=windows -Dos_version=10 -Dstage=regression"
 * For Browserstack have local as false
+* Device - -DargLine="-Dlocal=false -Dos_version='10.0' -Dstage='FHEORegressionDeviceTest' -DcheckAccessibility=false -Denv='fheodev' -Ddevice='Samsung Galaxy S20'"
 
 # Performance testing 
 * Run test -> jmeter -n -t FHEOSubmission.jmx -l testresults.jtl
