@@ -239,8 +239,8 @@ workflows:
       - FHEO-DeviceAndroidtablet-Dark
       - FHEO-acceptance-tests-Dark
       - FHEO-508Specs-Dark:
-        requires:
-          - FHEO-DeviceAndroidphone-Dark
+          requires:
+            - FHEO-DeviceAndroidphone-Dark
       - FHEO-ErrSpecs-Dark:
           requires:
             - FHEO-508Specs-Dark
