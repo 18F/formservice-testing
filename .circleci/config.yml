@@ -273,7 +273,7 @@ workflows:
           requires:
             - FHEO-uitests-Set1-Dark
       - FHEO-Deviceiosphone-Dev
-      - FHEO-DeviceAndroidphone-Dev: # added
+      - FHEO-DeviceAndroidphone-Dev: # added this
           requires:
             - FHEO-Deviceiosphone-Dev
       - FHEO-DeviceAndroidtablet-Dev
