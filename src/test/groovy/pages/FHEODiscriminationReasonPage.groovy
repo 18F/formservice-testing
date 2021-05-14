@@ -1,6 +1,9 @@
 package pages
 
 import geb.Page
+import org.openqa.selenium.By
+import org.openqa.selenium.JavascriptExecutor
+import org.openqa.selenium.WebElement
 
 class FHEODiscriminationReasonPage extends Page {
 
@@ -38,11 +41,18 @@ class FHEODiscriminationReasonPage extends Page {
     {
         respondentPhoneNumber =(""!=respPhoneNumber)?respPhoneNumber:""
     }
-    else if (System.getProperty("device") != null)
+    else if ((System.getProperty("device") == 'Samsung Galaxy S20') || (System.getProperty("device") == 'Samsung Galaxy Tab S7'))
     {
         respPhoneNumber.each { it ->
             respondentPhoneNumber << it
         }
+    }
+    else if ((System.getProperty("device") == 'iPhone 12 Pro') || (System.getProperty("device") == 'iPad Air 4'))
+    {
+
+        WebElement element = driver.findElement(By.cssSelector("input[id\$=respondentPhoneNumber"));
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("arguments[0].setAttribute('value', Number(${respPhoneNumber}))", element);
     }
     }
 
