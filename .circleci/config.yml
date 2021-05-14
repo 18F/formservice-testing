@@ -119,7 +119,7 @@ jobs:
       - run:
           name: ""
           command: |
-            mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dos_version='10.0' -Dstage='FHEORegressionDeviceTest' -DcheckAccessibility=false -Denv='fheodark' -Ddevice='iPhone 12 Pro'"
+            mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dos_version='14.0' -Dstage='FHEORegressionDeviceTest' -DcheckAccessibility=false -Denv='fheodark' -Ddevice='iPhone 12 Pro'"
       - store_artifacts:
           path: /home/circleci/project/target/allure-reports
 
@@ -241,7 +241,7 @@ jobs:
       - run:
           name: ""
           command: |
-            mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dos_version='10.0' -Dstage='FHEORegressionDeviceTest' -DcheckAccessibility=false -Denv='fheodev' -Ddevice='iPhone 12 Pro'"
+            mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dos_version='14.0' -Dstage='FHEORegressionDeviceTest' -DcheckAccessibility=false -Denv='fheodev' -Ddevice='iPhone 12 Pro'"
       - store_artifacts:
           path: /home/circleci/project/target/allure-reports
 
@@ -273,7 +273,7 @@ workflows:
           requires:
             - FHEO-uitests-Set1-Dark
       - FHEO-Deviceiosphone-Dev
-      - FHEO-DeviceAndroidphone-Dev: # added this
+      - FHEO-DeviceAndroidphone-Dev:
           requires:
             - FHEO-Deviceiosphone-Dev
       - FHEO-DeviceAndroidtablet-Dev
