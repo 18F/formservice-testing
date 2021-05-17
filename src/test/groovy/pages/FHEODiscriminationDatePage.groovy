@@ -27,6 +27,7 @@ class FHEODiscriminationDatePage extends Page {
 
     void discriminationDate(String date, String dateWithTimestamp) {
 
+
         if (System.getProperty("device") == null) {
             discriminationDate << date
 

@@ -65,7 +65,7 @@ class FHEOFormSubmissionSet3Spec extends BaseSpec {
 
          when: "I enter when the discrimination happened"
          discriminationDate.click()
-         discriminationDate(data[19])
+         discriminationDate(data[19], data[37])
          continueBtn.click()
 
 
