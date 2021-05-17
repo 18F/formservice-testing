@@ -271,13 +271,9 @@ jobs:
 workflows:
   build:
     jobs:
-      - FHEO-DeviceiosiPad-Dark
-      - FHEO-Deviceiosphone-Dark:
-          requires:
-            - FHEO-DeviceiosiPad-Dark
-      -  FHEO-DeviceAndroidphone-Dark:
-           requires:
-             - FHEO-Deviceiosphone-Dark
+##      - FHEO-DeviceiosiPad-Dark
+##      - FHEO-Deviceiosphone-Dark
+      - FHEO-DeviceAndroidphone-Dark
       - FHEO-DeviceAndroidtablet-Dark
       - FHEO-acceptance-tests-Dark
       - FHEO-508Specs-Dark:
@@ -298,16 +294,10 @@ workflows:
       - FHEO-uitests-Set4-Dark:
           requires:
             - FHEO-uitests-Set1-Dark
-      - FHEO-DeviceiosiPad-Dev
-      - FHEO-Deviceiosphone-Dev:
-          requires:
-            - FHEO-DeviceiosiPad-Dev
-      - FHEO-DeviceAndroidphone-Dev:
-          requires:
-            - FHEO-Deviceiosphone-Dev
-      - FHEO-DeviceAndroidtablet-Dev:
-          requires:
-            - FHEO-DeviceiosiPad-Dev
+##      - FHEO-DeviceiosiPad-Dev
+##      - FHEO-Deviceiosphone-Dev
+      - FHEO-DeviceAndroidphone-Dev
+      - FHEO-DeviceAndroidtablet-Dev
       - FHEO-acceptance-test-Dev
       - FHEO-ErrSpec-Dev:
           requires:
