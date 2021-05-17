@@ -27,13 +27,14 @@ class FHEODiscriminationDatePage extends Page {
 
     void discriminationDate(String date, String dateWithTimestamp) {
 
+
         if (System.getProperty("device") == null) {
             discriminationDate << date
 
-        } else if (System.getProperty("device") != null){
+        } else if ((System.getProperty("device") == 'Samsung Galaxy S20') || (System.getProperty("device") == 'Samsung Galaxy Tab S7') || (System.getProperty("device") == 'iPhone 12 Pro')) {
             WebElement element
             JavascriptExecutor jsExecutor
-            element = driver.findElement(By.cssSelector(".usa-input.maxw-full.flatpickr-input.flatpickr-mobile"));
+            element = driver.findElement(By.cssSelector(".usa-input.maxw-full.flatpickr-input"));
             jsExecutor = (JavascriptExecutor) driver;
             jsExecutor.executeScript("arguments[0].setAttribute('type', '')", element);
             element.sendKeys(date)
@@ -50,6 +51,28 @@ class FHEODiscriminationDatePage extends Page {
             jsExecutor.executeScript("arguments[0].setAttribute('type', '')", element);
             element.sendKeys(date)
             jsExecutor.executeScript("arguments[0].setAttribute('type', 'hidden')", element)
+        }
+        else if ((System.getProperty("device") == 'iPad Air 4')) {
+            WebElement element
+            JavascriptExecutor jsExecutor
+            element = driver.findElement(By.cssSelector(".usa-input.maxw-full"));
+            jsExecutor = (JavascriptExecutor) driver;
+            jsExecutor.executeScript("arguments[0].setAttribute('type', '')", element);
+            element.sendKeys(date)
+            jsExecutor.executeScript("arguments[0].setAttribute('type', 'date')", element);
+
+            element = driver.findElement(By.cssSelector("input[id\$=discriminationDate]"));
+            jsExecutor = (JavascriptExecutor) driver;
+            jsExecutor.executeScript("arguments[0].setAttribute('type', '')", element);
+            element.sendKeys(dateWithTimestamp)
+            jsExecutor.executeScript("arguments[0].setAttribute('type', 'hidden')", element);
+
+            element = driver.findElement(By.cssSelector(".usa-input.maxw-full"));
+            jsExecutor = (JavascriptExecutor) driver;
+            jsExecutor.executeScript("arguments[0].setAttribute('type', '')", element);
+            element.sendKeys(date)
+            jsExecutor.executeScript("arguments[0].setAttribute('type', 'hidden')", element)
+
         }
     }
 

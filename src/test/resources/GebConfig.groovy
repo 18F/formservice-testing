@@ -11,8 +11,8 @@ import static org.apache.commons.lang3.SystemUtils.IS_OS_MAC
 import static org.apache.commons.lang3.SystemUtils.IS_OS_WINDOWS
 
 
-String browserStackUserName = "krishnaveni17"
-String browserStackAutomateKey = "vfUFxysWURLsXRRB411o"
+String browserStackUserName = "test_v4DB8aFXy6j"
+String browserStackAutomateKey = "d6WnNpVDsaFeuxrKU7z7"
 String url = "https://" + browserStackUserName + ":" + browserStackAutomateKey + "@hub.browserstack.com/wd/hub"
 
 

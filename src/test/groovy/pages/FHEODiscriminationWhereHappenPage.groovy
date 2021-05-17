@@ -2,6 +2,9 @@ package pages
 
 import geb.Page
 import geb.module.Select
+import org.openqa.selenium.By
+import org.openqa.selenium.JavascriptExecutor
+import org.openqa.selenium.WebElement
 
 class FHEODiscriminationWhereHappenPage extends Page {
 
@@ -51,11 +54,18 @@ class FHEODiscriminationWhereHappenPage extends Page {
     {
         discriminationZip =(""!=discZip)?discZip:""
     }
-    else if (System.getProperty("device") != null)
+    else if ((System.getProperty("device") == 'Samsung Galaxy S20') || (System.getProperty("device") == 'Samsung Galaxy Tab S7'))
     {
         discZip.each { it ->
         discriminationZip << it
         }
+    }
+    else if ((System.getProperty("device") == 'iPhone 12 Pro') || (System.getProperty("device") == 'iPad Air 4'))
+    {
+
+        WebElement element = driver.findElement(By.cssSelector("input[id\$=discriminationZip]"));
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("arguments[0].setAttribute('value', Number(${discZip}))", element);
     }
     }
 

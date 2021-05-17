@@ -98,6 +98,7 @@ class FHEOFormSubmissionDeviceSpec extends BaseSpec {
         discriminationaltContactRelationship(data[33],data[34])
         discriminationaltContactPhoneNumber(data[35])
         discriminationaltContactEmail(data[36])
+        sleep(2000)
         continueBtn.click()
 
 

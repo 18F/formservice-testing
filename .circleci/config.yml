@@ -100,8 +100,6 @@ jobs:
             mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dos_version='10.0' -Dstage='FHEORegressionDeviceTest' -DcheckAccessibility=false -Denv='fheodark' -Ddevice='Samsung Galaxy S20'"
       - store_artifacts:
           path: /home/circleci/project/target/allure-reports
-      - store_artifacts:
-          path: /home/circleci/project/target/accessibilityReport
   FHEO-DeviceAndroidtablet-Dark:
     machine:
       image: ubuntu-2004:202101-01
@@ -113,8 +111,28 @@ jobs:
             mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dos_version='10.0' -Dstage='FHEORegressionDeviceTest' -DcheckAccessibility=false -Denv='fheodark' -Ddevice='Samsung Galaxy Tab S7'"
       - store_artifacts:
           path: /home/circleci/project/target/allure-reports
+  FHEO-Deviceiosphone-Dark:
+    machine:
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run:
+          name: ""
+          command: |
+            mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dos_version='14.0' -Dstage='FHEORegressionDeviceTest' -DcheckAccessibility=false -Denv='fheodark' -Ddevice='iPhone 12 Pro'"
       - store_artifacts:
-          path: /home/circleci/project/target/accessibilityReport
+          path: /home/circleci/project/target/allure-reports
+  FHEO-DeviceiosiPad-Dark:
+    machine:
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run:
+          name: ""
+          command: |
+            mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dos_version='14.0' -Dstage='FHEORegressionDeviceTest' -DcheckAccessibility=false -Denv='fheodark' -Ddevice='iPad Air 4'"
+      - store_artifacts:
+          path: /home/circleci/project/target/allure-reports
 
   FHEO-acceptance-test-Dev: ## These are for dev environment
     machine:
@@ -215,8 +233,6 @@ jobs:
             mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dos_version='10.0' -Dstage='FHEORegressionDeviceTest' -DcheckAccessibility=false -Denv='fheodev' -Ddevice='Samsung Galaxy S20'"
       - store_artifacts:
           path: /home/circleci/project/target/allure-reports
-      - store_artifacts:
-          path: /home/circleci/project/target/accessibilityReport
   FHEO-DeviceAndroidtablet-Dev:
     machine:
       image: ubuntu-2004:202101-01
@@ -228,13 +244,35 @@ jobs:
             mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dos_version='10.0' -Dstage='FHEORegressionDeviceTest' -DcheckAccessibility=false -Denv='fheodev' -Ddevice='Samsung Galaxy Tab S7'"
       - store_artifacts:
           path: /home/circleci/project/target/allure-reports
+  FHEO-Deviceiosphone-Dev:
+    machine:
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run:
+          name: ""
+          command: |
+            mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dos_version='14.0' -Dstage='FHEORegressionDeviceTest' -DcheckAccessibility=false -Denv='fheodev' -Ddevice='iPhone 12 Pro'"
       - store_artifacts:
-          path: /home/circleci/project/target/accessibilityReport
+          path: /home/circleci/project/target/allure-reports
+  FHEO-DeviceiosiPad-Dev:
+    machine:
+      image: ubuntu-2004:202101-01
+    steps:
+      - checkout
+      - run:
+          name: ""
+          command: |
+            mvn clean webdriverextensions:install-drivers test-compile test allure:report -DargLine="-Dlocal=false -Dos_version='14.0' -Dstage='FHEORegressionDeviceTest' -DcheckAccessibility=false -Denv='fheodev' -Ddevice='iPad Air 4'"
+      - store_artifacts:
+          path: /home/circleci/project/target/allure-reports
 
 
 workflows:
   build:
     jobs:
+##      - FHEO-DeviceiosiPad-Dark
+##      - FHEO-Deviceiosphone-Dark
       - FHEO-DeviceAndroidphone-Dark
       - FHEO-DeviceAndroidtablet-Dark
       - FHEO-acceptance-tests-Dark
@@ -256,6 +294,8 @@ workflows:
       - FHEO-uitests-Set4-Dark:
           requires:
             - FHEO-uitests-Set1-Dark
+##      - FHEO-DeviceiosiPad-Dev
+##      - FHEO-Deviceiosphone-Dev
       - FHEO-DeviceAndroidphone-Dev
       - FHEO-DeviceAndroidtablet-Dev
       - FHEO-acceptance-test-Dev
