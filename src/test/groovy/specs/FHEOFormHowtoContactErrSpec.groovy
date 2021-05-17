@@ -60,7 +60,7 @@ class FHEOFormHowtoContactErrSpec extends BaseSpec {
         at FHEODiscriminationDatePage
 
         when: "I enter when the discrimination happened"
-        discriminationDate("03-04-2021")
+        discriminationDate("03-04-2021","")
         calenderBtn.click()
         continueBtn.click()
 

@@ -47,7 +47,8 @@ class FHEODiscriminationHowToContactYouPage extends Page {
         errMsg10(wait: true, required: false) { $("span[id\$=complainantCity]") }
         errMsg11(wait: true, required: false) { $("span[id\$=complainantState]") }
         errMsg12(wait: true, required: false) { $("span[id\$=complainantZip]") }
-        continueBtn(wait: true) { $("button[aria-label=\"CONTINUE button. Click to go to the next tab\"]") }
+    //    continueBtn(wait: true) { $("button[aria-label=\"CONTINUE button. Click to go to the next tab\"]") }
+        continueBtn(wait: true) { $(".usa-button.btn-wizard-nav-next") }
 
     }
 

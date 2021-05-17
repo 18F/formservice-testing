@@ -17,7 +17,7 @@ class FHEODiscriminationDatePage extends Page {
     static content = {
 
         discriminationdateHeader(wait: true) { $("div > h2") }
-        discriminationDate(wait: true) { $("input[id\$=discriminationDate]") }
+        discriminationDate(wait: true) { $(".usa-input.maxw-full.form-control.input") }
         monthDropdown(wait: true) { $(".flatpickr-monthDropdown-months") }
         continueBtn(wait: true) { $("button[aria-label=\"CONTINUE button. Click to go to the next tab\"]") }
         calenderBtn(wait: true) { $("i.fa.fa-calendar") }
