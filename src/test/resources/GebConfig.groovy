@@ -2,9 +2,15 @@ import com.browserstack.local.Local
 import org.openqa.selenium.Capabilities
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.chrome.ChromeDriverService
+import org.openqa.selenium.devtools.DevTools
+import org.openqa.selenium.logging.LogType
+import org.openqa.selenium.logging.LoggingPreferences
 import org.openqa.selenium.os.ExecutableFinder
+import org.openqa.selenium.remote.CapabilityType
 import org.openqa.selenium.remote.DesiredCapabilities
 import org.openqa.selenium.remote.RemoteWebDriver
+
+import java.util.logging.Level
 
 import static org.apache.commons.lang3.SystemUtils.IS_OS_LINUX
 import static org.apache.commons.lang3.SystemUtils.IS_OS_MAC
@@ -41,9 +47,11 @@ environments {
     chrome {
         driver = {
 
-
+            LoggingPreferences logPrefs = new LoggingPreferences();
+            logPrefs.enable(LogType.PERFORMANCE, Level.ALL);
 
             Capabilities capabilities = new DesiredCapabilities()
+            capabilities.setCapability(CapabilityType.LOGGING_PREFS, logPrefs);
             capabilities.setCapability("build", "Geb-Tests");
             capabilities.setCapability("browserName", System.getProperty("browser"));
             capabilities.setCapability("browserVersion", System.getProperty("browser_version"));
@@ -57,6 +65,7 @@ environments {
                         .usingAnyFreePort()
                         .usingDriverExecutable(findDriverExecutable())
                 driver = new ChromeDriver(serviceBuilder.build())
+
             } else {
                 driver = new RemoteWebDriver(new URL(url), capabilities)
             }

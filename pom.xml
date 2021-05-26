@@ -12,11 +12,30 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <gebVersion>4.0</gebVersion>
-        <seleniumVersion>3.141.59</seleniumVersion>
+        <seleniumVersion>4.0.0-beta-3</seleniumVersion>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-devtools-v90 -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-devtools-v90</artifactId>
+            <version>4.0.0-beta-3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.11.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.mastfrog/netty-http-client -->
+        <dependency>
+            <groupId>com.mastfrog</groupId>
+            <artifactId>netty-http-client</artifactId>
+            <version>2.7.2</version>
+        </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -88,15 +107,13 @@
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-support</artifactId>
+            <artifactId>selenium-devtools</artifactId>
             <version>${seleniumVersion}</version>
         </dependency>
-
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.5</version>
-            <scope>test</scope>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-support</artifactId>
+            <version>${seleniumVersion}</version>
         </dependency>
     </dependencies>
     <build>
@@ -125,14 +142,6 @@
                         <geb.env>chrome</geb.env>
                         <allure.results.directory>target/allure-results</allure.results.directory>
                     </systemPropertyVariables>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>com.rimerosolutions.maven.plugins</groupId>
-                <artifactId>wrapper-maven-plugin</artifactId>
-                <version>0.0.4</version>
-                <configuration>
-                    <mavenVersion>3.3.3</mavenVersion>
                 </configuration>
             </plugin>
             <plugin>
