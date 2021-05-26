@@ -6,11 +6,11 @@ import org.json.JSONObject
 import org.junit.Assert
 import org.openqa.selenium.WebDriverException
 import org.openqa.selenium.chrome.ChromeDriver
-import org.openqa.selenium.devtools.DevTools
-import org.openqa.selenium.devtools.v90.fetch.model.RequestId
-import org.openqa.selenium.devtools.v90.log.model.LogEntry
-import org.openqa.selenium.devtools.v90.network.Network
-import org.openqa.selenium.devtools.v90.network.model.ResourceType
+//import org.openqa.selenium.devtools.DevTools
+//import org.openqa.selenium.devtools.v90.fetch.model.RequestId
+//import org.openqa.selenium.devtools.v90.log.model.LogEntry
+//import org.openqa.selenium.devtools.v90.network.Network
+//import org.openqa.selenium.devtools.v90.network.model.ResourceType
 import org.openqa.selenium.logging.LogEntries
 import org.openqa.selenium.logging.LogType
 import pages.*
@@ -22,12 +22,17 @@ import utils.ExcelUtil
 
 import java.util.regex.Pattern
 
+
 @Requires(FHEORegressionSet5)
 class FHEOFormSubmissionSet5Spec extends BaseSpec {
     @Shared
-    DevTools devTools
+//    DevTools devTools
     String postData
     String xhrResponse
+/*
+For running this test please change the POM file to devtools which are commented out.
+This test is run local and not in pipeline.
+ */
 
     def "FHEO form submission why discrimination occurred"() {
         when: "I navigate to FHEO home page"

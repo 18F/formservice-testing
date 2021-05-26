@@ -1,8 +1,6 @@
-import com.browserstack.local.Local
 import org.openqa.selenium.Capabilities
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.chrome.ChromeDriverService
-import org.openqa.selenium.devtools.DevTools
 import org.openqa.selenium.logging.LogType
 import org.openqa.selenium.logging.LoggingPreferences
 import org.openqa.selenium.os.ExecutableFinder
@@ -12,10 +10,7 @@ import org.openqa.selenium.remote.RemoteWebDriver
 
 import java.util.logging.Level
 
-import static org.apache.commons.lang3.SystemUtils.IS_OS_LINUX
-import static org.apache.commons.lang3.SystemUtils.IS_OS_MAC
-import static org.apache.commons.lang3.SystemUtils.IS_OS_WINDOWS
-
+import static org.apache.commons.lang3.SystemUtils.*
 
 String browserStackUserName = "test_v4DB8aFXy6j"
 String browserStackAutomateKey = "d6WnNpVDsaFeuxrKU7z7"
