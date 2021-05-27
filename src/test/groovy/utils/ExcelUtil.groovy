@@ -40,6 +40,10 @@ class ExcelUtil {
 
             testDataExcelFile = new File(ExcelUtil.class.getClassLoader().getResource("FHEO-Devicedata.xlsx").getFile()).getAbsolutePath();
         }
+        else if (System.getProperty("stage") == 'FHEORegressionSet5'){
+
+            testDataExcelFile = new File(ExcelUtil.class.getClassLoader().getResource("FHEO-Testdata5.xlsx").getFile()).getAbsolutePath();
+        }
 
 
         File file = new File(testDataExcelFile);
@@ -66,6 +70,7 @@ class ExcelUtil {
                     dataTable[i-1][j] = xlCell.toString();
                 }
             }
+            xlfile.close()
         } catch (IOException e) {
             System.out.println("error while reading data from Excel " + e.toString());
         }
