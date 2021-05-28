@@ -44,6 +44,10 @@ class ExcelUtil {
 
             testDataExcelFile = new File(ExcelUtil.class.getClassLoader().getResource("FHEO-Testdata5.xlsx").getFile()).getAbsolutePath();
         }
+        else if (System.getProperty("stage") == 'IRS8821Test'){
+
+            testDataExcelFile = new File(ExcelUtil.class.getClassLoader().getResource("IRS-8821.xlsx").getFile()).getAbsolutePath();
+        }
 
 
         File file = new File(testDataExcelFile);
