@@ -16,8 +16,9 @@ class IRSform8821Spec extends BaseSpec {
     def "IRS form 8821 Submission"() {
         when: "I navigate to login.gov page"
         to LoginGovPage
-        useremail(data[0])
-        userpassword(data[1])
+        user_email(data[0])
+        user_password(data[1])
+        signinBtn.click()
 
         then:
         2==2

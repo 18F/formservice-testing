@@ -5,16 +5,17 @@ import geb.Page
 class LoginGovPage extends Page {
 
         static content = {
-            useremail(wait:true) { $("input[id\$=user_email]") }
-            userpassword(wait:true) { $("input[id\$=user_password]") }
+            user_email(wait:true) { $("input[id\$=user_email]") }
+            user_password(wait:true) { $("input[id\$=user_password]") }
+            signinBtn(wait:true) { $("input[value='Sign in']")}
     }
 
-    void useremail(String useremail) {
-        useremail = useremail
+    void user_email(String useremail) {
+        user_email << useremail
     }
 
-    void userpassword(String userpassword) {
-        userpassword = userpassword
+    void user_password(String userpassword) {
+        user_password << userpassword
     }
 
 }
