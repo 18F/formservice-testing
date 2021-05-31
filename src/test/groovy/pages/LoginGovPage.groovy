@@ -14,8 +14,8 @@ class LoginGovPage extends Page {
         user_email << useremail
     }
 
-    void user_password(String userpassword) {
-        user_password << userpassword
+    void user_password(String decuserpassword) {
+        user_password << decuserpassword
     }
 
 }
