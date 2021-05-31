@@ -12,6 +12,8 @@ import spock.lang.Requires
 import tag.IRS8821Test
 import utils.ExcelUtil
 
+import javax.swing.JOptionPane
+
 @Requires(IRS8821Test)
 class IRSform8821Spec extends BaseSpec {
 
@@ -27,7 +29,9 @@ class IRSform8821Spec extends BaseSpec {
         at LoginGovCodeVerificationPage
 
         when: "Enter your backup security code"
-        backup_codes("TC5YYJK8K9ET")
+ //    Use backupcodes when secondary option was selected as back up codes for the user
+ //    backup_codes("TC5YYJK8K9ET")
+        mfa_code()
         submitBtn.click()
 
         then:
