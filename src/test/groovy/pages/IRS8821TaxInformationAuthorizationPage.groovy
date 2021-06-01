@@ -4,7 +4,7 @@ import geb.Page
 
 class IRS8821TaxInformationAuthorizationPage extends Page {
 
-         static at = { title == "GSA FormService"}
+         static at = { title == "Form Service"}
 
         static content = {
 

@@ -20,39 +20,39 @@ class IRS8821TaxpayerInformationPage extends Page {
         nextBtn(wait: true) { $("button[aria-label=\"Next button. Click to go to the next tab\"]") }
     }
 
-    void TaxPayerFirstName(String Taxpayer_firstName) {
+    void Taxpayer_firstName(String Taxpayer_firstName) {
         TaxPayerFirstName << Taxpayer_firstName
     }
 
-    void TaxPayerLastName(String Taxpayer_lastName) {
+    void Taxpayer_lastName(String Taxpayer_lastName) {
         TaxPayerLastName<< Taxpayer_lastName
     }
 
-    void TaxPayerPhoneNumber(String Taxpayer_PhoneNumber) {
+    void Taxpayer_PhoneNumber(String Taxpayer_PhoneNumber) {
         TaxPayerPhoneNumber << Taxpayer_PhoneNumber
     }
 
-    void TaxPayerAddress(String Taxpayer_HomeAddress) {
+    void Taxpayer_HomeAddress(String Taxpayer_HomeAddress) {
         TaxPayerAddress << Taxpayer_HomeAddress
     }
 
-    void TaxPayerCity(String Taxpayer_City) {
+    void Taxpayer_City(String Taxpayer_City) {
         TaxPayerCity << Taxpayer_City
     }
 
-    void TaxPayerState(String Taxpayer_State) {
+    void Taxpayer_State(String Taxpayer_State) {
         TaxPayerState << Taxpayer_State
     }
 
-    void TaxPayerZip(String Taxpayer_Zipcode) {
+    void Taxpayer_Zipcode(String Taxpayer_Zipcode) {
         TaxPayerZip << Taxpayer_Zipcode
     }
 
-    void TaxPayerIDNumber(String Taxpayer_IdentityNumber) {
+    void Taxpayer_IdentityNumber(String Taxpayer_IdentityNumber) {
         TaxPayerIDNumber << Taxpayer_IdentityNumber
     }
 
-    void TaxPayerPlanNumber(String Taxpayer_planNumber) {
+    void Taxpayer_planNumber(String Taxpayer_planNumber) {
         TaxPayerPlanNumber << Taxpayer_planNumber
     }
 

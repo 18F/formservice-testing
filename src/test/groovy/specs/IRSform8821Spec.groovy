@@ -1,8 +1,12 @@
 package specs
 
-
+import org.openqa.selenium.By
+import org.openqa.selenium.JavascriptExecutor
+import org.openqa.selenium.WebElement
 import pages.IRS8821AppointeePage
 import pages.IRS8821DisclosurePage
+import pages.IRS8821DocumentSignedSuccessfullyPage
+import pages.IRS8821SignRequestPage
 import pages.IRS8821TaxInformationAuthorizationPage
 import pages.IRS8821SubmitTaxInformationPage
 import pages.IRS8821TaxpayerInformationPage
@@ -35,13 +39,13 @@ class IRSform8821Spec extends BaseSpec {
         submitBtn.click()
 
         then:
-        to IRS8821TaxInformationAuthorizationPage
+        at IRS8821TaxInformationAuthorizationPage
 
         when: "I start the IRS 8821 form"
         nextBtn.click()
 
         then:
-        to IRS8821TaxpayerInformationPage
+        at IRS8821TaxpayerInformationPage
 
         when: "Fill the Tax payer information"
         Taxpayer_firstName(data[2])
@@ -56,7 +60,7 @@ class IRSform8821Spec extends BaseSpec {
         nextBtn.click()
 
         then:
-        to IRS8821AppointeePage
+        at IRS8821AppointeePage
 
         when: "Fill the Appointee information"
         Appointee_firstName(data[11])
@@ -72,22 +76,38 @@ class IRSform8821Spec extends BaseSpec {
         nextBtn.click()
 
         then:
-        to IRS8821DisclosurePage
+        at IRS8821DisclosurePage
 
         when:"I select the Disclosure information"
         Disclosureoption.click()
         nextBtn.click()
 
         then:
-        to IRS8821SubmitTaxInformationPage
+        at IRS8821SubmitTaxInformationPage
 
         when:"I select the authorization for IRS records"
         authBtn.click()
+        WebElement element = driver.findElement(By.cssSelector("button[aria-label='Submit Form button. Click to submit the form']"));
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
+
         submitformBtn.click()
+        sleep(30000)
 
         then:
-        2==2
+        at IRS8821SignRequestPage
 
+        when: "I sign the application and finalize it"
+  //      tokenverification()
+        SignaturetypeBtn.click()
+        typeyoursignature()
+        savesignature.click()
+        finalizeBtn.click()
+        privacypolicy.click()
+        signrequest.click()
+
+        then:
+        at IRS8821DocumentSignedSuccessfullyPage
 
 
         where:

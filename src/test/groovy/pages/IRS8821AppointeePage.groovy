@@ -22,43 +22,43 @@ class IRS8821AppointeePage extends Page {
     }
 
 
-    void appointeeFirstName(String Appointee_firstName) {
+    void Appointee_firstName(String Appointee_firstName) {
         appointeeFirstName << Appointee_firstName
     }
 
-    void appointeeLastName(String Appointee_lastName) {
+    void Appointee_lastName(String Appointee_lastName) {
         appointeeLastName << Appointee_lastName
     }
 
-    void appointeePhoneNumber(String Appointee_phoneNumber) {
+    void Appointee_phoneNumber(String Appointee_phoneNumber) {
         appointeePhoneNumber << Appointee_phoneNumber
     }
 
-    void appointeeMailingAddress(String Appointee_Address) {
+    void Appointee_Address(String Appointee_Address) {
         appointeeMailingAddress << Appointee_Address
     }
 
-    void appointeeCity(String Appointee_City) {
+    void Appointee_City(String Appointee_City) {
         appointeeCity << Appointee_City
     }
 
-    void appointeeState(String Appointee_State) {
+    void Appointee_State(String Appointee_State) {
         appointeeState << Appointee_State
     }
 
-    void appointeeZip(String Appointee_Zip) {
+    void Appointee_Zip(String Appointee_Zip) {
         appointeeZip << Appointee_Zip
     }
 
-    void appointeeCafNumber(String Appointee_CFANumber) {
+    void Appointee_CFANumber(String Appointee_CFANumber) {
         appointeeCafNumber << Appointee_CFANumber
     }
 
-    void appointeePtin(String Appointee_PTIN) {
+    void Appointee_PTIN(String Appointee_PTIN) {
         appointeePtin << Appointee_PTIN
     }
 
-    void appointeeFaxNumber(String Appointee_FAXNumber) {
+    void Appointee_FAXNumber(String Appointee_FAXNumber) {
         appointeeFaxNumber << Appointee_FAXNumber
     }
 
