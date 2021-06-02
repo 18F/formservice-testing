@@ -74,7 +74,7 @@ environments {
 }
 
 waiting {
-    timeout = 10
+    timeout = 30
     retryInterval = 0.5
 }
 

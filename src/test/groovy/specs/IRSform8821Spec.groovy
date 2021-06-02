@@ -98,7 +98,7 @@ class IRSform8821Spec extends BaseSpec {
         at IRS8821SignRequestPage
 
         when: "I sign the application and finalize it"
-  //      tokenverification()
+        signature.click()
         SignaturetypeBtn.click()
         typeyoursignature()
         savesignature.click()
@@ -107,6 +107,7 @@ class IRSform8821Spec extends BaseSpec {
         signrequest.click()
 
         then:
+        sleep(30000)
         at IRS8821DocumentSignedSuccessfullyPage
 
 

@@ -9,11 +9,11 @@ class IRS8821SignRequestPage extends Page {
     static content = {
         signature(wait: true) { $("div[title='Place Signature here']") }
         SignaturetypeBtn(wait: true) { $("button[title='Use Herr Von Muellerhoff font for signature']") }
-        typeyoursignature(wait: true) { $("div>input[aria-label='Type your name']") }
+        typeyoursignature(wait: true) { $("input[aria-label='Type your name']") }
         savesignature(wait: true) { $("button[data-test-id=\"submit\"]") }
-        finalizeBtn(wait: true) { $("button[data-test-id=\"finalize\"]") }
-        privacypolicy(wait: true) {("label[input name='terms']")}
-        signrequest(wait:true) {("span[innerHTML='Sign']")}
+        finalizeBtn(wait: true) { $("#document-finalize") }
+        privacypolicy(wait: true) {$("input[name='terms']")}
+        signrequest(wait:true) {$("div.v-card__actions > button")}
 
     }
 
