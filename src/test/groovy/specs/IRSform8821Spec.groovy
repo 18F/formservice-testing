@@ -48,15 +48,42 @@ class IRSform8821Spec extends BaseSpec {
         at IRS8821TaxpayerInformationPage
 
         when: "Fill the Tax payer information"
+        WebElement element_2 = driver.findElement(By.cssSelector("input[id\$=taxpayerFirstName]"));
+        element_2.clear();
         Taxpayer_firstName(data[2])
+
+        WebElement element_3 = driver.findElement(By.cssSelector("input[id\$=taxpayerLastName]"));
+        element_3.clear();
         Taxpayer_lastName(data[3])
+
+        WebElement element_4 = driver.findElement(By.cssSelector("input[id\$=taxpayerDaytimePhoneNumber]"));
+        element_4.clear();
         Taxpayer_PhoneNumber(data[4])
+
+        WebElement element_5 = driver.findElement(By.cssSelector("input[id\$=taxpayerHomeAddress]"));
+        element_5.clear();
         Taxpayer_HomeAddress(data[5])
+
+        WebElement element_6 = driver.findElement(By.cssSelector("input[id\$=taxpayerCity]"));
+        element_6.clear();
         Taxpayer_City(data[6])
+
+        WebElement element_7 = driver.findElement(By.cssSelector("input[id\$=taxpayerState]"));
+        element_7.clear();
         Taxpayer_State(data[7])
+
+        WebElement element_8 = driver.findElement(By.cssSelector("input[id\$=taxpayerZip]"));
+        element_8.clear();
         Taxpayer_Zipcode(data[8])
+
+        WebElement element_9 = driver.findElement(By.cssSelector("input[id\$=taxpayerIdentificationNumber]"));
+        element_9.clear();
         Taxpayer_IdentityNumber(data[9])
+
+        WebElement element_10 = driver.findElement(By.cssSelector("input[id\$=taxpayerPlanNumber]"));
+        element_10.clear();
         Taxpayer_planNumber(data[10])
+
         nextBtn.click()
 
         then:
