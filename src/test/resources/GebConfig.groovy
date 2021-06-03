@@ -74,7 +74,7 @@ environments {
 }
 
 waiting {
-    timeout = 10
+    timeout = 30
     retryInterval = 0.5
 }
 
@@ -84,6 +84,9 @@ String calculateBaseUrl(){
     }
     else if (System.getProperty("env")== 'fheodark'){
         "https://fheo-dark.app.cloud.gov/"
+    }
+    else if (System.getProperty("env")== 'irssandbox'){
+        "https://irs8821.app.cloud.gov/faas"
     }
 
 }
