@@ -4,7 +4,7 @@ import geb.Page
 
 class IRS8821AppointeePage extends Page {
 
-         static at = { title == "GSA FormService"}
+         static at = { title == "Forms.gov - IRS 8831"}
 
         static content = {
 

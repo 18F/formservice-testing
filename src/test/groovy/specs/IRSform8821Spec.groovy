@@ -14,6 +14,7 @@ import pages.LoginGovCodeVerificationPage
 import pages.LoginGovPage
 import spock.lang.Requires
 import tag.IRS8821Test
+import utils.AccessibilityUtil
 import utils.ExcelUtil
 
 import javax.swing.JOptionPane
@@ -31,6 +32,7 @@ class IRSform8821Spec extends BaseSpec {
 
         then:
         at LoginGovCodeVerificationPage
+        AccessibilityUtil.checkAccessibility("LoginGovCodeVerificationPage", driver, baseUrl)
 
         when: "Enter your backup security code"
  //    Use backupcodes when secondary option was selected as back up codes for the user
@@ -40,12 +42,14 @@ class IRSform8821Spec extends BaseSpec {
 
         then:
         at IRS8821TaxInformationAuthorizationPage
+        AccessibilityUtil.checkAccessibility("IRS8821TaxInformationAuthorizationPage", driver, baseUrl)
 
         when: "I start the IRS 8821 form"
         nextBtn.click()
 
         then:
         at IRS8821TaxpayerInformationPage
+        AccessibilityUtil.checkAccessibility("IRS8821TaxpayerInformationPage", driver, baseUrl)
 
         when: "Fill the Tax payer information"
         WebElement element_2 = driver.findElement(By.cssSelector("input[id\$=taxpayerFirstName]"));
@@ -88,6 +92,7 @@ class IRSform8821Spec extends BaseSpec {
 
         then:
         at IRS8821AppointeePage
+        AccessibilityUtil.checkAccessibility("IRS8821AppointeePage", driver, baseUrl)
 
         when: "Fill the Appointee information"
         Appointee_firstName(data[11])
@@ -104,6 +109,7 @@ class IRSform8821Spec extends BaseSpec {
 
         then:
         at IRS8821DisclosurePage
+        AccessibilityUtil.checkAccessibility("IRS8821DisclosurePage", driver, baseUrl)
 
         when:"I select the Disclosure information"
         Disclosureoption.click()
@@ -111,6 +117,7 @@ class IRSform8821Spec extends BaseSpec {
 
         then:
         at IRS8821SubmitTaxInformationPage
+        AccessibilityUtil.checkAccessibility("IRS8821SubmitTaxInformationPage", driver, baseUrl)
 
         when:"I select the authorization for IRS records"
         authBtn.click()
@@ -130,7 +137,9 @@ class IRSform8821Spec extends BaseSpec {
         typeyoursignature()
         savesignature.click()
         finalizeBtn.click()
+        sleep(3000)
         privacypolicy.click()
+        sleep(3000)
         signrequest.click()
 
         then:
