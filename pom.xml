@@ -174,9 +174,9 @@
                     <drivers>
                         <driver>
                             <name>chromedriver</name>
-                            <version>89.0.4389.23</version>
+                            <version>91.0.4472.19</version>
                             <platform>windows</platform>
-                            <url>https://chromedriver.storage.googleapis.com/89.0.4389.23/chromedriver_win32.zip</url>
+                            <url>https://chromedriver.storage.googleapis.com/91.0.4472.19/chromedriver_win32.zip</url>
                         </driver>
                     </drivers>
                 </configuration>
