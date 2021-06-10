@@ -4,7 +4,7 @@ import geb.Page
 
 class IRS8821TaxpayerInformationPage extends Page {
 
-    static at = { title == "Forms.gov - IRS 8831"}
+    static at = { title == "Forms.gov - IRS 8821"}
 
     static content = {
 
