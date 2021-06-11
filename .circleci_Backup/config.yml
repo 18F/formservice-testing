@@ -271,11 +271,8 @@ jobs:
 workflows:
   build:
     jobs:
-        - FHEO-DeviceiosiPad-Dark
-        - FHEO-Deviceiosphone-Dark
-           filters:
-              branches:
-                only: main
+##      - FHEO-DeviceiosiPad-Dark
+##      - FHEO-Deviceiosphone-Dark
 ##      - FHEO-DeviceAndroidphone-Dark
 ##
 ##  nightly:
