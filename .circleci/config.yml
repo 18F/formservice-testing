@@ -268,9 +268,9 @@ jobs:
           path: /home/circleci/project/target/allure-reports
 
 
-workflows:
-  build:
-    jobs:
+##workflows:
+##  build:
+##    jobs:
 ##      - FHEO-DeviceiosiPad-Dark
 ##      - FHEO-Deviceiosphone-Dark
 ##      - FHEO-DeviceAndroidphone-Dark
