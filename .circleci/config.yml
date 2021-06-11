@@ -271,7 +271,7 @@ jobs:
 workflows:
   build:
     jobs:
-      - FHEO-DeviceiosiPad-Dark
+##      - FHEO-DeviceiosiPad-Dark
 ##      - FHEO-Deviceiosphone-Dark
 ##      - FHEO-DeviceAndroidphone-Dark
 ##
@@ -302,7 +302,7 @@ workflows:
 ##      - FHEO-uitests-Set4-Dark:
 ##          requires:
 ##            - FHEO-uitests-Set1-Dark
-##      - FHEO-acceptance-test-Dev
+      - FHEO-acceptance-test-Dev
 ##      - FHEO-ErrSpec-Dev
 ##      - FHEO-508Spec-Dev:
 ##          requires:
