@@ -273,50 +273,8 @@ workflows:
     jobs:
 ##      - FHEO-DeviceiosiPad-Dark
 ##      - FHEO-Deviceiosphone-Dark
-      - FHEO-DeviceAndroidphone-Dark
-      - FHEO-DeviceAndroidtablet-Dark
-      - FHEO-acceptance-tests-Dark
-      - FHEO-508Specs-Dark:
-          requires:
-            - FHEO-DeviceAndroidphone-Dark
-      - FHEO-ErrSpecs-Dark:
-          requires:
-            - FHEO-508Specs-Dark
-      - FHEO-uitests-Set1-Dark:
-          requires:
-            - FHEO-508Specs-Dark
-      - FHEO-uitests-Set2-Dark:
-          requires:
-            - FHEO-ErrSpecs-Dark
-      - FHEO-uitests-Set3-Dark:
-          requires:
-            - FHEO-uitests-Set2-Dark
-      - FHEO-uitests-Set4-Dark:
-          requires:
-            - FHEO-uitests-Set1-Dark
-##      - FHEO-DeviceiosiPad-Dev
-##      - FHEO-Deviceiosphone-Dev
-      - FHEO-DeviceAndroidphone-Dev
-      - FHEO-DeviceAndroidtablet-Dev
-      - FHEO-acceptance-test-Dev
-      - FHEO-ErrSpec-Dev:
-          requires:
-            - FHEO-DeviceAndroidphone-Dev
-      - FHEO-508Spec-Dev:
-          requires:
-            - FHEO-ErrSpec-Dev
-      - FHEO-uitest-Set1-Dev:
-          requires:
-            - FHEO-ErrSpec-Dev
-      - FHEO-uitest-Set2-Dev:
-          requires:
-            - FHEO-ErrSpec-Dev
-      - FHEO-uitest-Set3-Dev:
-          requires:
-            - FHEO-508Spec-Dev
-      - FHEO-uitest-Set4-Dev:
-          requires:
-            - FHEO-uitest-Set1-Dev
+##      - FHEO-DeviceAndroidphone-Dark
+##
 ##  nightly:
 ##    triggers:
 ##      - schedule:
