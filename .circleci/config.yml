@@ -2,16 +2,19 @@
 version: 2.1
 jobs:
   Smoke_test:
-  steps:
-    - run: 
+    docker:
+      - image: alpine:3.7
+    steps:
+      - checkout
+      - run: 
           name: Run Smoke Test
           command: |
             echo 'Initializing Smoke Tests'
             ./smoke_tests/smoke_forms_test
             echo "Smoke Test finished"
-  
-  
 workflows:
-  test:
-    jobs:
-      - Smoke-test
+    test:
+      jobs:
+      - Smoke_test
+  
+  
