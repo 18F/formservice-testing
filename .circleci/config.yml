@@ -4,6 +4,7 @@ jobs:
   Smoke_test:
     docker:
       - image: alpine:3.7
+    resource_class: small
     steps:
       - checkout
       - run: 
