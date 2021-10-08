@@ -11,7 +11,7 @@ jobs:
           name: Run Smoke Test
           command: |
             echo 'Initializing Smoke Tests'
-            ./smoke_tests/smoke_forms_test
+             . smoke_tests/smoke_forms_test
             echo "Smoke Test finished"
 workflows:
     test:
