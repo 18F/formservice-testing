@@ -12,7 +12,7 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"console.log(pm.variables.get(\"centralHubUrl\"));"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -22,9 +22,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{centralHubUrl}}/status",
+					"raw": "https://portal-test.forms.gov/status",
+					"protocol": "https",
 					"host": [
-						"{{centralHubUrl}}"
+						"portal-test",
+						"forms",
+						"gov"
 					],
 					"path": [
 						"status"
@@ -39,11 +42,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{subUrl}}/status",
+					"raw": "https://submission-test.forms.gov//status",
+					"protocol": "https",
 					"host": [
-						"{{subUrl}}"
+						"submission-test",
+						"forms",
+						"gov"
 					],
 					"path": [
+						"",
 						"status"
 					]
 				}
