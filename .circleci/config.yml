@@ -3,44 +3,37 @@ version: 2.1
 defaults: &defaults
   docker: 
     - image: circleci/node:10.16.3
-  steps:
-      - checkout
-      - run:
-          name: Update NPM & Install Newman
-          command: |
-                    "sudo npm install -g npm@5"
-                    "sudo npm install -g newman"
+aliases:
+  - &InstallNewman
+      name: Update NPM & Install Newman
+      command: |
+                "sudo npm install -g npm@5"
+                "sudo npm install -g newman"
 
 jobs:
    SmokeTestDev:
     <<: *defaults
     steps:
-      - checkout
-      - attach_workspace:
-         at: tmp
+      - run: *InstallNewman      
       - run:
-          name: "checkout and run tests"
-          command: |
-                    docker load -i /tmp/SmokeTest
-                    newman run "formservice/collections/SmokeTest.json" --folder Dev
+          name: "Run tests"
+          command: newman run "formservice/collections/SmokeTest.json" --folder Dev
    SmokeTestTest:
     <<: *defaults
     steps:
       - checkout
-      - attach_workspace:
-         at: ~/data
+      - run: *InstallNewman
       - run:
-          name: "checkout and run tests"
+          name: "Run tests"
           command: |
                     newman run "formservice/collections/SmokeTest.json" --folder Test
    SmokeTestProd:
     <<: *defaults
     steps:
       - checkout
-      - attach_workspace:
-         at: ~/data
+      - run: *InstallNewman
       - run:
-          name: "checkout and run tests"
+          name: "Run tests"
           command: |
                     newman run "formservice/collections/SmokeTest.json" --folder Prod
 
