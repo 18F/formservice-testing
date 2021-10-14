@@ -45,8 +45,8 @@ workflows:
   main:
     jobs:
 #      - SmokeTestDev
-#      - SmokeTestTest
-      - SmokeTestProd
+      - SmokeTestTest
+#      - SmokeTestProd
    
 ##
 ##  nightly:
