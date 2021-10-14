@@ -18,13 +18,13 @@ jobs:
       - persist_to_workspace:
           root: .
           paths:
-            - "/tmp"
+            - "tmp"
   SmokeTestDev:
     <<: *defaults
     steps:
       - checkout
       - attach_workspace:
-         at: /tmp
+         at: tmp
       - run:
           name: "checkout and run tests"
           command: |
