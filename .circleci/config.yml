@@ -13,7 +13,7 @@ jobs:
                     npm config -g delete ca
                     $SUDO npm install -g newman
       - run:
-          name: "install NPM"
+          name: "Curl"
           command: |
                     curl https://portal-test.forms.gov/status
                     curl https://submission-test.forms.gov/status
