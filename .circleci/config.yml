@@ -1,30 +1,16 @@
 # Circleci config
 version: 2.1
+orbs:
+  newman: postman/newman@0.0.2
 jobs:
   SmokeTest: ## These are for dark environment
-    machine:
-      image: ubuntu-2004:202101-01 # # recommended linux image - includes Ubuntu 20.04, docker-compose 1.27.4
+    docker:
+     - image: cimg/base:stable
     steps:
-      - run:
-          name: "install NPM"
-          command: |
-                    $sudo npm install -g npm@latest > /dev/null 2>&1 || \
-                    npm install -g npm@latest > /dev/null 2<&1
-                    npm config -g delete ca
-                    $SUDO npm install -g newman
-      - run:
-          name: "install NPM"
-          command: |
-                    curl https://portal-test.forms.gov/status
-                    curl https://submission-test.forms.gov/status
-      - checkout
-      - run:
-          name: "checkout and run tests"
-          command: |
-                    newman run "formservice/collections/SmokeTest.json"
-  
-
-
+      - newman/newman-run:
+          collection: formservice/collections/SmokeTest.json
+          folder: Test
+      
 workflows:
   build:
     jobs:
