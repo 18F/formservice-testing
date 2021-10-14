@@ -14,7 +14,12 @@ jobs:
    SmokeTestDev:
     <<: *defaults
     steps:
-      - run: *InstallNewman      
+      - checkout
+      - run: 
+          name: Update NPM & Install Newman
+          command: |
+                "sudo npm install -g npm@5"
+                "sudo npm install -g newman"      
       - run:
           name: "Run tests"
           command: newman run "formservice/collections/SmokeTest.json" --folder Dev
