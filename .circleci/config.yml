@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   SmokeTest: ## These are for dark environment
     docker:
-      image: circleci/node:10.16.3 # # recommended linux image - includes Ubuntu 20.04, docker-compose 1.27.4
+      - image: circleci/node:10.16.3 # # recommended linux image - includes Ubuntu 20.04, docker-compose 1.27.4
     steps:
       - checkout
       - run:
