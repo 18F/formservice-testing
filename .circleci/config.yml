@@ -12,7 +12,8 @@ aliases:
 
 jobs:
    SmokeTestDev:
-    <<: *defaults
+    docker: 
+    - image: circleci/node:10.16.3
     steps:
       - checkout
       - run: 
