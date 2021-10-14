@@ -2,22 +2,22 @@
 version: 2.1
 jobs:
   SmokeTest: ## These are for dark environment
-    machine:
-      image: ubuntu-2004:202101-01 # # recommended linux image - includes Ubuntu 20.04, docker-compose 1.27.4
+    docker:
+      image: circleci/node:10.16.3 # # recommended linux image - includes Ubuntu 20.04, docker-compose 1.27.4
     steps:
+      - checkout
       - run:
-          name: "install NPM"
-          command: |
-                    $sudo npm install -g npm@latest > /dev/null 2>&1 || \
-                    npm install -g npm@latest > /dev/null 2<&1
-                    npm config -g delete ca
-                    $SUDO npm install -g newman
+          name: Update NPM
+          command: "sudo npm install -g npm@5"
+      - run:
+            name: Install newman
+            command: "sudo npm install -g newman"
       - run:
           name: "Curl"
           command: |
                     curl https://portal-test.forms.gov/status
                     curl https://submission-test.forms.gov/status
-      - checkout
+      
       - run:
           name: "checkout and run tests"
           command: |
