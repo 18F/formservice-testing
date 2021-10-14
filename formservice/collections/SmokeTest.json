@@ -6,111 +6,257 @@
 	},
 	"item": [
 		{
-			"name": "CentralHubStatus",
-			"event": [
+			"name": "Test",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://portal-test.forms.gov/status",
-					"protocol": "https",
-					"host": [
-						"portal-test",
-						"forms",
-						"gov"
+					"name": "CentralHubStatus",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
 					],
-					"path": [
-						"status"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "SubmissionStatus",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://submission-test.forms.gov//status",
-					"protocol": "https",
-					"host": [
-						"submission-test",
-						"forms",
-						"gov"
-					],
-					"path": [
-						"",
-						"status"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "NewSubmission - central hub",
-			"event": [
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://portal-test.forms.gov/status",
+							"protocol": "https",
+							"host": [
+								"portal-test",
+								"forms",
+								"gov"
+							],
+							"path": [
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "https://portal-test.forms.gov/faas-dev/smoketest/submission",
-					"protocol": "https",
-					"host": [
-						"portal-test",
-						"forms",
-						"gov"
+					"name": "SubmissionStatus",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://submission-test.forms.gov/status",
+							"protocol": "https",
+							"host": [
+								"submission-test",
+								"forms",
+								"gov"
+							],
+							"path": [
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NewSubmission - central hub",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
 					],
-					"path": [
-						"faas-dev",
-						"smoketest",
-						"submission"
-					]
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://portal-test.forms.gov/faas-dev/smoketest/submission",
+							"protocol": "https",
+							"host": [
+								"portal-test",
+								"forms",
+								"gov"
+							],
+							"path": [
+								"faas-dev",
+								"smoketest",
+								"submission"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NewSubmission - sub server",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://submission-test.forms.gov/faas-dev/smoketest/submission",
+							"protocol": "https",
+							"host": [
+								"submission-test",
+								"forms",
+								"gov"
+							],
+							"path": [
+								"faas-dev",
+								"smoketest",
+								"submission"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "NewSubmission - sub server",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "https://submission-test.forms.gov/faas-dev/smoketest/submission",
-					"protocol": "https",
-					"host": [
-						"submission-test",
-						"forms",
-						"gov"
+			"name": "Prod",
+			"item": [
+				{
+					"name": "CentralHubStatus Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
 					],
-					"path": [
-						"faas-dev",
-						"smoketest",
-						"submission"
-					]
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://portal.forms.gov/status",
+							"protocol": "https",
+							"host": [
+								"portal",
+								"forms",
+								"gov"
+							],
+							"path": [
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SubmissionStatus Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://submission.forms.gov/status",
+							"protocol": "https",
+							"host": [
+								"submission",
+								"forms",
+								"gov"
+							],
+							"path": [
+								"status"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
+		},
+		{
+			"name": "Dev",
+			"item": [
+				{
+					"name": "CentralHubStatus",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://portal-dev.forms.gov/status",
+							"protocol": "https",
+							"host": [
+								"portal-dev",
+								"forms",
+								"gov"
+							],
+							"path": [
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SubmissionStatus",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://submission-dev.forms.gov/status",
+							"protocol": "https",
+							"host": [
+								"submission-dev",
+								"forms",
+								"gov"
+							],
+							"path": [
+								"status"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [
