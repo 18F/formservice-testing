@@ -5,15 +5,14 @@ defaults: &defaults
     - image: circleci/node:10.16.3
 aliases:
   - &InstallNewman
-      name: Update NPM & Install Newman
-      command: |
-                "sudo npm install -g npm@5"
-                "sudo npm install -g newman"
+    name: Install npm and newman
+    command: |
+              "sudo npm install -g npm@5"
+              "sudo npm install -g newman"   
 
 jobs:
    SmokeTestDev:
-    docker: 
-    - image: circleci/node:10.16.3
+    <<: *defaults
     steps:
       - checkout
       - run: "sudo npm install -g npm@5"
@@ -25,7 +24,7 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - run: *InstallNewman
+      - run: *InstallNewman  
       - run:
           name: "Run tests"
           command: |
@@ -45,8 +44,8 @@ workflows:
   main:
     jobs:
       - SmokeTestDev
-  ##    - SmokeTestTest
-  ##    - SmokeTestProd
+      - SmokeTestTest
+      - SmokeTestProd
    
 ##
 ##  nightly:
