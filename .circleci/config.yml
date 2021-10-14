@@ -12,6 +12,11 @@ jobs:
                     npm install -g npm@latest > /dev/null 2<&1
                     npm config -g delete ca
                     $SUDO npm install -g newman
+      - run:
+          name: "install NPM"
+          command: |
+                    curl https://portal-test.forms.gov/status
+                    curl https://submission-test.forms.gov/status
       - checkout
       - run:
           name: "checkout and run tests"
