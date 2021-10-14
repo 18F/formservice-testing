@@ -10,24 +10,25 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Update NPM
-          command: "sudo npm install -g npm@5"
-      - run:
-            name: Install newman
-            command: "sudo npm install -g newman"
+          name: Update NPM & Install Newman
+          command: |
+                    "sudo npm install -g npm@5"
+                    "sudo npm install -g newman"
+                    docker save -o /tmp SmokeTest
       - persist_to_workspace:
           root: .
           paths:
-            - ""
+            - "/tmp"
   SmokeTestDev:
     <<: *defaults
     steps:
       - checkout
       - attach_workspace:
-         at: ~/data
+         at: /tmp
       - run:
           name: "checkout and run tests"
           command: |
+                    docker load -i /tmp/SmokeTest
                     newman run "formservice/collections/SmokeTest.json" --folder Dev
   SmokeTestTest:
     <<: *defaults
