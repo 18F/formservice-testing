@@ -1,9 +1,12 @@
 # Circleci config
 version: 2.1
+defaults: &defaults
+  docker: 
+    - image: circleci/node:10.16.3
+
 jobs:
   Deploy: 
-    docker:
-      - image: circleci/node:10.16.3 
+    <<: *defaults 
     steps:
       - checkout
       - run:
@@ -12,41 +15,56 @@ jobs:
       - run:
             name: Install newman
             command: "sudo npm install -g newman"
-      - run:
-          name: "Curl"
-          command: |
-                    curl https://portal-test.forms.gov/status
-                    curl https://submission-test.forms.gov/status
-      
+      - persist_to_workspace:
+          root: .
+          paths:
+            - ""
   SmokeTestDev:
-    steps:    
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+         at: ~/data
       - run:
           name: "checkout and run tests"
           command: |
                     newman run "formservice/collections/SmokeTest.json" --folder Dev
   SmokeTestTest:
-    steps:    
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+         at: ~/data
       - run:
           name: "checkout and run tests"
-          command: |          
+          command: |
                     newman run "formservice/collections/SmokeTest.json" --folder Test
-    SmokeTestProd:
-    steps:    
+  SmokeTestProd:
+    <<: *defaults
+    steps:
+      - checkout
+      - attach_workspace:
+         at: ~/data
       - run:
           name: "checkout and run tests"
           command: |
                     newman run "formservice/collections/SmokeTest.json" --folder Prod
+
       
 workflows:
   main:
     jobs:
     - Deploy
-    - SmokeTestDev
-        requires Deploy
-    - SmokeTestTest
-        requires Deploy
-    - SmokeTestProd
-        requires Deploy
+    - SmokeTestDev:
+        requires:
+          - Deploy
+    - SmokeTestTest:
+        requires:
+          - Deploy
+    - SmokeTestProd:
+        requires:
+          - Deploy
+   
 ##
 ##  nightly:
 ##    triggers:
