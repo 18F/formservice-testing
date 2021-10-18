@@ -49,14 +49,14 @@ workflows:
       - SmokeTest
    
 ##
-##  nightly:
-##    triggers:
-##      - schedule:
+  nightly:
+    triggers:
+      - schedule:
           # The cron format is:
           # min (0-59) hour (0-23) monthday (1-31) month (1-12) weekday (0-6, 0=Sun) - UTC time
-##          cron: "10 14 * * *"
-##          filters:
-##            branches:
-##              only: ScheduleRuns
-##    jobs:
-##      - FHEO-acceptance-test-Dev
+          cron: "22 23 * * *"
+          filters:
+            branches:
+              only: develop
+    jobs:
+      - SmokeTest
