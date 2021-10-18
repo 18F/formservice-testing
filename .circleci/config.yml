@@ -34,6 +34,7 @@ jobs:
             git config user.email "ryan.cox@gsa.gov"
             git config user.name "CircleCI Job"
             git checkout develop
+            git add /home/circleci/project/reports/SmokeReportOutput.html
             git commit --allow-empty -am "Automatic commit from CircleCI [skip ci]"
             git push origin develop
       - store_artifacts:
