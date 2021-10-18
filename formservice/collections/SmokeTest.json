@@ -6,6 +6,83 @@
 	},
 	"item": [
 		{
+			"name": "Dev",
+			"item": [
+				{
+					"name": "CentralHubStatus",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"const responseJson = pm.response.json();\r",
+									"var version = responseJson.version\r",
+									"console.log(version)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://portal-dev.forms.gov/status",
+							"protocol": "https",
+							"host": [
+								"portal-dev",
+								"forms",
+								"gov"
+							],
+							"path": [
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SubmissionStatus",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"const responseJson = pm.response.json();\r",
+									"var version = responseJson.version\r",
+									"console.log(version)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://submission-dev.forms.gov/status",
+							"protocol": "https",
+							"host": [
+								"submission-dev",
+								"forms",
+								"gov"
+							],
+							"path": [
+								"status"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Test",
 			"item": [
 				{
@@ -45,7 +122,7 @@
 					"response": []
 				},
 				{
-					"name": "SubmissionStatus",
+					"name": "SubmissionSvrStatus",
 					"event": [
 						{
 							"listen": "test",
@@ -55,7 +132,8 @@
 									"    pm.response.to.have.status(200);\r",
 									"});\r",
 									"const responseJson = pm.response.json();\r",
-									"console.log(responseJson)\r",
+									"var version = responseJson.version\r",
+									"console.log(version)\r",
 									""
 								],
 								"type": "text/javascript"
@@ -81,13 +159,13 @@
 					"response": []
 				},
 				{
-					"name": "NewSubmission - central hub",
+					"name": "Submission - Central Hub",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
+									"pm.test(\"Status code is 201\", function () {\r",
 									"    pm.response.to.have.status(201);\r",
 									"});"
 								],
@@ -116,13 +194,13 @@
 					"response": []
 				},
 				{
-					"name": "NewSubmission - sub server",
+					"name": "Submission - Sub Svr",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
+									"pm.test(\"Status code is 201\", function () {\r",
 									"    pm.response.to.have.status(201);\r",
 									"});"
 								],
@@ -146,7 +224,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://submission-test.forms.gov/faas-dev/smoketest/submission",
+							"raw": "https://submission-test.forms.gov/faas-dev/form/615617bb7e96b7061208ed48/submission",
 							"protocol": "https",
 							"host": [
 								"submission-test",
@@ -155,7 +233,8 @@
 							],
 							"path": [
 								"faas-dev",
-								"smoketest",
+								"form",
+								"615617bb7e96b7061208ed48",
 								"submission"
 							]
 						}
@@ -168,7 +247,7 @@
 			"name": "Prod",
 			"item": [
 				{
-					"name": "CentralHubStatus Copy",
+					"name": "CentralHubStatus",
 					"event": [
 						{
 							"listen": "test",
@@ -176,7 +255,10 @@
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
-									"});"
+									"});\r",
+									"const responseJson = pm.response.json();\r",
+									"var version = responseJson.version\r",
+									"console.log(version)"
 								],
 								"type": "text/javascript"
 							}
@@ -201,7 +283,7 @@
 					"response": []
 				},
 				{
-					"name": "SubmissionStatus Copy",
+					"name": "SubmissionSvrStatus",
 					"event": [
 						{
 							"listen": "test",
@@ -209,7 +291,10 @@
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
-									"});"
+									"});\r",
+									"const responseJson = pm.response.json();\r",
+									"var version = responseJson.version\r",
+									"console.log(version)"
 								],
 								"type": "text/javascript"
 							}
@@ -232,59 +317,16 @@
 						}
 					},
 					"response": []
-				}
-			]
-		},
-		{
-			"name": "Dev",
-			"item": [
-				{
-					"name": "CentralHubStatus",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"const responseJson = pm.response.json();\r",
-									"var version = responseJson.version\r",
-									"\r",
-									"console.log(responseJson)\r",
-									"console.log(version)"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://portal-dev.forms.gov/status",
-							"protocol": "https",
-							"host": [
-								"portal-dev",
-								"forms",
-								"gov"
-							],
-							"path": [
-								"status"
-							]
-						}
-					},
-					"response": []
 				},
 				{
-					"name": "SubmissionStatus",
+					"name": "Submission - Central Hub",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -292,18 +334,67 @@
 						}
 					],
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "https://submission-dev.forms.gov/status",
+							"raw": "https://portal.forms.gov/faas-tempprod/smoketest/submission",
 							"protocol": "https",
 							"host": [
-								"submission-dev",
+								"portal",
 								"forms",
 								"gov"
 							],
 							"path": [
-								"status"
+								"faas-tempprod",
+								"smoketest",
+								"submission"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Submission - Sub Svr",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "content-type",
+								"value": "application/json; charset=utf-8",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://submission.forms.gov/faas-tempprod/smoketest/submission",
+							"protocol": "https",
+							"host": [
+								"submission",
+								"forms",
+								"gov"
+							],
+							"path": [
+								"faas-tempprod",
+								"smoketest",
+								"submission"
 							]
 						}
 					},
