@@ -10,43 +10,26 @@ defaults: &defaults
 #    command: "sudo npm install -g newman"   
 
 jobs:
-   SmokeTestDev:
+   SmokeTest:
     <<: *defaults
     steps:
       - checkout
       - run: "sudo npm install -g npm@5"
-      - run: "sudo npm install -g newman"      
+      - run: "sudo npm install -g newman" 
+      - run: "sudo npm install -g newman-reporter-htmlextra"     
       - run:
           name: "Run tests"
-          command: newman run "formservice/collections/SmokeTest.json" --folder Dev
-   SmokeTestTest:
-    <<: *defaults
-    steps:
-      - checkout
-      - run: "sudo npm install -g npm@5"
-      - run: "sudo npm install -g newman"  
-      - run:
-          name: "Run tests"
-          command: |
-                    newman run "formservice/collections/SmokeTest.json" --folder Test
-   SmokeTestProd:
-    <<: *defaults
-    steps:
-      - checkout
-      - run: "sudo npm install -g npm@5"
-      - run: "sudo npm install -g newman"
-      - run:
-          name: "Run tests"
-          command: |
-                    newman run "formservice/collections/SmokeTest.json" --folder Prod
+          command: newman run "formservice/collections/SmokeTest.json" -x -r htmlextra --reporter-htmlextra-logs
+      - store_artifacts:
+          path: /home/circleci/project/target/newmanreports
+   
+   
 
       
 workflows:
   main:
     jobs:
-#      - SmokeTestDev
-      - SmokeTestTest
-#      - SmokeTestProd
+      - SmokeTest
    
 ##
 ##  nightly:
