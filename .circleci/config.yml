@@ -21,7 +21,7 @@ jobs:
           name: "Run tests"
           command: newman run "formservice/collections/SmokeTest.json" -x -r htmlextra --reporter-htmlextra-logs
       - store_artifacts:
-          path: /home/circleci/project/target/newmanreports
+          path: /home/circleci/project/newman
    
    
 
