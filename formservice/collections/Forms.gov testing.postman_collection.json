@@ -17,7 +17,10 @@
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
-									"});"
+									"});\r",
+									"const responseJson = pm.response.json();\r",
+									"var version = responseJson.version\r",
+									"console.log(version)"
 								],
 								"type": "text/javascript"
 							}
