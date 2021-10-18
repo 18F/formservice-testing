@@ -25,7 +25,7 @@ jobs:
       - run:
           name: "Run tests"
           command: |
-            cd /reports/
+            cd /home/circleci/project/reports/
             newman run "formservice/collections/SmokeTest.json" -x -r htmlextra --reporter-htmlextra-logs
             mv *.html SmokeReportOutput.html
       - run: 
