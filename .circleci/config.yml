@@ -3,6 +3,7 @@ version: 2.1
 defaults: &defaults
   docker: 
     - image: circleci/node:10.16.3
+  resource_class: small
 #aliases:
 #  - &InstallNewman
 #    name: Install npm and newman
