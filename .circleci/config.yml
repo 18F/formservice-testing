@@ -26,7 +26,7 @@ jobs:
           name: "Run tests"
           command: |
             cd /home/circleci/project/reports/
-            newman run "formservice/collections/SmokeTest.json" -x -r htmlextra --reporter-htmlextra-logs
+            newman run "/home/circleci/project/formservice/collections/SmokeTest.json" -x -r htmlextra --reporter-htmlextra-logs
             mv *.html SmokeReportOutput.html
       - run: 
           name: Commit to Github
