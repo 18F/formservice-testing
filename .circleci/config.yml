@@ -1,22 +1,61 @@
 # Circleci config
 version: 2.1
+defaults: &defaults
+  docker: 
+    - image: circleci/node:10.16.3
+  resource_class: small
+#aliases:
+#  - &InstallNewman
+#    name: Install npm and newman
+#    command: "sudo npm install -g npm@5"
+#    command: "sudo npm install -g newman"   
+
 jobs:
-  Smoke_test:
-    docker:
-      - image: alpine:3.7
-    resource_class: small
+   SmokeTest:
+    <<: *defaults
     steps:
       - checkout
-      - run: 
-          name: Run Smoke Test
+      - add_ssh_keys:
+          fingerprints:
+            - "2d:57:f4:79:ee:d2:d9:3b:8e:96:be:d3:b5:27:f6:c2" 
+      - run: "sudo npm install -g npm@5"
+      - run: "sudo npm install -g newman" 
+      - run: "sudo npm install -g newman-reporter-htmlextra"
+    
+      - run:
+          name: "Run tests"
           command: |
-            echo 'Initializing Smoke Tests'
-            cd smoke_tests
-            . smoke-forms-test
-            echo "Smoke Test finished"
+            cd /home/circleci/project/reports/
+            newman run "/home/circleci/project/formservice/collections/SmokeTest.json" -x -r htmlextra --reporter-htmlextra-logs --reporter-htmlextra-timezone "America/New_York"
+            cp newman/*.html SmokeReportOutput.html
+      - run: 
+          name: Commit to Github
+          command: |
+            git config user.email "ryan.cox@gsa.gov"
+            git config user.name "CircleCI Job"
+            git checkout develop
+            git add /home/circleci/project/reports/SmokeReportOutput.html
+            git commit --allow-empty -am "Automatic commit from CircleCI [skip ci]"
+            git push origin develop
+      - store_artifacts:
+          path: /home/circleci/project/reports/newman
+   
+   
+
+      
 workflows:
-    test:
-      jobs:
-      - Smoke_test
-  
-  
+  test:
+    jobs:
+      - SmokeTest
+##
+  nightly:
+    triggers:
+      - schedule:
+          # The cron format is:
+          # min (0-59) hour (0-23) monthday (1-31) month (1-12) weekday (0-6, 0=Sun) - UTC time
+          cron: "00 11 * * *"
+          filters:
+            branches:
+              only: main
+    jobs:
+      - SmokeTest

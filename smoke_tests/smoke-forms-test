@@ -1,8 +1,0 @@
-#!/bin/bash
-
-. smoke.sh
-
-smoke_url_ok "https://portal-test.forms.gov"
-smoke_url_ok "https://submission-test.forms.gov"
-
-smoke_report
