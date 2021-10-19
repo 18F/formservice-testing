@@ -28,21 +28,22 @@ jobs:
             cd /home/circleci/project/reports/
             newman run "/home/circleci/project/formservice/collections/SmokeTest.json" -x -r htmlextra --reporter-htmlextra-logs --reporter-htmlextra-timezone "America/New_York"
             cp newman/*.html SmokeReportOutput.html
-      - run: 
-          name: Commit to Github
-          command: |
-            git config user.email "ryan.cox@gsa.gov"
-            git config user.name "CircleCI Job"
-            git checkout SmokeTestReports
-            git add /home/circleci/project/reports/SmokeReportOutput.html
-            git commit --allow-empty -am "Automatic commit from CircleCI [skip ci]"
-            git push origin SmokeTestReports
+      - when:
+          condition:
+              equal: [ main, << pipeline.git.branch >> ]
+          steps:
+            - run: 
+                name: Commit to Github
+                command: |
+                  git config user.email "ryan.cox@gsa.gov"
+                  git config user.name "CircleCI Job"
+                  git checkout main
+                  git add /home/circleci/project/reports/SmokeReportOutput.html
+                  git commit --allow-empty -am "Automatic commit from CircleCI [skip ci]"
+                  git push origin main
       - store_artifacts:
           path: /home/circleci/project/reports/newman
-   
-   
-
-      
+    
 workflows:
   test:
     jobs:
