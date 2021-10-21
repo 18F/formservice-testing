@@ -35,7 +35,7 @@ jobs:
             - run: 
                 name: Commit to Github
                 command: |
-                  cp newman/*.html SmokeReportOutput.html
+                  cp /tmp/newman/*.html /home/circleci/project/reports/SmokeReportOutput.html
                   git config user.email "ryan.cox@gsa.gov"
                   git config user.name "CircleCI Job"
                   git checkout smokeTestReport
