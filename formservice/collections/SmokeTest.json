@@ -99,15 +99,15 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "https://portal-test.forms.gov/faas-dev/smoketest/submission",
+							"raw": "https://portal-dev.forms.gov/sandbox/smoketest/submission",
 							"protocol": "https",
 							"host": [
-								"portal-test",
+								"portal-dev",
 								"forms",
 								"gov"
 							],
 							"path": [
-								"faas-dev",
+								"sandbox",
 								"smoketest",
 								"submission"
 							]
@@ -116,7 +116,7 @@
 					"response": []
 				},
 				{
-					"name": "Submission - Sub Svr Copy",
+					"name": "Submission - Sub Svr",
 					"event": [
 						{
 							"listen": "test",
@@ -146,17 +146,16 @@
 							}
 						],
 						"url": {
-							"raw": "https://submission-test.forms.gov/faas-dev/form/615617bb7e96b7061208ed48/submission",
+							"raw": "https://submission-dev.forms.gov/sandbox/smoketest/submission",
 							"protocol": "https",
 							"host": [
-								"submission-test",
+								"submission-dev",
 								"forms",
 								"gov"
 							],
 							"path": [
-								"faas-dev",
-								"form",
-								"615617bb7e96b7061208ed48",
+								"sandbox",
+								"smoketest",
 								"submission"
 							]
 						}
