@@ -99,7 +99,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "https://portal-dev.forms.gov/sandbox/smoketest/submission",
+							"raw": "https://portal-dev.forms.gov/formssandbox-dev/smoketest/submission",
 							"protocol": "https",
 							"host": [
 								"portal-dev",
@@ -146,7 +146,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://submission-dev.forms.gov/sandbox/smoketest/submission",
+							"raw": "https://submission-dev.forms.gov/formssandbox-dev/smoketest/submission",
 							"protocol": "https",
 							"host": [
 								"submission-dev",
