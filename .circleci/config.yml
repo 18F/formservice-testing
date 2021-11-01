@@ -25,7 +25,7 @@ jobs:
       - run:
           name: "Run tests"
           command: |
-#           cd /tmp/
+
             newman run "/home/circleci/project/collections/SmokeTest.json" -x -r htmlextra --reporter-htmlextra-logs --reporter-htmlextra-timezone "America/New_York"
             
  #     - when:
