@@ -6,7 +6,83 @@
 	},
 	"item": [
 		{
-			"name": "Dev",
+			"name": "FormDefinition",
+			"item": [
+				{
+					"name": "MiA - WaiverForm",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://submission.forms.gov/mia-live/madeinamericanonavailabilitywaiverrequest",
+							"protocol": "https",
+							"host": [
+								"submission",
+								"forms",
+								"gov"
+							],
+							"path": [
+								"mia-live",
+								"madeinamericanonavailabilitywaiverrequest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MiA - SelectionForm",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://portal.forms.gov/mia-live/manage/view/#/form/madeinamericawaiverselection?header=1&reset=1",
+							"protocol": "https",
+							"host": [
+								"portal",
+								"forms",
+								"gov"
+							],
+							"path": [
+								"mia-live",
+								"manage",
+								"view",
+								""
+							],
+							"hash": "/form/madeinamericawaiverselection?header=1&reset=1"
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Prod",
 			"item": [
 				{
 					"name": "CentralHubStatus",
@@ -30,10 +106,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://portal-dev.forms.gov/status",
+							"raw": "https://portal.forms.gov/status",
 							"protocol": "https",
 							"host": [
-								"portal-dev",
+								"portal",
 								"forms",
 								"gov"
 							],
@@ -45,7 +121,7 @@
 					"response": []
 				},
 				{
-					"name": "SubmissionStatus",
+					"name": "SubmissionSvrStatus",
 					"event": [
 						{
 							"listen": "test",
@@ -66,10 +142,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://submission-dev.forms.gov/status",
+							"raw": "https://submission.forms.gov/status",
 							"protocol": "https",
 							"host": [
-								"submission-dev",
+								"submission",
 								"forms",
 								"gov"
 							],
@@ -99,62 +175,15 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "https://portal-dev.forms.gov/formssandbox-dev/smoketest/submission",
+							"raw": "https://portal.forms.gov/faas-tempprod/smoketest/submission",
 							"protocol": "https",
 							"host": [
-								"portal-dev",
+								"portal",
 								"forms",
 								"gov"
 							],
 							"path": [
-								"formssandbox-dev",
-								"smoketest",
-								"submission"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Submission - Sub Svr",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 201\", function () {\r",
-									"    pm.response.to.have.status(201);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "content-type",
-								"value": "application/json; charset=utf-8",
-								"type": "text"
-							},
-							{
-								"key": "",
-								"value": "",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"url": {
-							"raw": "https://submission-dev.forms.gov/formssandbox-dev/smoketest/submission",
-							"protocol": "https",
-							"host": [
-								"submission-dev",
-								"forms",
-								"gov"
-							],
-							"path": [
-								"formssandbox-dev",
+								"faas-tempprod",
 								"smoketest",
 								"submission"
 							]
@@ -274,59 +303,11 @@
 						}
 					},
 					"response": []
-				},
-				{
-					"name": "Submission - Sub Svr",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 201\", function () {\r",
-									"    pm.response.to.have.status(201);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "content-type",
-								"value": "application/json; charset=utf-8",
-								"type": "text"
-							},
-							{
-								"key": "",
-								"value": "",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"url": {
-							"raw": "https://submission-test.forms.gov/faas-dev/form/615617bb7e96b7061208ed48/submission",
-							"protocol": "https",
-							"host": [
-								"submission-test",
-								"forms",
-								"gov"
-							],
-							"path": [
-								"faas-dev",
-								"form",
-								"615617bb7e96b7061208ed48",
-								"submission"
-							]
-						}
-					},
-					"response": []
 				}
 			]
 		},
 		{
-			"name": "Prod",
+			"name": "Dev",
 			"item": [
 				{
 					"name": "CentralHubStatus",
@@ -350,10 +331,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://portal.forms.gov/status",
+							"raw": "https://portal-dev.forms.gov/status",
 							"protocol": "https",
 							"host": [
-								"portal",
+								"portal-dev",
 								"forms",
 								"gov"
 							],
@@ -365,7 +346,7 @@
 					"response": []
 				},
 				{
-					"name": "SubmissionSvrStatus",
+					"name": "SubmissionStatus",
 					"event": [
 						{
 							"listen": "test",
@@ -386,10 +367,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://submission.forms.gov/status",
+							"raw": "https://submission-dev.forms.gov/status",
 							"protocol": "https",
 							"host": [
-								"submission",
+								"submission-dev",
 								"forms",
 								"gov"
 							],
@@ -419,141 +400,18 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "https://portal.forms.gov/faas-tempprod/smoketest/submission",
+							"raw": "https://portal-dev.forms.gov/formssandbox-dev/smoketest/submission",
 							"protocol": "https",
 							"host": [
-								"portal",
+								"portal-dev",
 								"forms",
 								"gov"
 							],
 							"path": [
-								"faas-tempprod",
+								"formssandbox-dev",
 								"smoketest",
 								"submission"
 							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Submission - Sub Svr",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 201\", function () {\r",
-									"    pm.response.to.have.status(201);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "content-type",
-								"value": "application/json; charset=utf-8",
-								"type": "text"
-							},
-							{
-								"key": "",
-								"value": "",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"url": {
-							"raw": "https://submission.forms.gov/faas-tempprod/smoketest/submission",
-							"protocol": "https",
-							"host": [
-								"submission",
-								"forms",
-								"gov"
-							],
-							"path": [
-								"faas-tempprod",
-								"smoketest",
-								"submission"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "FormDefinition",
-			"item": [
-				{
-					"name": "MiA - WaiverForm",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://submission.forms.gov/mia-live/madeinamericanonavailabilitywaiverrequest",
-							"protocol": "https",
-							"host": [
-								"submission",
-								"forms",
-								"gov"
-							],
-							"path": [
-								"mia-live",
-								"madeinamericanonavailabilitywaiverrequest"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "MiA - SelectionForm",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://portal.forms.gov/mia-live/manage/view/#/form/madeinamericawaiverselection?header=1&reset=1",
-							"protocol": "https",
-							"host": [
-								"portal",
-								"forms",
-								"gov"
-							],
-							"path": [
-								"mia-live",
-								"manage",
-								"view",
-								""
-							],
-							"hash": "/form/madeinamericawaiverselection?header=1&reset=1"
 						}
 					},
 					"response": []
