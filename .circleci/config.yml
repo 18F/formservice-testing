@@ -13,22 +13,14 @@ defaults:: &defaults
 #    command: "sudo npm install -g npm@5"
 #    command: "sudo npm install -g newman"   
 
-notify-slack-smoke-test-status:
-    steps:
-      - slack/status:
-          fail_only: true
-          failure_message: ':smokeybear::red_circle: Smoke tests failed in environment: '
-          include_project_field: false
-
-
 jobs:
    SmokeTest:
     <<: *defaults
     steps:
       - checkout
-      - add_ssh_keys:
-          fingerprints:
-            - "2d:57:f4:79:ee:d2:d9:3b:8e:96:be:d3:b5:27:f6:c2" 
+#      - add_ssh_keys:
+#          fingerprints:
+#            - "2d:57:f4:79:ee:d2:d9:3b:8e:96:be:d3:b5:27:f6:c2" 
       - run: "sudo npm install -g npm@5"
       - run: "sudo npm install -g newman" 
       - run: "sudo npm install -g newman-reporter-htmlextra"
@@ -37,16 +29,17 @@ jobs:
           name: "Run tests"
           command: |
             cd /home/circleci/project/reports
-            newman run "/home/circleci/project/collections/SmokeTest.json" -x -r htmlextra --reporter-htmlextra-logs --reporter-htmlextra-timezone "America/New_York"
-
-      - slack/status:
-          fail_only: false
-          failure_message: ':smokeybear::red_circle: Smoke tests failed in environment: '
-          include_project_field: false      
- #     - when:
- #         condition:
- #             equal: [ main, << pipeline.git.branch >> ]
- #         steps:
+            newman run "/home/circleci/project/collections/SmokeTest.json" -r htmlextra --reporter-htmlextra-logs --reporter-htmlextra-timezone "America/New_York"
+         
+      - when:
+          condition:
+              equal: [ main, << pipeline.git.branch >> ]
+                  
+          steps:
+            - slack/status:
+                fail_only: false
+                failure_message: ':smokeybear::red_circle: Smoke tests failed in environment: '
+                include_project_field: false 
  #           - run: 
  #               name: Commit to Github
  #               command: |
