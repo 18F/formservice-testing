@@ -38,7 +38,11 @@ jobs:
           command: |
             cd /home/circleci/project/reports
             newman run "/home/circleci/project/collections/SmokeTest.json" -x -r htmlextra --reporter-htmlextra-logs --reporter-htmlextra-timezone "America/New_York"
-            
+
+      - slack/status:
+          fail_only: false
+          failure_message: ':smokeybear::red_circle: Smoke tests failed in environment: '
+          include_project_field: false      
  #     - when:
  #         condition:
  #             equal: [ main, << pipeline.git.branch >> ]
