@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "d2c0ba86-8289-425a-9330-ae526076308b",
+		"_postman_id": "864cbb99-2c0f-4feb-9fed-51d326a530c5",
 		"name": "Forms.gov testing",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -99,7 +99,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "https://portal-dev.forms.gov/sandbox/smoketest/submission",
+							"raw": "https://portal-dev.forms.gov/formssandbox-dev/smoketest/submission",
 							"protocol": "https",
 							"host": [
 								"portal-dev",
@@ -107,7 +107,7 @@
 								"gov"
 							],
 							"path": [
-								"sandbox",
+								"formssandbox-dev",
 								"smoketest",
 								"submission"
 							]
@@ -146,7 +146,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://submission-dev.forms.gov/sandbox/smoketest/submission",
+							"raw": "https://submission-dev.forms.gov/formssandbox-dev/smoketest/submission",
 							"protocol": "https",
 							"host": [
 								"submission-dev",
@@ -154,7 +154,7 @@
 								"gov"
 							],
 							"path": [
-								"sandbox",
+								"formssandbox-dev",
 								"smoketest",
 								"submission"
 							]
@@ -478,6 +478,82 @@
 								"smoketest",
 								"submission"
 							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "FormDefinition",
+			"item": [
+				{
+					"name": "MiA - WaiverForm",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://submission.forms.gov/mia-live/madeinamericanonavailabilitywaiverrequest",
+							"protocol": "https",
+							"host": [
+								"submission",
+								"forms",
+								"gov"
+							],
+							"path": [
+								"mia-live",
+								"madeinamericanonavailabilitywaiverrequest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MiA - SelectionForm",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://portal.forms.gov/mia-live/manage/view/#/form/madeinamericawaiverselection?header=1&reset=1",
+							"protocol": "https",
+							"host": [
+								"portal",
+								"forms",
+								"gov"
+							],
+							"path": [
+								"mia-live",
+								"manage",
+								"view",
+								""
+							],
+							"hash": "/form/madeinamericawaiverselection?header=1&reset=1"
 						}
 					},
 					"response": []
