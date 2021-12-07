@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "864cbb99-2c0f-4feb-9fed-51d326a530c5",
+		"_postman_id": "3b7ada91-1119-4e3e-9259-b0ca1b3acd70",
 		"name": "Forms.gov testing",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -410,6 +410,52 @@
 							"path": [
 								"formssandbox-dev",
 								"smoketest",
+								"submission"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Submission Endpoint",
+			"item": [
+				{
+					"name": "MiA - WaiverFormSubUnauth",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "BADKEY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://submission.forms.gov/mia-live/madeinamericanonavailabilitywaiverrequest/submission",
+							"protocol": "https",
+							"host": [
+								"submission",
+								"forms",
+								"gov"
+							],
+							"path": [
+								"mia-live",
+								"madeinamericanonavailabilitywaiverrequest",
 								"submission"
 							]
 						}
