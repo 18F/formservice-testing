@@ -428,7 +428,7 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
+									"pm.test(\"Status code is 401\", function () {\r",
 									"    pm.response.to.have.status(401);\r",
 									"});"
 								],
@@ -438,7 +438,13 @@
 					],
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "x-token",
+								"value": "BADKEY",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "https://submission.forms.gov/mia-live/madeinamericanonavailabilitywaiverrequest/submission",
 							"protocol": "https",
