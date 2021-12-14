@@ -37,7 +37,7 @@ jobs:
                   
           steps:
             - slack/status:
-                fail_only: false
+                fail_only: true
                 failure_message: ':smokeybear::red_circle: Smoke tests failed in environment: '
                 include_project_field: false 
  #           - run: 
