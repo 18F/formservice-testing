@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "3b7ada91-1119-4e3e-9259-b0ca1b3acd70",
+		"_postman_id": "cfaae9c3-b6c7-421f-9671-b62102c9cb91",
 		"name": "Forms.gov testing",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -190,6 +190,36 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "SignRequest Status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://sign.forms.gov",
+							"protocol": "https",
+							"host": [
+								"sign",
+								"forms",
+								"gov"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -299,6 +329,36 @@
 								"faas-dev",
 								"smoketest",
 								"submission"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SignRequest Status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://sign-test.forms.gov",
+							"protocol": "https",
+							"host": [
+								"sign-test",
+								"forms",
+								"gov"
 							]
 						}
 					},
@@ -415,6 +475,36 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "SignRequest Status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://sign-dev.forms.gov",
+							"protocol": "https",
+							"host": [
+								"sign-dev",
+								"forms",
+								"gov"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -438,13 +528,7 @@
 					],
 					"request": {
 						"method": "GET",
-						"header": [
-							{
-								"key": "x-token",
-								"value": "BADKEY",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"url": {
 							"raw": "https://submission.forms.gov/mia-live/madeinamericanonavailabilitywaiverrequest/submission",
 							"protocol": "https",
