@@ -253,7 +253,7 @@
 								"method": "POST",
 								"header": [],
 								"url": {
-									"raw": "https://portal.forms.gov/faas-tempprod/smoketest/submission",
+									"raw": "https://portal.forms.gov/faas-live/smoketest/submission",
 									"protocol": "https",
 									"host": [
 										"portal",
@@ -261,7 +261,7 @@
 										"gov"
 									],
 									"path": [
-										"faas-tempprod",
+										"faas-live",
 										"smoketest",
 										"submission"
 									]
