@@ -61,7 +61,7 @@ jobs:
          
       - when:
           condition:
-              equal: [ main, << pipeline.git.branch >> ]
+              equal: [ sam-api-check, << pipeline.git.branch >> ]
                   
           steps:
             - slack/status:
