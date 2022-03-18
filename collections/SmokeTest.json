@@ -6,81 +6,6 @@
 	},
 	"item": [
 		{
-			"name": "SignRequest",
-			"item": [
-				{
-					"name": "Prod",
-					"item": [
-						{
-							"name": "SignRequest Status",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"Status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "https://sign.forms.gov",
-									"protocol": "https",
-									"host": [
-										"sign",
-										"forms",
-										"gov"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Test",
-					"item": [
-						{
-							"name": "SignRequest Status",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"Status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "https://sign-test.forms.gov",
-									"protocol": "https",
-									"host": [
-										"sign-test",
-										"forms",
-										"gov"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				}
-			]
-		},
-		{
 			"name": "form.io",
 			"item": [
 				{
@@ -423,6 +348,57 @@
 							"response": []
 						}
 					]
+				}
+			]
+		},
+		{
+			"name": "API_Check",
+			"item": [
+				{
+					"name": "SAM.gov API Key Check",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.sam.gov/prod/federalorganizations/v1/orgs?api_key=HDt9hoFCAxLoidk4jLKpSTftbbjA0Zpc5gXu4nTj&aacofficecode=1333ND",
+							"protocol": "https",
+							"host": [
+								"api",
+								"sam",
+								"gov"
+							],
+							"path": [
+								"prod",
+								"federalorganizations",
+								"v1",
+								"orgs"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "HDt9hoFCAxLoidk4jLKpSTftbbjA0Zpc5gXu4nTj"
+								},
+								{
+									"key": "aacofficecode",
+									"value": "1333ND"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}
