@@ -5,7 +5,7 @@ orbs:
 
 defaults:: &defaults
   docker: 
-    - image: cimg/node:10.16.3
+    - image: circleci/node:10.16.3
   resource_class: small
 #aliases:
 #  - &InstallNewman
