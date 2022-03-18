@@ -75,7 +75,7 @@ jobs:
 workflows:
   test:
     jobs:
-      - SmokeTest
+      - ApiCheck
 ##
   nightly:
     triggers:
