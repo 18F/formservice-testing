@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "55733983-a0bf-4f36-91bd-50d07408d83b",
+		"_postman_id": "bc842d69-e0e0-4fd9-9251-5a54d8f57052",
 		"name": "Forms.gov testing",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -193,6 +193,50 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "Submission - SubSvr",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"data\": {\"test\": \"TEST\"}}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://submission.forms.gov/faas-live/smoketest/submission",
+									"protocol": "https",
+									"host": [
+										"submission",
+										"forms",
+										"gov"
+									],
+									"path": [
+										"faas-live",
+										"smoketest",
+										"submission"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -295,6 +339,50 @@
 									"protocol": "https",
 									"host": [
 										"portal-test",
+										"forms",
+										"gov"
+									],
+									"path": [
+										"faas-dev",
+										"smoketest",
+										"submission"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Submission - SubSvr",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"data\": {\"test\": \"TEST\"}}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://submission-test.forms.gov/faas-dev/smoketest/submission",
+									"protocol": "https",
+									"host": [
+										"submission-test",
 										"forms",
 										"gov"
 									],
