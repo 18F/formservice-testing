@@ -463,9 +463,36 @@
 						},
 						{
 							"name": "FormDefinition",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"request": {
 								"method": "GET",
-								"header": []
+								"header": [],
+								"url": {
+									"raw": "https://epa.submission.forms.gov/epacsb-livesub/rebateapplication",
+									"protocol": "https",
+									"host": [
+										"epa",
+										"submission",
+										"forms",
+										"gov"
+									],
+									"path": [
+										"epacsb-livesub",
+										"rebateapplication"
+									]
+								}
 							},
 							"response": []
 						}
