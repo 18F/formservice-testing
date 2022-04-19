@@ -398,7 +398,7 @@
 					]
 				},
 				{
-					"name": "Submission Endpoint",
+					"name": "MIA",
 					"item": [
 						{
 							"name": "MiA - WaiverFormSubUnauth",
@@ -432,6 +432,40 @@
 										"submission"
 									]
 								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "EPA",
+					"item": [
+						{
+							"name": "ServerStatus",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://epa.submission.forms.gov/status",
+									"protocol": "https",
+									"host": [
+										"epa",
+										"submission",
+										"forms",
+										"gov"
+									],
+									"path": [
+										"status"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FormDefinition",
+							"request": {
+								"method": "GET",
+								"header": []
 							},
 							"response": []
 						}
