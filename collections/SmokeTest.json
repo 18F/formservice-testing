@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "bc842d69-e0e0-4fd9-9251-5a54d8f57052",
+		"_postman_id": "85d81b35-99ad-4500-9ec4-093d2e07cf64",
 		"name": "Forms.gov testing",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -436,57 +436,6 @@
 							"response": []
 						}
 					]
-				}
-			]
-		},
-		{
-			"name": "API_Check",
-			"item": [
-				{
-					"name": "SAM.gov API Key Check",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://api.sam.gov/prod/federalorganizations/v1/orgs?api_key=HDt9hoFCAxLoidk4jLKpSTftbbjA0Zpc5gXu4nTj&aacofficecode=1333ND",
-							"protocol": "https",
-							"host": [
-								"api",
-								"sam",
-								"gov"
-							],
-							"path": [
-								"prod",
-								"federalorganizations",
-								"v1",
-								"orgs"
-							],
-							"query": [
-								{
-									"key": "api_key",
-									"value": "HDt9hoFCAxLoidk4jLKpSTftbbjA0Zpc5gXu4nTj"
-								},
-								{
-									"key": "aacofficecode",
-									"value": "1333ND"
-								}
-							]
-						}
-					},
-					"response": []
 				}
 			]
 		}

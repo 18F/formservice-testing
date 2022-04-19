@@ -38,39 +38,12 @@ jobs:
           steps:
             - slack/status:
                 fail_only: true
-                failure_message: ':smokeybear::red_circle: Smoke tests failed in environment: '
+                failure_message: ':astronaut-shrug::red_circle: Smoke tests failed in environment: '
                 include_project_field: false 
 
       - store_artifacts:
           path: /home/circleci/project/reports/newman
 
-  
-   ApiCheck:
-      <<: *defaults
-      steps:
-      - checkout 
-      - run: "sudo npm install -g npm@5"
-      - run: "sudo npm install -g newman" 
-      - run: "sudo npm install -g newman-reporter-htmlextra"
-    
-      - run:
-          name: "Run tests"
-          command: |
-            cd /home/circleci/project/reports
-            newman run "/home/circleci/project/collections/SmokeTest.json" --folder API_Check -r htmlextra --reporter-htmlextra-logs --reporter-htmlextra-timezone "America/New_York"
-         
-      - when:
-          condition:
-              equal: [ main, << pipeline.git.branch >> ]
-                  
-          steps:
-            - slack/status:
-                fail_only: true
-                failure_message: ':smokeybear::red_circle: Sam.gov API Check failed '
-                include_project_field: false 
- #           
-      - store_artifacts:
-          path: /home/circleci/project/reports/newman
     
 workflows:
   test:
@@ -88,14 +61,4 @@ workflows:
               only: main
     jobs:
       - SmokeTest
-  api:
-    triggers:
-      - schedule:
-          # The cron format is:
-          # min (0-59) hour (0-23) monthday (1-31) month (1-12) weekday (0-6, 0=Sun) - UTC time
-          cron: "05 * * * *"
-          filters:
-            branches:
-              only: main
-    jobs:
-      - ApiCheck
+  
