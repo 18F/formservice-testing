@@ -7,20 +7,13 @@ defaults:: &defaults
   docker: 
     - image: cimg/node:12.16
   resource_class: small
-#aliases:
-#  - &InstallNewman
-#    name: Install npm and newman
-#    command: "sudo npm install -g npm@5"
-#    command: "sudo npm install -g newman"   
+  
 
 jobs:
    SmokeTest:
     <<: *defaults
     steps:
       - checkout
-#      - add_ssh_keys:
-#          fingerprints:
-#            - "2d:57:f4:79:ee:d2:d9:3b:8e:96:be:d3:b5:27:f6:c2" 
       - run: "sudo npm install -g npm@5"
       - run: "sudo npm install -g newman" 
       - run: "sudo npm install -g newman-reporter-htmlextra"

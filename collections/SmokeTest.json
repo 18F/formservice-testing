@@ -398,7 +398,7 @@
 					]
 				},
 				{
-					"name": "Submission Endpoint",
+					"name": "MIA",
 					"item": [
 						{
 							"name": "MiA - WaiverFormSubUnauth",
@@ -430,6 +430,67 @@
 										"mia-live",
 										"madeinamericanonavailabilitywaiverrequest",
 										"submission"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "EPA",
+					"item": [
+						{
+							"name": "ServerStatus",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://epa.submission.forms.gov/status",
+									"protocol": "https",
+									"host": [
+										"epa",
+										"submission",
+										"forms",
+										"gov"
+									],
+									"path": [
+										"status"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "FormDefinition",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://epa.submission.forms.gov/epacsb-livesub/rebateapplication",
+									"protocol": "https",
+									"host": [
+										"epa",
+										"submission",
+										"forms",
+										"gov"
+									],
+									"path": [
+										"epacsb-livesub",
+										"rebateapplication"
 									]
 								}
 							},
