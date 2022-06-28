@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "85d81b35-99ad-4500-9ec4-093d2e07cf64",
-		"name": "Forms.gov testing",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"_postman_id": "a31b218e-e904-495b-8817-90f2b0adb41b",
+		"name": "FormsService testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11347781"
 	},
 	"item": [
 		{
@@ -265,47 +266,11 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://portal-test.forms.gov/status",
+									"raw": "https://test.service.forms.gov/status",
 									"protocol": "https",
 									"host": [
-										"portal-test",
-										"forms",
-										"gov"
-									],
-									"path": [
-										"status"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "SubmissionSvrStatus",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"Status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});\r",
-											"const responseJson = pm.response.json();\r",
-											"var version = responseJson.version\r",
-											"console.log(version)\r",
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "https://submission-test.forms.gov/status",
-									"protocol": "https",
-									"host": [
-										"submission-test",
+										"test",
+										"service",
 										"forms",
 										"gov"
 									],
@@ -339,50 +304,6 @@
 									"protocol": "https",
 									"host": [
 										"portal-test",
-										"forms",
-										"gov"
-									],
-									"path": [
-										"faas-dev",
-										"smoketest",
-										"submission"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Submission - SubSvr",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"Status code is 201\", function () {\r",
-											"    pm.response.to.have.status(201);\r",
-											"});"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\"data\": {\"test\": \"TEST\"}}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "https://submission-test.forms.gov/faas-dev/smoketest/submission",
-									"protocol": "https",
-									"host": [
-										"submission-test",
 										"forms",
 										"gov"
 									],
