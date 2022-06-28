@@ -300,10 +300,11 @@
 								"method": "POST",
 								"header": [],
 								"url": {
-									"raw": "https://portal-test.forms.gov/faas-dev/smoketest/submission",
+									"raw": "https://test.service.forms.gov/faas-dev/smoketest/submission",
 									"protocol": "https",
 									"host": [
-										"portal-test",
+										"test",
+										"service",
 										"forms",
 										"gov"
 									],
