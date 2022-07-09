@@ -237,7 +237,7 @@
 							"response": []
 						},
 						{
-							"name": "Submission",
+							"name": "SmokeTest Submission",
 							"event": [
 								{
 									"listen": "test",
@@ -328,6 +328,42 @@
 									"path": [
 										"epacsb-livesub",
 										"rebateapplication"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SmokeTest Submission",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://epa.service.forms.gov/epacsb-other/smoketest/submission",
+									"protocol": "https",
+									"host": [
+										"epa",
+										"service",
+										"forms",
+										"gov"
+									],
+									"path": [
+										"epacsb-other",
+										"smoketest",
+										"submission"
 									]
 								}
 							},
