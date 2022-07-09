@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "a31b218e-e904-495b-8817-90f2b0adb41b",
+		"_postman_id": "4f206f6e-01bb-496b-97ae-ac042fb8ac2d",
 		"name": "FormsService testing",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "11347781"
@@ -10,242 +10,10 @@
 			"name": "form.io",
 			"item": [
 				{
-					"name": "FormDefinition",
-					"item": [
-						{
-							"name": "MiA - WaiverForm",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"Status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "https://submission.forms.gov/mia-live/madeinamericanonavailabilitywaiverrequest",
-									"protocol": "https",
-									"host": [
-										"submission",
-										"forms",
-										"gov"
-									],
-									"path": [
-										"mia-live",
-										"madeinamericanonavailabilitywaiverrequest"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "MiA - SelectionForm",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"Status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "https://portal.forms.gov/mia-live/manage/view/#/form/madeinamericawaiverselection?header=1&reset=1",
-									"protocol": "https",
-									"host": [
-										"portal",
-										"forms",
-										"gov"
-									],
-									"path": [
-										"mia-live",
-										"manage",
-										"view",
-										""
-									],
-									"hash": "/form/madeinamericawaiverselection?header=1&reset=1"
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Prod",
-					"item": [
-						{
-							"name": "CentralHubStatus",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"Status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});\r",
-											"const responseJson = pm.response.json();\r",
-											"var version = responseJson.version\r",
-											"console.log(version)"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "https://portal.forms.gov/status",
-									"protocol": "https",
-									"host": [
-										"portal",
-										"forms",
-										"gov"
-									],
-									"path": [
-										"status"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "SubmissionSvrStatus",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"Status code is 200\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});\r",
-											"const responseJson = pm.response.json();\r",
-											"var version = responseJson.version\r",
-											"console.log(version)"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "https://submission.forms.gov/status",
-									"protocol": "https",
-									"host": [
-										"submission",
-										"forms",
-										"gov"
-									],
-									"path": [
-										"status"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Submission - Central Hub",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"Status code is 201\", function () {\r",
-											"    pm.response.to.have.status(201);\r",
-											"});"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "POST",
-								"header": [],
-								"url": {
-									"raw": "https://portal.forms.gov/faas-live/smoketest/submission",
-									"protocol": "https",
-									"host": [
-										"portal",
-										"forms",
-										"gov"
-									],
-									"path": [
-										"faas-live",
-										"smoketest",
-										"submission"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Submission - SubSvr",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"Status code is 201\", function () {\r",
-											"    pm.response.to.have.status(201);\r",
-											"});"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\"data\": {\"test\": \"TEST\"}}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "https://submission.forms.gov/faas-live/smoketest/submission",
-									"protocol": "https",
-									"host": [
-										"submission",
-										"forms",
-										"gov"
-									],
-									"path": [
-										"faas-live",
-										"smoketest",
-										"submission"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
 					"name": "Test",
 					"item": [
 						{
-							"name": "CentralHubStatus",
+							"name": "Status",
 							"event": [
 								{
 									"listen": "test",
@@ -282,7 +50,7 @@
 							"response": []
 						},
 						{
-							"name": "Submission - Central Hub",
+							"name": "Submission",
 							"event": [
 								{
 									"listen": "test",
@@ -320,8 +88,81 @@
 					]
 				},
 				{
-					"name": "MIA",
+					"name": "OMB",
 					"item": [
+						{
+							"name": "MiA - WaiverForm",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://omb.service.forms.gov/mia-live/madeinamericanonavailabilitywaiverrequest",
+									"protocol": "https",
+									"host": [
+										"omb",
+										"service",
+										"forms",
+										"gov"
+									],
+									"path": [
+										"mia-live",
+										"madeinamericanonavailabilitywaiverrequest"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "MiA - SelectionForm",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://omb.service.forms.gov/mia-live/manage/view/#/form/madeinamericawaiverselection?header=1&reset=1",
+									"protocol": "https",
+									"host": [
+										"omb",
+										"service",
+										"forms",
+										"gov"
+									],
+									"path": [
+										"mia-live",
+										"manage",
+										"view",
+										""
+									],
+									"hash": "/form/madeinamericawaiverselection?header=1&reset=1"
+								}
+							},
+							"response": []
+						},
 						{
 							"name": "MiA - WaiverFormSubUnauth",
 							"event": [
@@ -341,16 +182,90 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://submission.forms.gov/mia-live/madeinamericanonavailabilitywaiverrequest/submission",
+									"raw": "https://omb.service.forms.gov/mia-live/madeinamericanonavailabilitywaiverrequest/submission",
 									"protocol": "https",
 									"host": [
-										"submission",
+										"omb",
+										"service",
 										"forms",
 										"gov"
 									],
 									"path": [
 										"mia-live",
 										"madeinamericanonavailabilitywaiverrequest",
+										"submission"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Status",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"const responseJson = pm.response.json();\r",
+											"var version = responseJson.version\r",
+											"console.log(version)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://omb.service.forms.gov/status",
+									"protocol": "https",
+									"host": [
+										"omb",
+										"service",
+										"forms",
+										"gov"
+									],
+									"path": [
+										"status"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SmokeTest Submission",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://omb.service.forms.gov/faas-live/smoketest/submission",
+									"protocol": "https",
+									"host": [
+										"omb",
+										"service",
+										"forms",
+										"gov"
+									],
+									"path": [
+										"faas-live",
+										"smoketest",
 										"submission"
 									]
 								}
@@ -368,11 +283,11 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://epa.submission.forms.gov/status",
+									"raw": "https://epa.service.forms.gov/status",
 									"protocol": "https",
 									"host": [
 										"epa",
-										"submission",
+										"service",
 										"forms",
 										"gov"
 									],
@@ -402,17 +317,53 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://epa.submission.forms.gov/epacsb-livesub/rebateapplication",
+									"raw": "https://epa.service.forms.gov/epacsb-livesub/rebateapplication",
 									"protocol": "https",
 									"host": [
 										"epa",
-										"submission",
+										"service",
 										"forms",
 										"gov"
 									],
 									"path": [
 										"epacsb-livesub",
 										"rebateapplication"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SmokeTest Submission",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "https://epa.service.forms.gov/epacsb-other/smoketest/submission",
+									"protocol": "https",
+									"host": [
+										"epa",
+										"service",
+										"forms",
+										"gov"
+									],
+									"path": [
+										"epacsb-other",
+										"smoketest",
+										"submission"
 									]
 								}
 							},
