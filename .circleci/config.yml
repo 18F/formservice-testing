@@ -43,15 +43,15 @@ workflows:
     jobs:
       - SmokeTest
 ##
-  nightly:
-    triggers:
-      - schedule:
+#  nightly:
+#    triggers:
+#      - schedule:
           # The cron format is:
           # min (0-59) hour (0-23) monthday (1-31) month (1-12) weekday (0-6, 0=Sun) - UTC time
-          cron: "00 11 * * *"
-          filters:
-            branches:
-              only: main
-    jobs:
-      - SmokeTest
+#          cron: "00 11 * * *"
+#          filters:
+#            branches:
+#              only: main
+#    jobs:
+#      - SmokeTest
   
